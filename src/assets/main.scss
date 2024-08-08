@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: .2s;
+}
+
+:root {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  color: #D3D2D8;
+}
+
+body {
+  background: #0F0F0F;
+}
+
+.title {
+  font-family: "Gentium Plus", serif;
+  font-weight: 700;
+  font-style: normal;
+}
