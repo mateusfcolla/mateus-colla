@@ -2,15 +2,18 @@
 
 header
     h3.title Mateus Felipe
-    nav
-        RouterLink( to="/" class="active" ) home
+    Hamburger( @toggle-menu="toggleMenu" :opened="menuOpened" )
+
+    nav( :class="{ opened: menuOpened }" )
+        RouterLink( to="/" ) home
         a( v-for="item, index in navItems" :href="item.to" :key="'routerItem' + index" ) {{ item.text }}
 
 </template>
 
 <script setup>
 
-import { computed } from 'vue'
+import { ref } from 'vue'
+import Hamburger from './Hamburger.vue';
 
 const navItems = [
     { text: 'relevant projects', to: '#relevant-projects' },
@@ -18,6 +21,12 @@ const navItems = [
     { text: 'what I offer', to: '#offer' },
     { text: 'contact', to: '#contact' },
 ]
+
+const menuOpened = ref(null);
+
+const toggleMenu = () => {
+  menuOpened.value = !menuOpened.value
+}
 
 </script>
 
@@ -30,6 +39,20 @@ header {
   padding: 2.31rem 7.38rem;
   width: 100vw;
   border-bottom: 1px solid #4F4F4F;
+  position: relative;
+
+  .menu {
+    display: none;
+  }
+
+  @media screen and (max-width: 1028px) {
+    padding: 0 2.31rem;
+    height: 6rem;
+
+    .menu {
+      display: flex;
+    }
+  }
 
   h3 {
     color: #FFF;
@@ -37,6 +60,7 @@ header {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    white-space: nowrap;
   }
 
   nav {
@@ -52,13 +76,41 @@ header {
       line-height: normal;
       color: #e0e0e0;
 
-      &.active {
+      &.router-link-exact-active {
         font-weight: 600;
         color: white;
       }
 
       &:hover {
         color: white;
+      }
+    }
+
+    @media screen and (max-width: 1028px) {
+      opacity: 0;
+      flex-direction: column;
+      position: absolute;
+      height: calc(100vh - 6rem);
+      padding: 2.31rem;
+      top: 6rem;
+      left: 0;
+      width: 100vw;
+      background: #0f0f0fd3;
+      text-align: right;
+
+      a {
+        transform: translateX(100vw);
+        transition-delay: .1s;
+        width: 100%;
+      }
+
+      &.opened {
+        opacity: 1;
+        left: 0;
+
+        a {
+          transform: translateX(0);
+        }
       }
     }
   }
