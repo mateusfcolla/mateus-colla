@@ -31,7 +31,7 @@ const getTransition = computed(() => {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .technologie_wrapper {
     position: relative;
@@ -51,10 +51,10 @@ const getTransition = computed(() => {
     transform: translateX(-50%);
     padding: .2rem .4rem;
     border-radius: .2rem;
-    color: white;
+    color: #030303;
     bottom: 80%;
     opacity: 0;
-    transition: .4s;
+    transition: .6s;
     z-index: 3;
 }
 
@@ -66,7 +66,7 @@ const getTransition = computed(() => {
     justify-content: center;
     overflow: hidden;
     position: relative;
-    transition: .3s;
+    transition: .5s;
 
     .technologie__background {
         width: 100%;
@@ -90,7 +90,7 @@ const getTransition = computed(() => {
         }
 
         path {
-            fill: white;
+            fill: #ffffff!important;
         }
     }
 }

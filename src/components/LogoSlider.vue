@@ -70,7 +70,7 @@ onMounted(() => {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .logo-slider {
     overflow: hidden;
