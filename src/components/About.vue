@@ -95,6 +95,11 @@ onMounted(() => {
     margin-bottom: 6rem;
     justify-content: space-between;
 
+    @media screen and (max-width: 1028px) {
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
     .left {
         display: flex;
         flex-direction: column;
@@ -116,10 +121,14 @@ onMounted(() => {
         gap: 1.625rem 2.3125rem;
         flex-wrap: wrap;
 
-        .logo {
+        .logo img{
             width: 5.875rem;
             height: 5.875rem;
             filter: grayscale(00%);
+
+            @media screen and (max-width: 1028px) {
+                display: none;
+            }
 
             &:hover {
                 transform: scale(1.1);

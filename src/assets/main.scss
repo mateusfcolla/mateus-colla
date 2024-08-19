@@ -27,6 +27,10 @@ section {
   padding: 2.31rem 7.38rem;
   font-family: 'Inter', sans-serif;
 
+  @media screen and (max-width: 1028px) {
+    padding: 1rem 2.31rem;
+  }
+
   h2 {
     font-family: "Gentium Plus", serif;
     font-size: 2.39719rem;

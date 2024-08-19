@@ -1,10 +1,10 @@
 <template lang="pug">
 
-.technologie_wrapper
-    .technologie( @mouseover="isHovered = true" @mouseleave="isHovered = false" :style="{ boxShadow: getBoxShadow, transition: getTransition}" )
-        .technologie__background( :style="{ background: props.backgroundColor || '#000000' }" )
+.technology_wrapper
+    .technology( @mouseover="isHovered = true" @mouseleave="isHovered = false" :style="{ boxShadow: getBoxShadow, transition: getTransition}" )
+        .technology__background( :style="{ background: props.backgroundColor || '#000000' }" )
         component( :is="props.icon")
-    .technologie__name( :style="{ background: props.backgroundColor || '#000000' }" ) {{ props.name }}
+    .technology__name( :style="{ background: props.backgroundColor || '#000000' }" ) {{ props.name }}
 
 </template>
 
@@ -33,18 +33,18 @@ const getTransition = computed(() => {
 
 <style lang="scss" scoped>
 
-.technologie_wrapper {
+.technology_wrapper {
     position: relative;
     width: fit-content;
     height: fit-content;
 
-    &:hover .technologie__name{
+    &:hover .technology__name{
         bottom: calc( 100% + .3rem );
         opacity: 1;
     }
 }
 
-.technologie__name {
+.technology__name {
     position: absolute;
     white-space: nowrap;
     left: 50%;
@@ -58,7 +58,7 @@ const getTransition = computed(() => {
     z-index: 3;
 }
 
-.technologie {
+.technology {
     background: #fff;
     border-radius: .38rem;
     display: flex;
@@ -68,7 +68,7 @@ const getTransition = computed(() => {
     position: relative;
     transition: .5s;
 
-    .technologie__background {
+    .technology__background {
         width: 100%;
         height: 100%;
         content: "";
@@ -77,20 +77,32 @@ const getTransition = computed(() => {
         position: absolute;
         transition: .3s ease-in-out;
         z-index: 2;
+
+        @media screen and (max-width: 1028px) {
+            top: 0;
+        }
     }
 
     svg {
         z-index: 3;
     }
 
+    svg path {
+        fill: red;
+    }
+
+    path {
+        fill: blue;
+    }
+
     &:hover {
 
-        .technologie__background {
+        .technology__background {
             top: 0;
         }
 
         path {
-            fill: #ffffff!important;
+            fill: #ffffff !important;
         }
     }
 }

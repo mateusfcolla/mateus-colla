@@ -30,6 +30,15 @@ const props = defineProps(['title', 'subtitle', 'description', 'background', 'ur
     box-shadow: 0px 0px 10px rgb(225, 225, 225);
     border-radius: .3rem;
 
+    img {
+        max-width: 100%;
+
+        @media screen and (max-width: 1028px) {
+            margin-bottom: .5rem;
+            border-radius: .3rem;
+        }
+    }
+
     &::before {
         width: 100%;
         height: 100%;
@@ -40,6 +49,10 @@ const props = defineProps(['title', 'subtitle', 'description', 'background', 'ur
         position: absolute;
         opacity: 0;
         transition: .3s ease-in-out;
+
+        @media screen and (max-width: 1028px) {
+            display: none;
+        }
     }
 
     &_details {
@@ -90,7 +103,46 @@ const props = defineProps(['title', 'subtitle', 'description', 'background', 'ur
         .technologies {
             display: flex;
             gap: 0.5625rem;
+
+            @media screen and (max-width: 1028px) {
+                padding: 2rem 0;
+            }
         }
+
+        @media screen and (max-width: 1028px) {
+            opacity: 1;
+            position: relative;
+            bottom: unset;
+            left: unset;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            width: 100%;
+            color: #030303;
+
+            .header {
+                flex-direction: column;
+                margin-bottom: .4rem;
+
+                h3 {
+                    font-size: 1.8rem;
+                }
+
+                .subtitle {
+                    color: #444444;
+                    display: none;
+                }
+            }
+
+            p {
+                color: #444444;
+                text-align: center;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1028px) {
+        box-shadow: none;
     }
 
     &:hover {
@@ -101,6 +153,10 @@ const props = defineProps(['title', 'subtitle', 'description', 'background', 'ur
         .project_details {
             opacity: 1;
             bottom: 3.13rem;
+
+            @media screen and (max-width: 1028px) {
+                bottom: unset;
+            }
         }
     }
 

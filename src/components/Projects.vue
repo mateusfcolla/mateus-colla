@@ -3,14 +3,14 @@
 section#relevant-projects
     h2 Recent relevant projects
     Project( v-for="project in projects" :title="project.title" :subtitle="project.subtitle" :description="project.description" :background="project.background" :url="project.url")
-        Technologie( v-for="tech in project.technologies" :icon="tech.icon" :name="tech.name" :backgroundColor="tech.backgroundColor" )
+        Technology( v-for="tech in project.technologies" :icon="tech.icon" :name="tech.name" :backgroundColor="tech.backgroundColor" )
 
 </template>
 
 <script setup>
 
 import Project from './Project.vue';
-import Technologie from './Technologie.vue';
+import Technology from './Technology.vue';
 
 import Wordpress from '@/assets/technologies/wordpress.svg?component'
 import Sass from '@/assets/technologies/sass.svg?component'
@@ -65,7 +65,6 @@ const projects = [
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 3.3125rem 15.8125rem 7.125rem 15.8125rem;
 
     h2 {
         color: #0F0F0F;
@@ -74,6 +73,10 @@ const projects = [
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+    }
+
+    @media screen and (max-width: 1028px) {
+    padding: 6rem 2.31rem;
     }
 }
 
