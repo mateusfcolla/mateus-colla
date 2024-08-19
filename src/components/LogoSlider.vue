@@ -101,7 +101,7 @@ onMounted(() => {
 
         @media screen and (max-width: 1028px) {
             flex-direction: row;
-            animation: slideX 13s infinite linear;
+            animation: slideX 6s infinite linear;
         }
 
         .logo {
