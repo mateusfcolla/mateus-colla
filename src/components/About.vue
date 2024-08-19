@@ -1,16 +1,34 @@
 <template lang="pug">
 
-.logo-slider
-    .logos-slide
-        a.logo( v-for="logo, index in orderedLogos[0]" :href="logo.link" target="_blank" :key="logo.name+index" )
-            img( :src="logo.img" :alt="logo.name" )
-    .logos-slide.reverse
-        a.logo( v-for="logo, index in orderedLogos[1]" :href="logo.link" target="_blank" :key="logo.name+index" )
+section#about
+    .left
+        h2 A little about myself...
+        p
+            | I work and specialize in 
+            span(  ) {{" "}} UI/UX design and Web development {{" "}}
+            | since 2018. I’m passionate about creating things, building pretty applications, as well as music and creating interfaces.
+        p
+            | I hold a technical degree in
+            span {{" "}} Systems Analysis and Development {{" "}}
+            | and am currently in my first semester of
+            span {{" "}} Computer Science {{" "}}
+            | at Unisul.
+        .socials
+            a(href="https://github.com/mateusfcolla", target="_blank", rel="noopener noreferrer")
+                img( :src="github" alt="My Github")
+            a(href="https://codepen.io/coall_fcm", target="_blank", rel="noopener noreferrer")
+                img( :src="codepen" alt="My Codepen")
+            a(href="https://dribbble.com/coall_fcm", target="_blank", rel="noopener noreferrer")
+                img( :src="dribbble" alt="My Dribbble")
+    .right
+        a.logo( v-for="logo, index in orderedLogos" :href="logo.link" target="_blank" :key="logo.name+index" )
             img( :src="logo.img" :alt="logo.name" )
 
 </template>
 
 <script setup>
+
+import { ref, onMounted } from 'vue'
 
 import docker from '@/assets/logo-slider/docker.svg'
 import express from '@/assets/logo-slider/express.svg'
@@ -30,8 +48,9 @@ import redux from '@/assets/logo-slider/redux.svg'
 import vite from '@/assets/logo-slider/vite.svg'
 import photoshop from '@/assets/logo-slider/photoshop.svg'
 import illustrator from '@/assets/logo-slider/illustrator.svg'
-
-import { onMounted, ref } from 'vue'
+import github from '@/assets/icons/socials-github.svg'
+import codepen from '@/assets/icons/socials-codepen.svg'
+import dribbble from '@/assets/icons/socials-dribbble.svg'
 
 const logos = [
     { name: "Docker", img: docker, link: "https://www.docker.com/" },
@@ -58,89 +77,65 @@ const orderedLogos = ref(new Array())
 
 const getOrderedLogos = () => {
     const sorted = logos.sort((a, b) => 0.8 - Math.random());
-    const arrays = [ sorted.slice(0, sorted.length / 2), sorted.slice(sorted.length / 2, sorted.length) ];
-    return arrays;
+    return sorted;
 }
 
 onMounted(() => {
     orderedLogos.value = getOrderedLogos()
 })
 
-
-
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 
-.logo-slider {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    gap: 1.8rem;
+#about {
     display: flex;
-    padding: 0 .2rem;
-    height: 100%;
+    gap: 5.5rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    justify-content: space-between;
 
-    @media screen and (max-width: 1028px) {
-        flex-direction: column;
-    }
-
-    &:hover .logos-slide {
-        animation-play-state: paused;
-    }
-
-    .logos-slide {
+    .left {
         display: flex;
-        height: fit-content;
         flex-direction: column;
-        animation: slideY 13s infinite linear alternate;
+        gap: 2.56rem;
+        max-width: 39.3125rem;
 
-        &.reverse {
-            animation-direction: alternate-reverse;
+        b, span {
+            color: #ffffff;
+            font-weight: 600;
         }
+    }
 
-        @media screen and (max-width: 1028px) {
-            flex-direction: row;
-            animation: slideX 6s infinite linear;
-        }
+    .right {
+        display: flex;
+        max-width: 40.4375rem;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 1.625rem 2.3125rem;
+        flex-wrap: wrap;
 
         .logo {
-            margin-bottom: 1.8rem;
-
-            @media screen and (max-width: 1028px) {
-                margin-right: 1.6rem;
-                margin-bottom: 0;
-            }
+            width: 5.875rem;
+            height: 5.875rem;
+            filter: grayscale(00%);
 
             &:hover {
-                transform: scale(1.08);
-            }
-
-            img {
-                width: 6.94556rem;
-                height: 6.94556rem;
+                transform: scale(1.1);
+                filter: grayscale(0%);
             }
         }
     }
-}
 
-@keyframes slideY {
-    from {
-        transform: translateY(0);
-    }
+    .socials {
+        display: flex;
+        gap: .6rem;
+        bottom: 2.31rem;
 
-    to {
-        transform: translateY(-43%);
-    }
-}
-
-@keyframes slideX {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-43%);
+        a:hover {
+            transform: scale(1.08);
+        }
     }
 }
 

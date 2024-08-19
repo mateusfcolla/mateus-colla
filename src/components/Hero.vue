@@ -27,7 +27,7 @@ import LogoSlider from './LogoSlider.vue'
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 main {
     min-height: 80vh;
