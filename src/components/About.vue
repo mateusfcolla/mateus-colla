@@ -14,11 +14,11 @@ section#about
             span {{" "}} Computer Science {{" "}}
             | at Unisul.
         .socials
-            a(href="https://github.com/mateusfcolla", target="_blank", rel="noopener noreferrer")
+            a( @click="redirect('https://github.com/mateusfcolla', '_blank')" rel="noopener noreferrer")
                 img( :src="github" alt="My Github")
-            a(href="https://codepen.io/coall_fcm", target="_blank", rel="noopener noreferrer")
+            a( @click="redirect('https://codepen.io/coall_fcm', '_blank')" rel="noopener noreferrer")
                 img( :src="codepen" alt="My Codepen")
-            a(href="https://dribbble.com/coall_fcm", target="_blank", rel="noopener noreferrer")
+            a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
                 img( :src="dribbble" alt="My Dribbble")
     .right
         a.logo( v-for="logo, index in orderedLogos" :href="logo.link" target="_blank" :key="logo.name+index" )
@@ -29,6 +29,7 @@ section#about
 <script setup>
 
 import { ref, onMounted } from 'vue'
+import { redirect } from '@/utils.js'
 
 import docker from '@/assets/logo-slider/docker.svg'
 import express from '@/assets/logo-slider/express.svg'
@@ -142,8 +143,12 @@ onMounted(() => {
         gap: .6rem;
         bottom: 2.31rem;
 
-        a:hover {
-            transform: scale(1.08);
+        a {
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.08);
+            }
         }
     }
 }

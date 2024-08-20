@@ -9,9 +9,15 @@ section#what-i-offer
         .offer
             h4 UI Design
             p Full design for your product based on necessity making use of modern design patterns, beautiful components and strong design principles.
-    a.button( href="mailto:felipe.colla.m@gmail.com" target="_blank" ) Let's work together!
+    .button( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')") Let's work together!
 
 </template>
+
+<script setup>
+
+import { redirect } from '@/utils.js'
+
+</script>
 
 <style lang="scss">
 

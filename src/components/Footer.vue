@@ -3,10 +3,10 @@
 footer
     .footer-section
         .subsection
-            a( href="" target="_blank" ).footer-item
+            a( @click="redirect('https://w.app/qrm5ts', '_blank')" ).footer-item
                 img( :src="whatsapp" alt="Whatsapp" )
                 | (48) 9 9110-0010
-            a( href="" target="_blank" ).footer-item
+            a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ).footer-item
                 img( :src="gmail" alt="Gmail" )
                 | Send me a message
         .sub-section
@@ -15,14 +15,14 @@ footer
     .footer-section
         .subsection
             RouterLink( to="/" ) home
-            a( v-for="item, index in navItems" :href="item.to" :key="'routerItem' + index" ) {{ item.text }}
+            a( v-for="item, index in navItems" @click="redirect(item.to)" :key="'routerItem' + index" ) {{ item.text }}
         .subsection
             .socials
-                a(href="https://github.com/mateusfcolla", target="_blank", rel="noopener noreferrer")
+                a( @click="redirect('https://github.com/mateusfcolla', '_blank')" rel="noopener noreferrer")
                     img( :src="github" alt="My Github")
-                a(href="https://codepen.io/coall_fcm", target="_blank", rel="noopener noreferrer")
+                a( @click="redirect('https://codepen.io/coall_fcm', '_blank')" rel="noopener noreferrer")
                     img( :src="codepen" alt="My Codepen")
-                a(href="https://dribbble.com/coall_fcm", target="_blank", rel="noopener noreferrer")
+                a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
                     img( :src="dribbble" alt="My Dribbble")
 
 </template>
@@ -34,6 +34,7 @@ import gmail from '@/assets/icons/gmail.svg'
 import github from '@/assets/icons/socials-github.svg'
 import codepen from '@/assets/icons/socials-codepen.svg'
 import dribbble from '@/assets/icons/socials-dribbble.svg'
+import { redirect } from '@/utils.js'
 
 import Logo from '@/assets/logo.svg'
 
@@ -82,11 +83,11 @@ footer {
             bottom: 2.31rem;
 
             a {
-                transform: scale(.9);
-            }
+                cursor: pointer;
 
-            a:hover {
-                transform: scale(1);
+                &:hover {
+                    transform: scale(1.08);
+                }
             }
         }
 
@@ -96,6 +97,7 @@ footer {
             align-items: center;
             gap: .5rem;
             font-weight: 500;
+            cursor: pointer;
 
             &:hover {
                 color: #0f78d2;

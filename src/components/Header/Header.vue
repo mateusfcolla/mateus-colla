@@ -7,7 +7,7 @@ header
 
     nav( :class="{ opened: menuOpened }" )
         RouterLink( to="/" ) home
-        a( v-for="item, index in navItems" :href="item.to" :key="'routerItem' + index" ) {{ item.text }}
+        a( v-for="item, index in navItems" @click="redirect(item.to)" :key="'routerItem' + index" ) {{ item.text }}
 
 </template>
 
@@ -16,6 +16,7 @@ header
 import { ref } from 'vue'
 import Hamburger from './Hamburger.vue';
 import Logo from '@/assets/logo.svg'
+import { redirect } from '@/utils.js'
 
 const navItems = [
     { text: 'relevant projects', to: '#relevant-projects' },

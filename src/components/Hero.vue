@@ -5,14 +5,14 @@ main
         br
         | {{" "}}together
     .actions
-        a.button( href="mailto:felipe.colla.m@gmail.com" target="_blank" ) contact me
-        a.button( href="#relevant-projects" ).outline what I've been working on
+        .button( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) contact me
+        .button( @click="redirect('#relevant-projects')" ).outline what I've been working on
     .socials
-        a(href="https://github.com/mateusfcolla", target="_blank", rel="noopener noreferrer")
+        a( @click="redirect('https://github.com/mateusfcolla', '_blank')" rel="noopener noreferrer")
             img( :src="github" alt="My Github")
-        a(href="https://codepen.io/coall_fcm", target="_blank", rel="noopener noreferrer")
+        a( @click="redirect('https://codepen.io/coall_fcm', '_blank')" rel="noopener noreferrer")
             img( :src="codepen" alt="My Codepen")
-        a(href="https://dribbble.com/coall_fcm", target="_blank", rel="noopener noreferrer")
+        a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
             img( :src="dribbble" alt="My Dribbble")
     LogoSlider.tech-slider
 
@@ -24,6 +24,7 @@ import github from '@/assets/icons/socials-github.svg'
 import codepen from '@/assets/icons/socials-codepen.svg'
 import dribbble from '@/assets/icons/socials-dribbble.svg'
 import LogoSlider from './LogoSlider.vue'
+import { redirect } from '@/utils.js'
 
 </script>
 
@@ -98,8 +99,12 @@ main {
         gap: .6rem;
         bottom: 2.31rem;
 
-        a:hover {
-            transform: scale(1.08);
+        a {
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.08);
+            }
         }
     }
 }
