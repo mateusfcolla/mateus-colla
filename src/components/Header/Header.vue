@@ -6,8 +6,7 @@ header.scrolling-down
     Hamburger( @toggle-menu="toggleMenu" :opened="menuOpened" )
 
     nav( :class="{ opened: menuOpened }" )
-        RouterLink( to="/" ) home
-        a( v-for="item, index in navItems" @click="scrollTo(item.to)" :key="'routerItem' + index" ) {{ item.text }}
+        a( v-for="item, index in navItems" @click="scrollTo(item.to)" :key="'routerItem' + index" :class="{ active: item.active }"  ) {{ item.text }}
         a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) contact
 
 </template>
@@ -20,6 +19,7 @@ import Logo from '@/assets/logo.svg'
 import { redirect, scrollTo } from '@/utils.js'
 
 const navItems = [
+    { text: 'home', to: 'main', active: true },
     { text: 'relevant projects', to: '#relevant-projects' },
     { text: 'about me', to: '#about' },
     { text: 'what I offer', to: '#what-i-offer' },
@@ -86,7 +86,7 @@ header {
       line-height: normal;
       color: #e0e0e0;
 
-      &.router-link-exact-active {
+      &.active {
         font-weight: 600;
         color: white;
       }

@@ -14,7 +14,7 @@ footer
                 img( @click="redirect('/')" :src="Logo" )
     .footer-section
         .subsection
-            a( v-for="item, index in navItems" @click="scrollTo(item.to)" :key="'routerItem' + index" ) {{ item.text }}
+            a( v-for="item, index in navItems" @click="scrollTo(item.to)" :key="'routerItem' + index" :class="{ active: item.active }" ) {{ item.text }}
             a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) contact
         .subsection
             .socials
@@ -39,6 +39,7 @@ import { redirect, scrollTo } from '@/utils.js'
 import Logo from '@/assets/logo.svg'
 
 const navItems = [
+    { text: 'home', to: 'main', active: true },
     { text: 'relevant projects', to: '#relevant-projects' },
     { text: 'about me', to: '#about' },
     { text: 'what I offer', to: '#what-i-offer' },
