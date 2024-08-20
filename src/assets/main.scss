@@ -4,6 +4,7 @@
   text-decoration: none;
   box-sizing: border-box;
   transition: .2s;
+  user-select: none;
 }
 
 :root {
@@ -115,6 +116,69 @@ section {
 
   @media screen and (max-width: 1028px) {
     display: none;
+  }
+}
+
+.cursor {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ffffff;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  position: absolute;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  animation: cursorAnim .5s infinite alternate;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+.cursor::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  border: 8px solid #7e7e7e;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  opacity: .5;
+  top: -8px;
+  left: -8px;
+  animation: cursorAnim2 .5s infinite alternate;
+}
+
+.expand {
+  animation: cursorAnim3 .5s forwards;
+}
+
+@keyframes cursorAnim {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(.8);
+  }
+}
+
+@keyframes cursorAnim2 {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(.6);
+  }
+}
+
+@keyframes cursorAnim3 {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(2);
+  }
+  100% {
+      transform: scale(1);
+      opacity: 0;
   }
 }
 
