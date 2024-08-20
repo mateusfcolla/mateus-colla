@@ -105,6 +105,7 @@ header {
       background: #0f0f0fd3;
       text-align: right;
       z-index: 99999;
+      display: none;
 
       a {
         transform: translateX(100vw);
@@ -113,7 +114,10 @@ header {
       }
 
       &.opened {
-        opacity: 1;
+        display: flex;
+        animation: pop .4s;
+        animation-delay: .1s;
+        animation-fill-mode: forwards;
         left: 0;
 
         a {
@@ -124,4 +128,13 @@ header {
   }
 }
 
+@keyframes pop {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 </style>
