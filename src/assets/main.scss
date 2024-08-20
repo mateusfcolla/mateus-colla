@@ -12,8 +12,15 @@
   color: #D3D2D8;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
-  background: #0F0F0F;
+  background: #111111;
+  max-width: 100vw;
+  overflow-x: hidden!important;
+  position: relative;
 }
 
 .title {
@@ -46,4 +53,36 @@ section {
     font-style: normal;
     line-height: 175%;
   }
+}
+
+.grained {
+  z-index: 1000;
+  background: url('./imgs/grained.jpg');
+  mix-blend-mode: multiply;
+  height: 300%;
+  width: 300%;
+  opacity: 1;
+  top:-100%;
+  pointer-events: none;
+  position: fixed;
+  animation: grain 8s steps(10) infinite;
+  opacity: 0.2;
+
+  @media screen and (max-width: 1028px) {
+    display: none;
+  }
+}
+
+@keyframes grain {
+  0% { -webkit-transform: translate(-10%, 10%); -moz-transform: translate(-10%, 10%); transform: translate(-10%, 10%) }
+  10% { -webkit-transform: translate(-25%, 0%); -moz-transform: translate(-25%, 0%); transform: translate(-25%, 0%) }
+  20% { -webkit-transform: translate(-30%, 10%); -moz-transform: translate(-30%, 10%); transform: translate(-30%, 10%) }
+  30% { -webkit-transform: translate(-30%, 30%); -moz-transform: translate(-30%, 30%); transform: translate(-30%, 30%) }
+  40% { -webkit-transform: translate(); -moz-transform: translate(); transform: translate() }
+  50% { -webkit-transform: translate(-15%, 10%); -moz-transform: translate(-15%, 10%); transform: translate(-15%, 10%) }
+  60% { -webkit-transform: translate(-20%, 20%); -moz-transform: translate(-20%, 20%); transform: translate(-20%, 20%) }
+  70% { -webkit-transform: translate(-5%, 20%); -moz-transform: translate(-5%, 20%); transform: translate(-5%, 20%) }
+  80% { -webkit-transform: translate(-25%, 5%); -moz-transform: translate(-25%, 5%); transform: translate(-25%, 5%) }
+  90% { -webkit-transform: translate(-30%, 25%); -moz-transform: translate(-30%, 25%); transform: translate(-30%, 25%) }
+  100% { -webkit-transform: translate(-10%, 10%); -moz-transform: translate(-10%, 10%); transform: translate(-10%, 10%) }
 }

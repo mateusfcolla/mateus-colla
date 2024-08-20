@@ -1,5 +1,7 @@
 <template lang="pug">
 
+.grained
+
 Header
 
 RouterView

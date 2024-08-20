@@ -76,7 +76,7 @@ const projects = [
     }
 
     @media screen and (max-width: 1028px) {
-    padding: 6rem 2.31rem;
+        padding: 6rem 2.31rem;
     }
 }
 

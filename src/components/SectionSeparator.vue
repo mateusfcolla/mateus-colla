@@ -36,7 +36,7 @@ import downArrow from '@/assets/icons/down-arrow.svg'
 
     img {
         margin-top: .2rem;
-        animation: float 6s linear infinite;
+        animation: float 3s linear infinite;
     }
 }
 
@@ -45,13 +45,13 @@ import downArrow from '@/assets/icons/down-arrow.svg'
         transform: translateY(0%);
     }
     25% {
-        transform: translateY(-2px);
+        transform: translateY(-4px);
     }
     50% {
         transform: translateY(0%);
     }
     75% {
-        transform: translateY(2px);
+        transform: translateY(4px);
     }
     100% {
         transform: translateY(0%);

@@ -97,7 +97,7 @@ header {
       width: 100vw;
       background: #0f0f0fd3;
       text-align: right;
-      z-index: 1;
+      z-index: 99999;
 
       a {
         transform: translateX(100vw);
