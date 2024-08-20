@@ -59,6 +59,11 @@ footer {
     background: #0F0F0F;
     border-top: 1px solid #4D4D4D;
 
+    @media screen and (max-width: 1028px) {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
     .footer-section {
         display: flex;
         flex-direction: column;
@@ -96,10 +101,33 @@ footer {
                 color: #0f78d2;
             }
         }
+
+        @media screen and (max-width: 1028px) {
+            height: auto;
+            gap: 4rem;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            &:first-of-type {
+                flex-direction: column-reverse;
+            }
+
+            a {
+                text-align: center;
+            }
+
+            .subsection {
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+        }
     }
 
     @media screen and (max-width: 1028px) {
-        padding: 1rem 2.31rem;
+        padding: 4rem 2.31rem;
     }
 }
 
