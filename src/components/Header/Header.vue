@@ -105,7 +105,7 @@ header {
       background: #0f0f0fd3;
       text-align: right;
       z-index: 99999;
-      display: none;
+      pointer-events: none;
 
       a {
         transform: translateX(100vw);
@@ -114,10 +114,8 @@ header {
       }
 
       &.opened {
-        display: flex;
-        animation: pop .4s;
-        animation-delay: .1s;
-        animation-fill-mode: forwards;
+        opacity: 1;
+        pointer-events: unset;
         left: 0;
 
         a {
@@ -125,16 +123,6 @@ header {
         }
       }
     }
-  }
-}
-
-@keyframes pop {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
   }
 }
 </style>
