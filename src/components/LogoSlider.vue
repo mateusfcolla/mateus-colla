@@ -2,10 +2,10 @@
 
 .logo-slider
     .logos-slide
-        a.logo( v-for="logo, index in orderedLogos[0]" :href="logo.link" target="_blank" :key="logo.name+index" )
+        a.logo-slide( v-for="logo, index in orderedLogos[0]" :href="logo.link" target="_blank" :key="logo.name+index" )
             img( :src="logo.img" :alt="logo.name" )
     .logos-slide.reverse
-        a.logo( v-for="logo, index in orderedLogos[1]" :href="logo.link" target="_blank" :key="logo.name+index" )
+        a.logo-slide( v-for="logo, index in orderedLogos[1]" :href="logo.link" target="_blank" :key="logo.name+index" )
             img( :src="logo.img" :alt="logo.name" )
 
 </template>
@@ -104,7 +104,7 @@ onMounted(() => {
             animation: slideX 6s infinite linear;
         }
 
-        .logo {
+        .logo-slide {
             margin-bottom: 1.8rem;
 
             @media screen and (max-width: 1028px) {

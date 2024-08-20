@@ -11,7 +11,7 @@ footer
                 | Send me a message
         .sub-section
             h1.logo
-                img( :src="Logo" )
+                img( @click="redirect('/')" :src="Logo" )
     .footer-section
         .subsection
             RouterLink( to="/" ) home

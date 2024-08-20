@@ -25,6 +25,12 @@ body {
 
 .logo img{
   height: 2.6rem;
+  cursor: pointer;
+
+  &:hover {
+    animation: tada;
+    animation-duration: 1.5s;
+  }
 }
 
 .title {

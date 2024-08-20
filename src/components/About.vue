@@ -21,7 +21,7 @@ section#about
             a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
                 img( :src="dribbble" alt="My Dribbble")
     .right
-        a.logo( v-for="logo, index in orderedLogos" :href="logo.link" target="_blank" :key="logo.name+index" )
+        a.logo-slide( v-for="logo, index in orderedLogos" :href="logo.link" target="_blank" :key="logo.name+index" )
             img( :src="logo.img" :alt="logo.name" )
 
 </template>
@@ -122,7 +122,7 @@ onMounted(() => {
         gap: 1.625rem 2.3125rem;
         flex-wrap: wrap;
 
-        .logo img{
+        .logo-slide img{
             width: 5.875rem;
             height: 5.875rem;
             filter: grayscale(00%);

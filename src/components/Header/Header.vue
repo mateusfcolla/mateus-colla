@@ -2,7 +2,7 @@
 
 header
     h1.logo
-      img( :src="Logo" )
+      img( @click="redirect('/')" :src="Logo" )
     Hamburger( @toggle-menu="toggleMenu" :opened="menuOpened" )
 
     nav( :class="{ opened: menuOpened }" )
