@@ -33,7 +33,14 @@ const SplideOptions = {
 
 const experiences = [
     {
-        time: 'october 2018 - today | Remote',
+        time: 'july 2024 - today',
+        title: 'Frontend Developer, Mosyle',
+        doings: [
+            'Using React.js to develop and upgrade the company’s webapp.',
+        ]
+    },
+    {
+        time: 'october 2018 - today',
         title: 'Web Developer Freelance, WKode',
         doings: [
             'Using PHP & Sass to create WordPress custom themes for the client’s websites.',
@@ -42,7 +49,7 @@ const experiences = [
         ]
     },
     {
-        time: 'april 2021 - april 2024 | Remote',
+        time: 'april 2021 - april 2024',
         title: 'Full Stack Developer & UI/UX Designer,  Jetta Cargo',
         doings: [
             'Using Vue.js & Nuxt to develop and upgrade the company’s webapp.',
@@ -51,7 +58,7 @@ const experiences = [
         ]
     },
     {
-        time: 'febuary 2020 - march 2021 | On site',
+        time: 'febuary 2020 - march 2021',
         title: 'Front End Wordpress Developer,  Escritolândia',
         doings: [
             'Using WordPress & WooCommerce to develop and maintain an e-commerce website.',
