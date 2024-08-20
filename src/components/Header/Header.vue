@@ -1,7 +1,8 @@
 <template lang="pug">
 
 header
-    h3.title Mateus Felipe
+    h1.logo
+      img( :src="Logo" )
     Hamburger( @toggle-menu="toggleMenu" :opened="menuOpened" )
 
     nav( :class="{ opened: menuOpened }" )
@@ -14,6 +15,7 @@ header
 
 import { ref } from 'vue'
 import Hamburger from './Hamburger.vue';
+import Logo from '@/assets/logo.svg'
 
 const navItems = [
     { text: 'relevant projects', to: '#relevant-projects' },
@@ -39,7 +41,10 @@ header {
   padding: 2.31rem 7.38rem;
   width: 100vw;
   border-bottom: 1px solid #4F4F4F;
-  position: relative;
+  background: #111111c1;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  z-index: 9999;
 
   .menu {
     display: none;
@@ -90,6 +95,7 @@ header {
       opacity: 0;
       flex-direction: column;
       position: absolute;
+      border-top: 2px solid #4F4F4F;
       height: calc(100vh - 6rem);
       padding: 2.31rem;
       top: 6rem;

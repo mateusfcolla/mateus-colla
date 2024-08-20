@@ -5,8 +5,8 @@ main
         br
         | {{" "}}together
     .actions
-        button contact me
-        button.outline what I've been working on
+        a.button( href="mailto:felipe.colla.m@gmail.com" target="_blank" ) contact me
+        a.button( href="#relevant-projects" ).outline what I've been working on
     .socials
         a(href="https://github.com/mateusfcolla", target="_blank", rel="noopener noreferrer")
             img( :src="github" alt="My Github")

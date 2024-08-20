@@ -9,7 +9,7 @@ section#what-i-offer
         .offer
             h4 UI Design
             p Full design for your product based on necessity making use of modern design patterns, beautiful components and strong design principles.
-    button Let's work together!
+    a.button( href="mailto:felipe.colla.m@gmail.com" target="_blank" ) Let's work together!
 
 </template>
 
@@ -45,7 +45,7 @@ section#what-i-offer
         }
     }
 
-    button {
+    .button {
         background: #0F0F0F;
         color: #ffffff;
         padding: 1rem 2rem;

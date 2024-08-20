@@ -23,6 +23,10 @@ body {
   position: relative;
 }
 
+.logo img{
+  height: 2.6rem;
+}
+
 .title {
   font-family: "Gentium Plus", serif;
   font-weight: 700;
@@ -55,7 +59,7 @@ section {
   }
 }
 
-button {
+button, .button {
   display: flex;
   padding: 0.5rem 1.125rem;
   justify-content: center;
@@ -120,4 +124,9 @@ button {
   80% { -webkit-transform: translate(-25%, 5%); -moz-transform: translate(-25%, 5%); transform: translate(-25%, 5%) }
   90% { -webkit-transform: translate(-30%, 25%); -moz-transform: translate(-30%, 25%); transform: translate(-30%, 25%) }
   100% { -webkit-transform: translate(-10%, 10%); -moz-transform: translate(-10%, 10%); transform: translate(-10%, 10%) }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }

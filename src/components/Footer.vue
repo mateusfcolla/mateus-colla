@@ -10,7 +10,8 @@ footer
                 img( :src="gmail" alt="Gmail" )
                 | Send me a message
         .sub-section
-            h3.title Mateus Felipe
+            h1.logo
+                img( :src="Logo" )
     .footer-section
         .subsection
             RouterLink( to="/" ) home
@@ -33,6 +34,8 @@ import gmail from '@/assets/icons/gmail.svg'
 import github from '@/assets/icons/socials-github.svg'
 import codepen from '@/assets/icons/socials-codepen.svg'
 import dribbble from '@/assets/icons/socials-dribbble.svg'
+
+import Logo from '@/assets/logo.svg'
 
 const navItems = [
     { text: 'relevant projects', to: '#relevant-projects' },
