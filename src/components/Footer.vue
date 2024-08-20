@@ -14,8 +14,8 @@ footer
                 img( @click="redirect('/')" :src="Logo" )
     .footer-section
         .subsection
-            RouterLink( to="/" ) home
-            a( v-for="item, index in navItems" @click="redirect(item.to)" :key="'routerItem' + index" ) {{ item.text }}
+            a( v-for="item, index in navItems" @click="scrollTo(item.to)" :key="'routerItem' + index" ) {{ item.text }}
+            a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) contact
         .subsection
             .socials
                 a( @click="redirect('https://github.com/mateusfcolla', '_blank')" rel="noopener noreferrer")
@@ -34,15 +34,14 @@ import gmail from '@/assets/icons/gmail.svg'
 import github from '@/assets/icons/socials-github.svg'
 import codepen from '@/assets/icons/socials-codepen.svg'
 import dribbble from '@/assets/icons/socials-dribbble.svg'
-import { redirect } from '@/utils.js'
+import { redirect, scrollTo } from '@/utils.js'
 
 import Logo from '@/assets/logo.svg'
 
 const navItems = [
     { text: 'relevant projects', to: '#relevant-projects' },
     { text: 'about me', to: '#about' },
-    { text: 'what I offer', to: '#offer' },
-    { text: 'contact', to: '#contact' },
+    { text: 'what I offer', to: '#what-i-offer' },
 ]
 
 

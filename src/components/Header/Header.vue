@@ -1,13 +1,14 @@
 <template lang="pug">
 
-header
+header.scrolling-down
     h1.logo
       img( @click="redirect('/')" :src="Logo" )
     Hamburger( @toggle-menu="toggleMenu" :opened="menuOpened" )
 
     nav( :class="{ opened: menuOpened }" )
         RouterLink( to="/" ) home
-        a( v-for="item, index in navItems" @click="redirect(item.to)" :key="'routerItem' + index" ) {{ item.text }}
+        a( v-for="item, index in navItems" @click="scrollTo(item.to)" :key="'routerItem' + index" ) {{ item.text }}
+        a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) contact
 
 </template>
 
@@ -16,13 +17,12 @@ header
 import { ref } from 'vue'
 import Hamburger from './Hamburger.vue';
 import Logo from '@/assets/logo.svg'
-import { redirect } from '@/utils.js'
+import { redirect, scrollTo } from '@/utils.js'
 
 const navItems = [
     { text: 'relevant projects', to: '#relevant-projects' },
     { text: 'about me', to: '#about' },
-    { text: 'what I offer', to: '#offer' },
-    { text: 'contact', to: '#contact' },
+    { text: 'what I offer', to: '#what-i-offer' },
 ]
 
 const menuOpened = ref(null);
@@ -46,6 +46,10 @@ header {
   backdrop-filter: blur(10px);
   position: fixed;
   z-index: 999;
+
+  .scrolling-down {
+    top: 2rem;
+  }
 
   .menu {
     display: none;
