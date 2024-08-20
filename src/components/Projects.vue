@@ -18,9 +18,11 @@ import Tailwind from '@/assets/technologies/tailwind.svg?component'
 import Go from '@/assets/technologies/go.svg?component'
 import React from '@/assets/technologies/react.svg?component'
 import Mongo from '@/assets/technologies/mongo.svg?component'
+import Figma from '@/assets/technologies/figma.svg?component'
 
 import Engeled from '@/assets/imgs/Engeled.png'
 import Superpet from '@/assets/imgs/Superpet.png'
+import Velope from '@/assets/imgs/Velope.png'
 
 const projects = [
     {
@@ -48,6 +50,16 @@ const projects = [
             { icon: Go, name: 'Go', backgroundColor: '#08afd8' },
             { icon: Mongo, name: 'MongoDb', backgroundColor: '#4ca84b' },
 
+        ]
+    },
+    {
+        title: 'Velope',
+        subtitle: 'Website design',
+        description: 'Design of the full website, all pages included',
+        url: 'https://velope.com.br/',
+        background: Velope,
+        technologies: [
+            { icon: Figma, name: 'Figma', backgroundColor: '#f24e1e' },
         ]
     },
 ]
