@@ -103,16 +103,14 @@ section {
 
 .grained {
   z-index: 1000;
-  background: url('./imgs/grained.jpg');
-  mix-blend-mode: multiply;
+  background: url('./imgs/grained.png');
   height: 300%;
   width: 300%;
-  opacity: 1;
   top:-100%;
   pointer-events: none;
   position: fixed;
   animation: grain 8s steps(10) infinite;
-  opacity: 0.2;
+  opacity: .85;
 
   @media screen and (max-width: 1028px) {
     display: none;
