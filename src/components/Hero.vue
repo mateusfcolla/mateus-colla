@@ -102,41 +102,6 @@ main {
             transform: scale(1.08);
         }
     }
-
-    button {
-        display: flex;
-        padding: 0.5rem 1.125rem;
-        justify-content: center;
-        font-family: 'Inter', sans-serif;
-        align-items: center;
-        gap: 0.625rem;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        border-radius: 0;
-        color: black;
-        border: 1px solid white;
-        background: white;
-        width: fit-content;
-
-        &:hover {
-            background: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        &.outline {
-            background: none;
-            border: 1px solid white;
-            color: white;
-
-            &:hover {
-                background: white;
-                color: black;
-            }
-        }
-    }
 }
 
 </style>

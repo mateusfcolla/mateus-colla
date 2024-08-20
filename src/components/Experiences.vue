@@ -105,6 +105,8 @@ h2.title {
         top: 50%;
         right: .4rem;
         transition: .3s;
+        justify-content: center;
+        align-items: center;
         transform: translateY(-50%);
 
         &:hover {
@@ -112,7 +114,10 @@ h2.title {
         }
 
         svg {
-            transform: scale(1.3);
+            path {
+                width: auto;
+                height: auto;
+            }
         }
 
         &--prev {
