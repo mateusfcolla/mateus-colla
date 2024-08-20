@@ -113,7 +113,7 @@ section {
   opacity: .85;
 
   @media screen and (max-width: 1028px) {
-    display: none;
+    // display: none;
   }
 }
 
@@ -128,7 +128,7 @@ section {
   transition-timing-function: ease-out;
   animation: cursorAnim .5s infinite alternate;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 1000;
 }
 
 .cursor::after {

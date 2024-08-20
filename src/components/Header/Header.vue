@@ -45,7 +45,7 @@ header {
   background: #111111c1;
   backdrop-filter: blur(10px);
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
 
   .menu {
     display: none;
@@ -104,7 +104,7 @@ header {
       width: 100vw;
       background: #0f0f0fd3;
       text-align: right;
-      z-index: 99999;
+      z-index: 999;
       pointer-events: none;
 
       a {
