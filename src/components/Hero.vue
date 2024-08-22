@@ -1,7 +1,7 @@
 <template lang="pug">
 main
     p Hey! I’m Mateus Felipe, web developer and designer
-    h1 Let’s build beautiful websites
+    h1 Let’s build beautiful applications
         br
         | {{" "}}together
     .actions
@@ -68,7 +68,7 @@ main {
     }
 
     h1 {
-        color: #FFF;
+        color: #ffffff;
         font-family: Lusitana;
         font-size: 2.39719rem;
         font-style: normal;

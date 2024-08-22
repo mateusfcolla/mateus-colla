@@ -92,7 +92,7 @@ footer {
         }
 
         a {
-            color: white;
+            color: #ffffff;
             display: flex;
             align-items: center;
             gap: .5rem;

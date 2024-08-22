@@ -85,14 +85,15 @@ header {
       font-weight: 400;
       line-height: normal;
       color: #e0e0e0;
+      user-select: none;
 
       &.active {
         font-weight: 600;
-        color: white;
+        color: #ffffff;
       }
 
       &:hover {
-        color: white;
+        color: #ffffff;
       }
     }
 

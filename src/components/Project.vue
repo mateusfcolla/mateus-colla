@@ -59,11 +59,11 @@ const props = defineProps(['title', 'subtitle', 'description', 'background', 'ur
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        columns: white;
+        columns: #ffffff;
         color: #FFF;
         position: absolute;
         bottom: -3.13rem;
-        left: 4.44rem;
+        left: 3.13rem;
         width: 40%;
         opacity: 0;
         transition: .4s ease-in-out;

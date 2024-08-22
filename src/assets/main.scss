@@ -4,11 +4,10 @@
   text-decoration: none;
   box-sizing: border-box;
   transition: .2s;
-  user-select: none;
 }
 
 :root {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   color: #D3D2D8;
 }
@@ -18,7 +17,7 @@ html, body {
 }
 
 body {
-  background: #0f0f0f;
+  background: #0e100f;
   max-width: 100vw;
   overflow-x: hidden!important;
   position: relative;
@@ -43,7 +42,7 @@ body {
 section {
 
   padding: 2.31rem 7.38rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
 
   @media screen and (max-width: 1028px) {
     padding: 4rem 2.31rem;
@@ -70,7 +69,7 @@ section {
   display: flex;
   padding: 0.5rem 1.125rem;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   align-items: center;
   gap: 0.625rem;
   font-size: 1rem;
@@ -79,23 +78,23 @@ section {
   line-height: normal;
   border-radius: 0;
   color: black;
-  border: 1px solid white;
-  background: white;
+  border: 1px solid #ffffff;
+  background: #ffffff;
   width: fit-content;
 
   &:hover {
       background: none;
-      color: white;
+      color: #ffffff;
       cursor: pointer;
   }
 
   &.outline {
       background: none;
-      border: 1px solid white;
-      color: white;
+      border: 1px solid #ffffff;
+      color: #ffffff;
 
       &:hover {
-          background: white;
+          background: #ffffff;
           color: black;
       }
   }
@@ -109,40 +108,8 @@ section {
   top:-100%;
   pointer-events: none;
   position: fixed;
-  animation: grain 8s steps(10) infinite;
-  opacity: .85;
-}
-
-.cursor {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #ffffff;
-  mix-blend-mode: difference;
-  border-radius: 50%;
-  position: absolute;
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
-  animation: cursorAnim .5s infinite alternate;
-  pointer-events: none;
-  z-index: 1000;
-
-  @media screen and (max-width: 1028px) {
-    display: none;
-  }
-}
-
-.cursor::after {
-  content: "";
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  border: 8px solid #7e7e7e;
-  mix-blend-mode: difference;
-  border-radius: 50%;
-  opacity: .5;
-  top: -8px;
-  left: -8px;
-  animation: cursorAnim2 .5s infinite alternate;
+  animation: grain 10s steps(10) infinite;
+  opacity: .6;
 }
 
 .expand {

@@ -57,7 +57,7 @@ import { redirect } from '@/utils.js'
         padding: 1rem 2rem;
 
         &:hover {
-            background: #FFFFFF;
+            background: #ffffff;
             color: #0F0F0F;
             border-color: #0F0F0F;
         }

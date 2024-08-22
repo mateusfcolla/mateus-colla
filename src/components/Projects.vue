@@ -70,7 +70,7 @@ const projects = [
 
 #relevant-projects {
     color: #0F0F0F;
-    background: white;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     gap: 3.56rem;
@@ -85,10 +85,21 @@ const projects = [
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+        animation: test linear;
+        animation-timeline: scroll;
     }
 
     @media screen and (max-width: 1028px) {
         padding: 6rem 2.31rem;
+    }
+}
+
+@keyframes test {
+    from {
+        scale: 2;
+    }
+    to {
+        scale: 1;
     }
 }
 
