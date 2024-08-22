@@ -30,6 +30,9 @@ section#about
 
 import { ref, onMounted } from 'vue'
 import { redirect } from '@/utils.js'
+import { gsap } from 'gsap'
+
+gsap.registerPlugin(ScrollTrigger)
 
 import docker from '@/assets/logo-slider/docker.svg'
 import express from '@/assets/logo-slider/express.svg'
@@ -83,6 +86,28 @@ const getOrderedLogos = () => {
 
 onMounted(() => {
     orderedLogos.value = getOrderedLogos()
+
+    const scrollConfig = {
+        trigger: '#about',
+        start: '-130%',
+        end: '-80%',
+        scrub: .6,
+        markers: true
+    }
+
+    gsap.from('.left', {
+        scrollTrigger: scrollConfig,
+        opacity: 0,
+        y: 200,
+        x: -200,
+    })
+
+    gsap.from('.right', {
+        scrollTrigger: scrollConfig,
+        opacity: 0,
+        x: 400,
+        scale: 2,
+    })
 })
 
 </script>

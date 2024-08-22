@@ -2,7 +2,7 @@
 
 section#relevant-projects
     h2 Recent relevant projects
-    Project( v-for="project in projects" :title="project.title" :subtitle="project.subtitle" :description="project.description" :background="project.background" :url="project.url")
+    Project( v-for="project, index in projects" :title="project.title" :subtitle="project.subtitle" :id="`project-${index}`" :description="project.description" :background="project.background" :url="project.url")
         Technology( v-for="tech in project.technologies" :icon="tech.icon" :name="tech.name" :backgroundColor="tech.backgroundColor" )
 
 </template>
@@ -23,6 +23,9 @@ import Figma from '@/assets/technologies/figma.svg?component'
 import Engeled from '@/assets/imgs/Engeled.png'
 import Superpet from '@/assets/imgs/Superpet.png'
 import Velope from '@/assets/imgs/Velope.png'
+
+import { gsap } from 'gsap'
+import { onMounted } from 'vue'
 
 const projects = [
     {
@@ -64,6 +67,57 @@ const projects = [
     },
 ]
 
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(async () => {
+
+    const scrollConfig = {
+        trigger: '#relevant-projects',
+        scrub: .2,
+    }
+
+    gsap.from('#relevant-projects h2', {
+        scrollTrigger: {
+            ...scrollConfig,
+            start: '-30%',
+            end: '-20%',
+        },
+        y: 200,
+        scale: 2,
+        opacity: 0,
+    })
+
+    projects.forEach((project, index) => {
+        if(index%2 !== 0) {
+            gsap.from(`#project-${index}`, {
+                scrollTrigger: {
+                    ...scrollConfig,
+                    trigger: `#project-${index}`,
+                    end: '-60%',
+                },
+                x: 300,
+                y: 100,
+                scale: .7,
+                opacity: 0,
+            })
+        }
+        else {
+            gsap.from(`#project-${index}`, {
+                scrollTrigger: {
+                    ...scrollConfig,
+                    trigger: `#project-${index}`,
+                    end: '-60%',
+                },
+                x: -300,
+                y: 100,
+                scale: .7,
+                opacity: 0,
+            })
+        }
+    })
+
+})
+
 </script>
 
 <style lang="scss">
@@ -87,6 +141,7 @@ const projects = [
         line-height: normal;
         animation: test linear;
         animation-timeline: scroll;
+        z-index: 1;
     }
 
     @media screen and (max-width: 1028px) {

@@ -3,10 +3,10 @@
 section#what-i-offer
     h2 What I offer
     .offers
-        .offer
+        .offer.offer-1
             h4 Web Development
             p Full website development based on a User Interface, using modern technologies like Vue, React and Typescript to grant speed and fluidity on the websites.
-        .offer
+        .offer.offer-2
             h4 UI Design
             p Full design for your product based on necessity making use of modern design patterns, beautiful components and strong design principles.
     .button( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')") Let's work together!
@@ -16,6 +16,45 @@ section#what-i-offer
 <script setup>
 
 import { redirect } from '@/utils.js'
+import { onMounted } from 'vue'
+import { gsap } from 'gsap'
+
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(() => {
+
+    const scrollConfig = {
+        trigger: '#what-i-offer',
+        start: '-130%',
+        end: '-80%',
+        scrub: .6,
+        markers: true
+    }
+
+    gsap.from('#what-i-offer h2', {
+        scrollTrigger: scrollConfig,
+        opacity: 0,
+        scale: .8,
+        x: -100,
+    })
+
+    gsap.from('#what-i-offer .offers', {
+        scrollTrigger: scrollConfig,
+        opacity: 0,
+        scale: .8,
+        'transformOrigin': 'left',
+        x: -100,
+    })
+
+    gsap.from('#what-i-offer .button', {
+        scrollTrigger: scrollConfig,
+        opacity: 0,
+        scale: .8,
+        'transformOrigin': 'left',
+        x: -100,
+    })
+
+})
 
 </script>
 

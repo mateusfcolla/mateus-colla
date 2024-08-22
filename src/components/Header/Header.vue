@@ -1,7 +1,7 @@
 <template lang="pug">
 
 header.scrolling-down
-    h1.logo
+    .logo
       img( @click="redirect('/')" :src="Logo" )
     Hamburger( @toggle-menu="toggleMenu" :opened="menuOpened" )
 

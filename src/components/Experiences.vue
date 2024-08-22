@@ -21,6 +21,10 @@ section#experiences
 
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css/core';
+import { onMounted } from 'vue'
+import { gsap } from 'gsap'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const SplideOptions = {
     perPage: 1,
@@ -66,6 +70,29 @@ const experiences = [
         ]
     },
 ]
+
+onMounted(() => {
+
+    const scrollConfig = {
+        trigger: '#experiences',
+        start: '-130%',
+        end: '-80%',
+        scrub: .6,
+        markers: true
+    }
+
+    gsap.from('#experiences h2', {
+        scrollTrigger: scrollConfig,
+        opacity: 0,
+        scale: 2,
+        y: 200,
+    })
+
+    gsap.from('#experiences .experiences', {
+        scrollTrigger: scrollConfig,
+        opacity: 0,
+    })
+})
 
 </script>
 
