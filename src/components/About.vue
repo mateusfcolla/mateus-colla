@@ -92,7 +92,6 @@ onMounted(() => {
         start: '-130%',
         end: '-80%',
         scrub: .6,
-        markers: true
     }
 
     gsap.from('.left', {

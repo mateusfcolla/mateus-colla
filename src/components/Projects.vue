@@ -79,8 +79,9 @@ onMounted(async () => {
     gsap.from('#relevant-projects h2', {
         scrollTrigger: {
             ...scrollConfig,
-            start: '-30%',
-            end: '-20%',
+            trigger: 'main h1',
+            start: '-5%',
+            end: '-70%',
         },
         y: 200,
         scale: 2,
