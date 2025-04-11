@@ -3,9 +3,9 @@
 footer
     .footer-section
         .subsection
-            a( @click="redirect('https://w.app/qrm5ts', '_blank')" ).footer-item
-                img( :src="whatsapp" alt="Whatsapp" )
-                | (48) 9 9110-0010
+            a( @click="redirect('tel:+33783002154', '_blank')" ).footer-item
+                img( :src="phone" alt="Phone" )
+                | +33 7 83 00 21 54
             a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ).footer-item
                 img( :src="gmail" alt="Gmail" )
                 | Send me a message
@@ -20,8 +20,6 @@ footer
             .socials
                 a( @click="redirect('https://github.com/mateusfcolla', '_blank')" rel="noopener noreferrer")
                     img( :src="github" alt="My Github")
-                a( @click="redirect('https://codepen.io/coall_fcm', '_blank')" rel="noopener noreferrer")
-                    img( :src="codepen" alt="My Codepen")
                 a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
                     img( :src="dribbble" alt="My Dribbble")
 
@@ -29,7 +27,7 @@ footer
 
 <script setup>
 
-import whatsapp from '@/assets/icons/whatsapp.svg'
+import phone from '@/assets/icons/phone.svg'
 import gmail from '@/assets/icons/gmail.svg'
 import github from '@/assets/icons/socials-github.svg'
 import codepen from '@/assets/icons/socials-codepen.svg'
