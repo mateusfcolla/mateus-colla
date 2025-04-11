@@ -26,8 +26,7 @@ const isLoading = ref(true);
 onMounted(() => {
 
     Promise.all([
-        document.fonts.ready,
-        new Promise(resolve => setTimeout(resolve, 3000))
+        document.fonts.ready
     ]).then(() => {
         isLoading.value = false;
     })
