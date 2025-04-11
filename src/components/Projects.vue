@@ -23,11 +23,24 @@ import Figma from '@/assets/technologies/figma.svg?component'
 import Engeled from '@/assets/imgs/Engeled.png'
 import Superpet from '@/assets/imgs/Superpet.png'
 import Velope from '@/assets/imgs/Velope.png'
+import Oli from '@/assets/imgs/Oli.png'
 
 import { gsap } from 'gsap'
 import { onMounted } from 'vue'
 
 const projects = [
+    {
+        title: 'Oli',
+        subtitle: 'Website creation',
+        description: 'Creation of the full website',
+        background: Oli,
+        url: 'http://oliapp.com.br/',
+        technologies: [
+            { icon: Wordpress, name: 'Wordpress', backgroundColor: '#33a1d3' },
+            { icon: Sass, name: 'Sass', backgroundColor: '#cd6799' },
+            { icon: Tailwind, name: 'Tailwind', backgroundColor: '#38bdf8' },
+        ]
+    },
     {
         title: 'Engeled',
         subtitle: 'Website creation',
