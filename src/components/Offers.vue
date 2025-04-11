@@ -5,7 +5,7 @@ section#what-i-offer
     .offers
         .offer.offer-1
             h4 Web Development
-            p Full website development based on a User Interface, using modern technologies like Vue, React and Typescript to grant speed and fluidity on the websites.
+            p Full website development based on a User Interface, using modern technologies like React and Vue to grant speed and fluidity to websites.
         .offer.offer-2
             h4 UI Design
             p Full design for your product based on necessity making use of modern design patterns, beautiful components and strong design principles.
