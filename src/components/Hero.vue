@@ -10,8 +10,6 @@ main
     .socials
         a( @click="redirect('https://github.com/mateusfcolla', '_blank')" rel="noopener noreferrer")
             img( :src="github" alt="My Github")
-        a( @click="redirect('https://codepen.io/coall_fcm', '_blank')" rel="noopener noreferrer")
-            img( :src="codepen" alt="My Codepen")
         a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
             img( :src="dribbble" alt="My Dribbble")
     LogoSlider.tech-slider

@@ -30,6 +30,7 @@ import redux from '@/assets/logo-slider/redux.svg'
 import vite from '@/assets/logo-slider/vite.svg'
 import photoshop from '@/assets/logo-slider/photoshop.svg'
 import illustrator from '@/assets/logo-slider/illustrator.svg'
+import dotnet from '@/assets/logo-slider/dotnet.svg'
 
 import { onMounted, ref } from 'vue'
 
@@ -50,6 +51,7 @@ const logos = [
     { name: "Wordpress", img: wordpress, link: "https://wordpress.com/" },
     { name: "Redux", img: redux, link: "https://redux.js.org/" },
     { name: "Vite", img: vite, link: "https://vitejs.dev/" },
+    { name: ".NET", img: dotnet, link: "https://dotnet.microsoft.com/" },
     { name: "Illustrator", img: illustrator, link: "https://www.adobe.com/br/products/illustrator/campaign/pricing.html?gclid=Cj0KCQjwwuG1BhCnARIsAFWBUC0FiJ8r8vxl1svJiGFo6X_Dmb5dWXYH6G2NSVGRjCyqSa7b6FnIX4QaAuTjEALw_wcB&sdid=KQPNY&mv=search&ef_id=Cj0KCQjwwuG1BhCnARIsAFWBUC0FiJ8r8vxl1svJiGFo6X_Dmb5dWXYH6G2NSVGRjCyqSa7b6FnIX4QaAuTjEALw_wcB:G:s&s_kwcid=AL!3085!3!442396626644!e!!g!!illustrator!188190582!10039578942&gad_source=1" },
     { name: "Photoshop", img: photoshop, link: "https://www.adobe.com/br/products/photoshop/landpa.html?gclid=Cj0KCQjwwuG1BhCnARIsAFWBUC1cIfXm80MZKA-0L3C6qQb4Q5eAOsu4gSuaMsdNDyO2cUSqPNw7gjcaAlUhEALw_wcB&sdid=KQPOM&mv=search&ef_id=Cj0KCQjwwuG1BhCnARIsAFWBUC1cIfXm80MZKA-0L3C6qQb4Q5eAOsu4gSuaMsdNDyO2cUSqPNw7gjcaAlUhEALw_wcB:G:s&s_kwcid=AL!3085!3!534509111647!e!!g!!photoshop!188192502!10077842982&gad_source=1" },
 ]
