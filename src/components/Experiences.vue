@@ -37,36 +37,40 @@ const SplideOptions = {
 
 const experiences = [
     {
-        time: 'july 2024 - today',
-        title: 'Frontend Developer, Mosyle',
+        time: 'october 2024 - today',
+        title: 'Senior Web Developer, G-P',
         doings: [
-            'Using React.js to develop and upgrade the company’s webapp.',
+            'Using Next.js as a frontend and Wordpress as the backend to make improvements in speed/performance, create new pages, refactor components and make improvements in general on the company’s website.',
+            'Being a part in agile development methodologies ( Scrum ), adding documentation about what I do, and using the Atlasian workspace to manage tasks and documentation.'
         ]
     },
     {
-        time: 'october 2018 - today',
+        time: 'july 2024 - january 2025',
+        title: 'Web Developer, Mosyle',
+        doings: [
+            "Using technologies such as React.js with TS and .NET to make general improvements, add new features, create components and maintain the company's webapp.",
+        ]
+    },
+    {
+        time: 'october 2018 - february 2025',
         title: 'Web Developer Freelance, WKode',
         doings: [
-            'Using PHP & Sass to create WordPress custom themes for the client’s websites.',
-            'Creating websites using Go and Next JS.',
-            'Creating designs for the client’s websites.'
+            'Created and maintained websites using various technologies, including, but not limited to, landing pages, institutional websites and e-commerces, having in mind coding best practices and industry standards, focusing on performance and SEO.',
         ]
     },
     {
         time: 'april 2021 - april 2024',
-        title: 'Full Stack Developer & UI/UX Designer,  Jetta Cargo',
+        title: 'Web Developer & UI/UX Designer,  JettaCargo',
         doings: [
-            'Using Vue.js & Nuxt to develop and upgrade the company’s webapp.',
-            'UX/UI analysis and design using Figma.',
-            'Using Express and Node.js to manage API endpoints and create AWS microservices.'
+            "Using technologies such as Vue.js, Nuxt.js and Node.js to implement new features, screens and improving the user experience. Created an institutional website from scratch using Vue.js, implemented Lambda functions to improve the webapp's functioning and performance and helped maintain the company's webapp, solving customer's tickets.",
+            'The webapp went through an almost complete UI change, where I made and mostly applied all the changes',
         ]
     },
     {
         time: 'febuary 2020 - march 2021',
         title: 'Front End Wordpress Developer,  Escritolândia',
         doings: [
-            'Using WordPress & WooCommerce to develop and maintain an e-commerce website.',
-            'Creating WordPress plugins, designing UI’s for the company’s website.',
+            "Designed, developed and maintained an e-commerce website from scratch in Wordpress, using custom themes and plugins prioritizing performance, user experience and intuitive interfaces based on Brazil's most famous e-commerces.",
         ]
     },
 ]
