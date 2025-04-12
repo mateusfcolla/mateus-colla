@@ -12,10 +12,10 @@
 
 <script setup>
 
-import { technologieSliderLogos } from '@/utils.js'
+import { getLogoSliderLogos } from '@/utils.js'
 import { onMounted, ref } from 'vue'
 
-const logos = technologieSliderLogos();
+const logos = getLogoSliderLogos();
 
 const orderedLogos = ref(new Array())
 

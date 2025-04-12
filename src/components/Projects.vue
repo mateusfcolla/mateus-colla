@@ -11,14 +11,7 @@ section#relevant-projects
 
 import Project from './Project.vue';
 import Technology from './Technology.vue';
-
-import Wordpress from '@/assets/technologies/wordpress.svg?component'
-import Sass from '@/assets/technologies/sass.svg?component'
-import Tailwind from '@/assets/technologies/tailwind.svg?component'
-import Go from '@/assets/technologies/go.svg?component'
-import React from '@/assets/technologies/react.svg?component'
-import Mongo from '@/assets/technologies/mongo.svg?component'
-import Figma from '@/assets/technologies/figma.svg?component'
+import { getTechIcons } from '@/utils.js';
 
 import Engeled from '@/assets/imgs/Engeled.png'
 import Superpet from '@/assets/imgs/Superpet.png'
@@ -28,6 +21,8 @@ import Oli from '@/assets/imgs/Oli.png'
 import { gsap } from 'gsap'
 import { onMounted } from 'vue'
 
+const techs = getTechIcons()
+
 const projects = [
     {
         title: 'Oli',
@@ -36,9 +31,10 @@ const projects = [
         background: Oli,
         url: 'http://oliapp.com.br/',
         technologies: [
-            { icon: Wordpress, name: 'Wordpress', backgroundColor: '#33a1d3' },
-            { icon: Sass, name: 'Sass', backgroundColor: '#cd6799' },
-            { icon: Tailwind, name: 'Tailwind', backgroundColor: '#38bdf8' },
+            techs.wordpress,
+            techs.sass,
+            techs.tailwind,
+            techs.js
         ]
     },
     {
@@ -48,9 +44,10 @@ const projects = [
         background: Engeled,
         url: 'https://engeled.com.br/',
         technologies: [
-            { icon: Wordpress, name: 'Wordpress', backgroundColor: '#33a1d3' },
-            { icon: Sass, name: 'Sass', backgroundColor: '#cd6799' },
-            { icon: Tailwind, name: 'Tailwind', backgroundColor: '#38bdf8' },
+            techs.wordpress,
+            techs.sass,
+            techs.tailwind,
+            techs.js
         ]
     },
     {
@@ -60,12 +57,12 @@ const projects = [
         url: 'https://superpetdelivery.com.br/',
         background: Superpet,
         technologies: [
-            { icon: React, name: 'React', backgroundColor: '#00d8ff' },
-            { icon: Sass, name: 'Sass', backgroundColor: '#cd6799' },
-            { icon: Tailwind, name: 'Tailwind', backgroundColor: '#38bdf8' },
-            { icon: Go, name: 'Go', backgroundColor: '#08afd8' },
-            { icon: Mongo, name: 'MongoDb', backgroundColor: '#4ca84b' },
-
+            techs.react,
+            techs.sass,
+            techs.tailwind,
+            techs.js,
+            techs.go,
+            techs.mongo,
         ]
     },
     {
@@ -75,7 +72,7 @@ const projects = [
         url: 'https://velope.com.br/',
         background: Velope,
         technologies: [
-            { icon: Figma, name: 'Figma', backgroundColor: '#f24e1e' },
+            techs.figma,
         ]
     },
 ]

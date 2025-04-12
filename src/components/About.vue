@@ -23,7 +23,7 @@ section#about
 <script setup>
 
 import { ref, onMounted } from 'vue'
-import { redirect, technologieSliderLogos } from '@/utils.js'
+import { redirect, getLogoSliderLogos } from '@/utils.js'
 import { gsap } from 'gsap'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -32,7 +32,7 @@ import github from '@/assets/icons/socials-github.svg'
 import codepen from '@/assets/icons/socials-codepen.svg'
 import dribbble from '@/assets/icons/socials-dribbble.svg'
 
-const logos = technologieSliderLogos()
+const logos = getLogoSliderLogos()
 
 const orderedLogos = ref(new Array())
 
