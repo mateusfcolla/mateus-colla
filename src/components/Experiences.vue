@@ -9,22 +9,30 @@ section#experiences
                 h4 {{ experience.title }}
                 ul
                     li( v-for="doing in experience.doings" ) {{ doing }}
+                .techs( v-if="experience.technologies.length > 0" )
+                    Technology( v-for="tech, index in experience.technologies" :key="`tech${index}`" :icon="tech.icon" :backgroundColor="tech.backgroundColor" :name="tech.name" )
     .experiences.experiences__mobile
         .experience.is-active( v-for="experience, index in experiences" :key="`experience${index}`" )
             p {{ experience.time }}
             h4 {{ experience.title }}
             ul
                 li( v-for="doing in experience.doings" ) {{ doing }}
+            .techs
+                Technology( v-for="tech, index in experience.technologies" :key="`tech${index}`" :icon="tech.icon" :backgroundColor="tech.backgroundColor" :name="tech.name" )
 </template>
 
 <script setup>
 
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide';
+import Technology from './Technology.vue';
+import { getTechIcons } from '@/utils.js'
 import '@splidejs/vue-splide/css/core';
 import { onMounted } from 'vue'
 import { gsap } from 'gsap'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const techs = getTechIcons()
 
 const SplideOptions = {
     perPage: 1,
@@ -42,6 +50,14 @@ const experiences = [
         doings: [
             'Using Next.js as a frontend and Wordpress as the backend to make improvements in speed/performance, create new pages, refactor components and make improvements in general on the company’s website.',
             'Being a part in agile development methodologies ( Scrum ), adding documentation about what I do, and using the Atlasian workspace to manage tasks and documentation.'
+        ],
+        technologies: [
+            techs.next,
+            techs.wordpress,
+            techs.tailwind,
+            techs.js,
+            techs.php,
+            techs.sass,
         ]
     },
     {
@@ -49,6 +65,13 @@ const experiences = [
         title: 'Web Developer, Mosyle',
         doings: [
             "Using technologies such as React.js with TS and .NET to make general improvements, add new features, create components and maintain the company's webapp.",
+        ],
+        technologies: [
+            techs.react,
+            techs.dotnet,
+            techs.tailwind,
+            techs.ts,
+            techs.sass,
         ]
     },
     {
@@ -56,6 +79,19 @@ const experiences = [
         title: 'Web Developer Freelance, WKode',
         doings: [
             'Created and maintained websites using various technologies, including, but not limited to, landing pages, institutional websites and e-commerces, having in mind coding best practices and industry standards, focusing on performance and SEO.',
+        ],
+        technologies: [
+            techs.next,
+            techs.go,
+            techs.wordpress,
+            techs.tailwind,
+            techs.react,
+            techs.sass,
+            techs.ts,
+            techs.js,
+            techs.figma,
+            techs.php,
+            techs.mongo,
         ]
     },
     {
@@ -64,6 +100,15 @@ const experiences = [
         doings: [
             "Using technologies such as Vue.js, Nuxt.js and Node.js to implement new features, screens and improving the user experience. Created an institutional website from scratch using Vue.js, implemented Lambda functions to improve the webapp's functioning and performance and helped maintain the company's webapp, solving customer's tickets.",
             'The webapp went through an almost complete UI change, where I made and mostly applied all the changes',
+        ],
+        technologies: [
+            techs.vue,
+            techs.nuxt,
+            techs.express,
+            techs.sass,
+            techs.node,
+            techs.js,
+            techs.figma,
         ]
     },
     {
@@ -71,6 +116,13 @@ const experiences = [
         title: 'Front End Wordpress Developer,  Escritolândia',
         doings: [
             "Designed, developed and maintained an e-commerce website from scratch in Wordpress, using custom themes and plugins prioritizing performance, user experience and intuitive interfaces based on Brazil's most famous e-commerces.",
+        ],
+        technologies: [
+            techs.wordpress,
+            techs.js,
+            techs.sass,
+            techs.php,
+            techs.figma,
         ]
     },
 ]
@@ -174,11 +226,6 @@ h2.title {
     opacity: .6;
     margin-right: 2rem;
 
-
-    &.is-active {
-        opacity: 1;
-    }
-
     p {
         color: #E7E7E7;
         font-size: 1.125rem;
@@ -208,6 +255,26 @@ h2.title {
             line-height: 160%;
         }
 
+    }
+
+    .techs {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        margin-left: 1.5rem;
+        flex-wrap: wrap;
+
+        .technology_wrapper {
+            pointer-events: none;
+        }
+    }
+
+    &.is-active {
+        opacity: 1;
+
+        .technology_wrapper {
+            pointer-events: all;
+        }
     }
 
     @media screen and (max-width: 1028px) {

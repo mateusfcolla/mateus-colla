@@ -2,9 +2,9 @@
 
 .technology_wrapper
     .technology( @mouseover="isHovered = true" @mouseleave="isHovered = false" :style="{ boxShadow: getBoxShadow, transition: getTransition}" )
-        .technology__background( :style="{ background: props.backgroundColor || '#000000' }" )
-        component( :is="props.icon")
-    .technology__name( :style="{ background: props.backgroundColor || '#000000' }" ) {{ props.name }}
+        .technology__background( :style="{ background: backgroundColor || '#000000' }" )
+        component( :is="icon")
+    .technology__name( :style="{ background: backgroundColor || '#000000' }" ) {{ name }}
 
 </template>
 
@@ -12,12 +12,13 @@
 
 import { computed, ref } from 'vue'
 
-const props = defineProps(['icon', 'backgroundColor', 'name'])
+const props = defineProps({icon: Object, backgroundColor: String, name: String})
+const { icon, backgroundColor, name } = props;
 const isHovered = ref(false)
 
 const getBoxShadow = computed(() => {
     if(isHovered.value) {
-        return `0px 0px 6px ${props.backgroundColor}`;
+        return `0px 0px 6px ${backgroundColor}`;
     }
     return `none`;
 })

@@ -126,7 +126,7 @@ export const getTechIcons = () => {
         express: {
             icon: Express,
             name: "Express",
-            backgroundColor: '#000000'
+            backgroundColor: '#f7e025'
         },
         node: {
             icon: Node,
@@ -151,7 +151,7 @@ export const getTechIcons = () => {
         next: {
             icon: Next,
             name: "Next",
-            backgroundColor: '#000000'
+            backgroundColor: '#173e6a'
         },
         php: {
             icon: Php,
