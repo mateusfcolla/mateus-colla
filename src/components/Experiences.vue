@@ -48,7 +48,7 @@ const experiences = [
         time: 'october 2024 - today',
         title: 'Senior Web Developer, G-P',
         doings: [
-            'Making improvements in speed and performance, creating new pages, refactorring components and making general improvements on the company’s website.',
+            'Making improvements in speed and performance, creating new pages, refactoring components and making general improvements on the company’s website.',
             'Being a part in agile development methodologies ( Scrum ), adding documentation about what I do, and using the Atlasian workspace to manage tasks and documentation.'
         ],
         technologies: [
