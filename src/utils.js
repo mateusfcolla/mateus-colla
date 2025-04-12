@@ -18,6 +18,25 @@ import vite from '@/assets/logo-slider/vite.svg'
 import photoshop from '@/assets/logo-slider/photoshop.svg'
 import illustrator from '@/assets/logo-slider/illustrator.svg'
 import dotnet from '@/assets/logo-slider/dotnet.svg'
+import javascript from '@/assets/logo-slider/javascript.svg'
+
+// Technologie Icons
+import Wordpress from '@/assets/technologies/wordpress.svg?component'
+import Sass from '@/assets/technologies/sass.svg?component'
+import Tailwind from '@/assets/technologies/tailwind.svg?component'
+import Go from '@/assets/technologies/go.svg?component'
+import React from '@/assets/technologies/react.svg?component'
+import Mongo from '@/assets/technologies/mongo.svg?component'
+import Figma from '@/assets/technologies/figma.svg?component'
+import Vue from '@/assets/technologies/vue.svg?component'
+import Typescript from '@/assets/technologies/typescript.svg?component'
+import Express from '@/assets/technologies/express.svg?component'
+import Node from '@/assets/technologies/node.svg?component'
+import Dotnet from '@/assets/technologies/dotnet.svg?component'
+import Javascript from '@/assets/technologies/javascript.svg?component'
+import Nuxt from '@/assets/technologies/nuxt.svg?component'
+import Next from '@/assets/technologies/next.svg?component'
+import Php from '@/assets/technologies/php.svg?component'
 
 export const redirect = (url, target = '_top') => {
     window.open(url, target)
@@ -32,7 +51,7 @@ export const scrollTo = id => {
       });
 }
 
-export const technologieSliderLogos = () => {
+export const getLogoSliderLogos = () => {
     return [
         { name: "Docker", img: docker, link: "https://www.docker.com/" },
         { name: "ExpressJS", img: express, link: "https://expressjs.com/" },
@@ -51,7 +70,93 @@ export const technologieSliderLogos = () => {
         { name: "Redux", img: redux, link: "https://redux.js.org/" },
         { name: "Vite", img: vite, link: "https://vitejs.dev/" },
         { name: ".NET", img: dotnet, link: "https://dotnet.microsoft.com/" },
+        { name: "Javascript", img: javascript, link: "" },
         { name: "Illustrator", img: illustrator, link: "https://www.adobe.com/br/products/illustrator/campaign/pricing.html?gclid=Cj0KCQjwwuG1BhCnARIsAFWBUC0FiJ8r8vxl1svJiGFo6X_Dmb5dWXYH6G2NSVGRjCyqSa7b6FnIX4QaAuTjEALw_wcB&sdid=KQPNY&mv=search&ef_id=Cj0KCQjwwuG1BhCnARIsAFWBUC0FiJ8r8vxl1svJiGFo6X_Dmb5dWXYH6G2NSVGRjCyqSa7b6FnIX4QaAuTjEALw_wcB:G:s&s_kwcid=AL!3085!3!442396626644!e!!g!!illustrator!188190582!10039578942&gad_source=1" },
         { name: "Photoshop", img: photoshop, link: "https://www.adobe.com/br/products/photoshop/landpa.html?gclid=Cj0KCQjwwuG1BhCnARIsAFWBUC1cIfXm80MZKA-0L3C6qQb4Q5eAOsu4gSuaMsdNDyO2cUSqPNw7gjcaAlUhEALw_wcB&sdid=KQPOM&mv=search&ef_id=Cj0KCQjwwuG1BhCnARIsAFWBUC1cIfXm80MZKA-0L3C6qQb4Q5eAOsu4gSuaMsdNDyO2cUSqPNw7gjcaAlUhEALw_wcB:G:s&s_kwcid=AL!3085!3!534509111647!e!!g!!photoshop!188192502!10077842982&gad_source=1" },
     ]
+}
+
+export const getTechIcons = () => {
+    return {
+        wordpress: {
+            icon: Wordpress,
+            name: 'Wordpress',
+            backgroundColor: '#33a1d3'
+        },
+        sass: {
+            icon: Sass,
+            name: 'Sass',
+            backgroundColor: '#cd6799'
+        },
+        tailwind: {
+            icon: Tailwind,
+            name: 'Tailwind',
+            backgroundColor: '#38bdf8'
+        },
+        react: {
+            icon: React,
+            name: 'React',
+            backgroundColor: '#00d8ff'
+        },
+        go: {
+            icon: Go,
+            name: 'Go',
+            backgroundColor: '#08afd8'
+        },
+        mongo: {
+            icon: Mongo,
+            name: 'MongoDb',
+            backgroundColor: '#4ca84b'
+        },
+        figma: {
+            icon: Figma,
+            name: 'Figma',
+            backgroundColor: '#f24e1e'
+        },
+        vue: {
+            icon: Vue,
+            name: "Vue",
+            backgroundColor: '#4fc08d'
+        },
+        ts: {
+            icon: Typescript,
+            name: "Typescript",
+            backgroundColor: '#007acc'
+        },
+        express: {
+            icon: Express,
+            name: "Express",
+            backgroundColor: '#000000'
+        },
+        node: {
+            icon: Node,
+            name: "Node",
+            backgroundColor: '#8cc84b'
+        },
+        dotnet: {
+            icon: Dotnet,
+            name: ".NET",
+            backgroundColor: '#512bd4'
+        },
+        js: {
+            icon: Javascript,
+            name: "Javascript",
+            backgroundColor: '#f7df1e'
+        },
+        nuxt: {
+            icon: Nuxt,
+            name: "Nuxt",
+            backgroundColor: '#00dc82'
+        },
+        next: {
+            icon: Next,
+            name: "Next",
+            backgroundColor: '#000000'
+        },
+        php: {
+            icon: Php,
+            name: "PHP",
+            backgroundColor: '#777bb3'
+        },
+    }
 }
