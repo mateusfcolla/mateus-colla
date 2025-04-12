@@ -6,7 +6,7 @@ section#about
         p
             | I specialize in
             span(  ) {{" "}} Web Development and UI/UX design {{" "}}
-            | since 2018. I’m passionate about making things better, being prettier or faster, as well as music and creating beautiful interfaces.
+            | since 2018. I’m passionate about making things better, prettier or faster, as well as music and creating beautiful interfaces.
         p
             | I’m a self-taught developer, but also hold a technical degree in System Analysis and Development and I’m always looking for new challenges and opportunities to grow.
         .socials

@@ -48,7 +48,7 @@ const experiences = [
         time: 'october 2024 - today',
         title: 'Senior Web Developer, G-P',
         doings: [
-            'Using Next.js as a frontend and Wordpress as the backend to make improvements in speed/performance, create new pages, refactor components and make improvements in general on the company’s website.',
+            'Making improvements in speed and performance, creating new pages, refactorring components and making general improvements on the company’s website.',
             'Being a part in agile development methodologies ( Scrum ), adding documentation about what I do, and using the Atlasian workspace to manage tasks and documentation.'
         ],
         technologies: [
@@ -64,7 +64,7 @@ const experiences = [
         time: 'july 2024 - january 2025',
         title: 'Web Developer, Mosyle',
         doings: [
-            "Using technologies such as React.js with TS and .NET to make general improvements, add new features, create components and maintain the company's webapp.",
+            "Using the most recent technologies to make general improvements, add new features, create components and maintain the company's webapp.",
         ],
         technologies: [
             techs.react,
@@ -78,7 +78,7 @@ const experiences = [
         time: 'october 2018 - february 2025',
         title: 'Web Developer Freelance, WKode',
         doings: [
-            'Created and maintained websites using various technologies, including, but not limited to, landing pages, institutional websites and e-commerces, having in mind coding best practices and industry standards, focusing on performance and SEO.',
+            'Created and maintained websites, including landing pages, institutional websites and e-commerces, having in mind best practices of coding, focusing on performance and SEO.',
         ],
         technologies: [
             techs.next,
@@ -98,7 +98,7 @@ const experiences = [
         time: 'april 2021 - april 2024',
         title: 'Web Developer & UI/UX Designer,  JettaCargo',
         doings: [
-            "Using technologies such as Vue.js, Nuxt.js and Node.js to implement new features, screens and improving the user experience. Created an institutional website from scratch using Vue.js, implemented Lambda functions to improve the webapp's functioning and performance and helped maintain the company's webapp, solving customer's tickets.",
+            "Using recent technologies to implement new features, screens and improving the user experience. Created an institutional website from scratch, implemented Lambda functions to improve API fatures and more.",
             'The webapp went through an almost complete UI change, where I made and mostly applied all the changes',
         ],
         technologies: [
@@ -115,7 +115,7 @@ const experiences = [
         time: 'febuary 2020 - march 2021',
         title: 'Front End Wordpress Developer,  Escritolândia',
         doings: [
-            "Designed, developed and maintained an e-commerce website from scratch in Wordpress, using custom themes and plugins prioritizing performance, user experience and intuitive interfaces based on Brazil's most famous e-commerces.",
+            "Designed, developed and maintained an e-commerce website from scratch, using custom themes and plugins prioritizing performance, user experience and intuitive interfaces based on Brazil's most famous e-commerces.",
         ],
         technologies: [
             techs.wordpress,
