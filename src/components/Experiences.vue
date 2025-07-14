@@ -39,17 +39,23 @@ const SplideOptions = {
     type: 'loop',
     pagination: false,
     rewindByDrag: true,
-    fixedWidth: '51.6875rem',
+    fixedWidth: '70rem',
     arrowPath: 'M16.8929 13.6928C17.2834 13.3023 17.9166 13.3023 18.3071 13.6928L23.9071 19.2928C24.0946 19.4803 24.2 19.7347 24.2 19.9999C24.2 20.2651 24.0946 20.5195 23.9071 20.707L18.3071 26.307C17.9166 26.6975 17.2834 26.6975 16.8929 26.307C16.5023 25.9165 16.5023 25.2833 16.8929 24.8928L21.7858 19.9999L16.8929 15.107C16.5023 14.7165 16.5023 14.0833 16.8929 13.6928Z'
 }
 
 const experiences = [
     {
         time: 'october 2024 - today',
-        title: 'Senior Web Developer, G-P',
+        title: 'Senior Web Developer, Freelance',
         doings: [
-            'Making improvements in speed and performance, creating new pages, refactoring components and making general improvements on the company’s website.',
-            'Being a part in agile development methodologies ( Scrum ), adding documentation about what I do, and using the Atlasian workspace to manage tasks and documentation.'
+            'Reduced API call times by an average of 80% through advanced data prefetching, query optimization, and custom caching policies.',
+            'Boosted Core Web Vitals by adding skeleton loaders, lazy loading, and pagination for large datasets.',
+            'Integrated responsive PDF viewer with mobile optimization for smoother user access.',
+            'Created reusable React component libraries using Context API and Hooks.',
+            'Automated WordPress deployments to Vercel, enabling instant content updates after key changes.',
+            'Engineered custom Gutenberg blocks and advanced ACF setups for modular, flexible content editing.',
+            'Enhanced app integrations ( chatbot, UTM tracking, VWO A/B tests) and implemented structured SEO strategies including meta tags and rich schema.',
+            'Implemented secure CI/CD pipelines with GitHub Actions.'
         ],
         technologies: [
             techs.next,
@@ -61,10 +67,13 @@ const experiences = [
         ]
     },
     {
-        time: 'july 2024 - january 2025',
-        title: 'Web Developer, Mosyle',
+        time: 'july 2024 - october 2024',
+        title: 'Web Developer, Mosyle ( Assetbots )',
         doings: [
-            "Using the most recent technologies to make general improvements, add new features, create components and maintain the company's webapp.",
+            "Built component-based UIs aligned with Figma designs using MUI and Styled Components.",
+            "Added features and enhancements to core interfaces using TypeScript and React.",
+            "Implemented and Improved A/B tests to measure UX changes and guide product improvements.",
+            "Upgraded backend APIs to support interactive features and secure data handling.",
         ],
         technologies: [
             techs.react,
@@ -75,10 +84,17 @@ const experiences = [
         ]
     },
     {
-        time: 'october 2018 - february 2025',
+        time: 'april 2024 - october 2024',
         title: 'Web Developer Freelance, WKode',
         doings: [
-            'Created and maintained websites, including landing pages, institutional websites and e-commerces, having in mind best practices of coding, focusing on performance and SEO.',
+            'Built modular WordPress themes and custom ACF/Gutenberg blocks enabling flexible content management for 30+ websites.',
+            "Engineered custom Gutenberg blocks using React, TypeScript, and WordPress REST API for dynamic content editing.",
+            "Led development of headless architectures integrating WPGraphQL and microfrontend SPAs with React.",
+            "Built scalable component libraries using Hooks and Context API, improving developer efficiency.",
+            "Implemented secure CI/CD pipelines with GitHub Actions and Docker.",
+            "Improved performance and maintainability for headless WordPress SPAs with microfrontend architectures.",
+            "Integrated secure authentication using OAuth and built APIs with Express.js and GoLang ( Gin ).",
+            "Enhanced SEO with SSR, schema markup, and Lighthouse audits."
         ],
         technologies: [
             techs.next,
@@ -98,8 +114,14 @@ const experiences = [
         time: 'april 2021 - april 2024',
         title: 'Web Developer & UI/UX Designer,  JettaCargo',
         doings: [
-            "Using recent technologies to implement new features, screens and improving the user experience. Created an institutional website from scratch, implemented Lambda functions to improve API fatures and more.",
-            'The webapp went through an almost complete UI change, where I made and mostly applied all the changes',
+            "Built a 3D editor UI modeled after Blender, improving usability for customized cargo planning.",
+            'Created a microservice to dynamically generate PDF cargo reports, offering API-first users report access.',
+            'Designed and integrated a full onboarding tutorial system, reducing user drop-off during first-time interactions.',
+            'Led a complete UI/UX redesign of the company’s core web app for a more modern and intuitive interface.',
+            'Rebuilt corporate website in Nuxt.js, focusing on SEO and responsive UX.',
+            'Upgraded backend APIs to support interactive features and secure data handling.',
+            'Created reusable Vue component libraries, improving Component-Based architecture on the main webapp.',
+            'Implemented a custom chatbot and support ticket integration within the webapp.',
         ],
         technologies: [
             techs.vue,
@@ -112,10 +134,20 @@ const experiences = [
         ]
     },
     {
-        time: 'febuary 2020 - march 2021',
+        time: 'march 2020 - april 2021',
         title: 'Front End Wordpress Developer,  Escritolândia',
         doings: [
-            "Designed, developed and maintained an e-commerce website from scratch, using custom themes and plugins prioritizing performance, user experience and intuitive interfaces based on Brazil's most famous e-commerces.",
+            "Designed and developed a custom e-commerce website from scratch using WordPress and WooCommerce.",
+            "Built a fully custom theme with a UI inspired by MercadoLivre and Amazon, optimized for conversion and speed.",
+            "Engineered dynamic Gutenberg blocks and ACF layouts to allow flexible content and product management.",
+            "Developed an integration between the website and the company’s internal system to sync product data and pricing in real time.",
+            "Implemented secure payment APIs to support various checkout flows.",
+            "Created icon fonts to reduce HTTP requests and improve overall load performance.",
+            "Led SEO strategies like schema markup, optimized image formats, improved loading speed, and structured internal links.",
+            "Set up tracking and behavior analytics using Google Analytics and Google Search Console to optimize product visibility.",
+            "Designed marketing materials and product images using Adobe tools.",
+            "Managed cloud infrastructure and DNS configurations, ensuring uptime and scalability.",
+            "Launched and monitored promotional campaigns with automated discounts and banners.",
         ],
         technologies: [
             techs.wordpress,
