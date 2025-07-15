@@ -111,11 +111,11 @@ main {
 
     h2 {
         color: #DBDBDB;
-        font-size: 1.7rem;
+        font-size: 2rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        margin-bottom: .8rem;
+        margin-bottom: 1.2rem;
         text-align: center;
         user-select: none;
 
