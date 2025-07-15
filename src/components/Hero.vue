@@ -1,5 +1,11 @@
 <template lang="pug">
 main
+    #stars
+    #stars2
+    #stars3
+    #horizon
+    .glow
+    #earth
     h2 Hey! I’m Mateus Felipe
     h1
         span.word Web Developer
@@ -89,11 +95,14 @@ onMounted(() => {
 
 <style lang="scss">
 
+@import "@/assets/home/background.scss";
+
 main {
-    min-height: 80vh;
+    min-height: 90vh;
     padding: 2.31rem 7.38rem;
     position: relative;
     padding-top: 30vh;
+    overflow: hidden;
 
     @media screen and (max-width: 1028px) {
         padding: 1rem 2.31rem;
@@ -106,8 +115,13 @@ main {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        margin-bottom: .6rem;
+        margin-bottom: .8rem;
         text-align: center;
+        user-select: none;
+
+        @media screen and (max-width: 1028px) {
+            font-size: 1rem;
+        }
     }
 
     h1 {
@@ -118,6 +132,11 @@ main {
         font-weight: 700;
         text-transform: uppercase;
         position: relative;
+        user-select: none;
+
+        @media screen and (max-width: 1028px) {
+            font-size: 2.4rem;
+        }
 
         .word {
             text-rendering: optimizeLegibility!important;
@@ -151,6 +170,10 @@ main {
 
         &:hover {
             color: #ffffff;
+        }
+
+        @media screen and (max-width: 1028px) {
+            display: none;
         }
     }
 
