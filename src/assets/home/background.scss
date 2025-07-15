@@ -1,15 +1,25 @@
 @function multiple-box-shadow ($n) {
-  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  $value: '#{random(2000)}px #{random(2000)}px #DBDBDB';
+
   @for $i from 2 through $n {
-    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #DBDBDB';
   }
 
   @return unquote($value);
 }
-$shadows-small: multiple-box-shadow(700);
-$shadows-medium: multiple-box-shadow(200);
-$shadows-big: multiple-box-shadow(100);
 
+$shadows-small: multiple-box-shadow(300);
+$shadows-medium: multiple-box-shadow(100);
+$shadows-big: multiple-box-shadow(50);
+
+#stars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: -1.31rem;
+}
 
 #stars {
   width: 1px;
@@ -86,7 +96,7 @@ $shadows-big: multiple-box-shadow(100);
     height: 70%;
     border-radius: 100% / 100%;
 
-    background: #ca2b2b;
+    background: #a02626;
     -webkit-filter: blur(30px);
     opacity: 0.6;
 
@@ -99,7 +109,7 @@ $shadows-big: multiple-box-shadow(100);
     height: 20%;
     border-radius: 650px / 350px;
 
-    background: #ca6060;
+    background: #521a8049;
     -webkit-filter: blur(30px);
     opacity: 0.5;
 
@@ -111,7 +121,7 @@ $shadows-big: multiple-box-shadow(100);
     height: 100%;
     border-radius: 100% / 100%;
 
-    background: #ad2525;
+    background: #6e1010;
     -webkit-filter: blur(200px);
     opacity: 0.7;
 

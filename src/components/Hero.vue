@@ -1,8 +1,9 @@
 <template lang="pug">
 main
-    #stars
-    #stars2
-    #stars3
+    #stars-container
+        #stars
+        #stars2
+        #stars3
     #horizon
     .glow
     #earth
