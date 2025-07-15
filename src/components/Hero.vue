@@ -1,65 +1,87 @@
 <template lang="pug">
 main
-    p Hey! I’m Mateus Felipe, web developer and designer
+    h2 Hey! I’m Mateus Felipe
     h1
-        span Let’s build beautiful applications
-        span {{" "}}together.
-    .actions
-        .button( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) contact me
-        .button( @click="redirect('#relevant-projects')" ).outline what I've been working on
+        span.word Web Developer
+        span.word UI/UX Designer
     .socials
         a( @click="redirect('https://github.com/mateusfcolla', '_blank')" rel="noopener noreferrer")
             img( :src="github" alt="My Github")
         a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
             img( :src="dribbble" alt="My Dribbble")
-    LogoSlider.tech-slider
+    .contact
+        a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) felipe.colla.m@gmail.com
 
 </template>
 
 <script setup>
-
-import github from '@/assets/icons/socials-github.svg'
-import codepen from '@/assets/icons/socials-codepen.svg'
-import dribbble from '@/assets/icons/socials-dribbble.svg'
-import LogoSlider from './LogoSlider.vue'
-import { redirect } from '@/utils.js'
-import { gsap } from 'gsap'
 import { onMounted } from 'vue'
+import github from '@/assets/icons/socials-github.svg'
+import dribbble from '@/assets/icons/socials-dribbble.svg'
+import { redirect } from '@/utils.js'
 
-gsap.registerPlugin(ScrollTrigger)
+onMounted(() => {
+    const words = document.getElementsByClassName("word");
+    const wordArray = [];
+    let currentWord = 0;
 
-onMounted(async () => {
+    words[currentWord].style.opacity = 1;
 
-    const scrollConfig = {
-        trigger: 'main',
-        start: '10% middle',
-        scrub: .6,
+    for (let i = 0; i < words.length; i++) {
+        splitLetters(words[i]);
     }
 
-    gsap.to('main .tech-slider', {
-        scrollTrigger: scrollConfig,
-        opacity: 0,
-    })
+    function changeWord() {
+        const cw = wordArray[currentWord];
+        const nw = currentWord == words.length - 1 ? wordArray[0] : wordArray[currentWord + 1];
 
-    gsap.to('main h1', {
-        scrollTrigger: scrollConfig,
-        x: -70,
-    })
+        for (let i = 0; i < cw.length; i++) {
+            animateLetterOut(cw, i);
+        }
 
-    gsap.to('main p', {
-        scrollTrigger: scrollConfig,
-        x: -70,
-    })
+        for (let i = 0; i < nw.length; i++) {
+            nw[i].className = "letter behind";
+            nw[0].parentElement.style.opacity = 1;
+            animateLetterIn(nw, i);
+        }
 
-    gsap.to('main .actions', {
-        scrollTrigger: scrollConfig,
-        x: -70,
-    })
+        currentWord = (currentWord == wordArray.length - 1) ? 0 : currentWord + 1;
+    }
 
-    gsap.to('main .socials', {
-        scrollTrigger: scrollConfig,
-        x: -70,
-    })
+    function animateLetterOut(cw, i) {
+        setTimeout(function () {
+            cw[i].className = "letter out";
+        }, i * 45);
+    }
+
+    function animateLetterIn(nw, i) {
+        setTimeout(
+            function () {
+            nw[i].className = "letter in";
+            },
+            340 + i * 45,
+        );
+    }
+
+    function splitLetters(word) {
+
+        const content = word.innerHTML;
+        word.innerHTML = "";
+        const letters = [];
+
+        for (let i = 0; i < content.length; i++) {
+            const letter = document.createElement("span");
+            letter.className = "letter";
+            letter.innerHTML = content.charAt(i);
+            word.appendChild(letter);
+            letters.push(letter);
+        }
+
+        wordArray.push(letters);
+    }
+
+    changeWord();
+    setInterval(changeWord, 3500);
 
 })
 
@@ -78,41 +100,34 @@ main {
         padding-top: 30vh;
     }
 
-    p {
-        color: #D3D2D8;
-        font-size: 1.2rem;
+    h2 {
+        color: #DBDBDB;
+        font-size: 1.7rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         margin-bottom: .6rem;
-    }
-
-    .tech-slider {
-        position: absolute;
-        top: 0;
-        right: 7.38rem;
-        height: 100%;
-
-        @media screen and (max-width: 1028px) {
-            position: relative;
-            padding-top: 5rem;
-            padding-bottom: 8rem;
-            top: unset;
-            right: unset;
-            top: 100%;
-            left: 0;
-        }
+        text-align: center;
     }
 
     h1 {
         color: #ffffff;
-        font-family: Lusitana;
-        font-size: 2.69719rem;
+        font-family: "Readex Pro", sans-serif;
+        font-size: 5rem;
         font-style: normal;
         font-weight: 700;
+        text-transform: uppercase;
+        position: relative;
 
-        span {
+        .word {
+            text-rendering: optimizeLegibility!important;
+            white-space: pre;
+            left: 50%;
+            transform: translate(-50%, -10%);
+            opacity: 0;
             display: block;
+            top: 0;
+            position: absolute;
         }
 
         @media screen and (max-width: 1028px) {
@@ -122,13 +137,20 @@ main {
         }
     }
 
-    .actions {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
+    .contact {
+        position: absolute;
+        bottom: 50%;
+        right: -1.4rem;
+        transform: translateY(-50%) rotate(90deg);
+        font-size: 1rem;
+        color: #CFCFCF;
+        font-weight: 400;
+        cursor: pointer;
+        user-select: none;
+        transition: .2s;
 
-        @media screen and (max-width: 1028px) {
-            flex-direction: column;
+        &:hover {
+            color: #ffffff;
         }
     }
 
@@ -136,7 +158,9 @@ main {
         position: absolute;
         display: flex;
         gap: .6rem;
-        bottom: 2.31rem;
+        left: 50%;
+        bottom: 1.4rem;
+        transform: translateX(-50%);
 
         a {
             cursor: pointer;
@@ -147,5 +171,28 @@ main {
         }
     }
 }
+
+.letter {
+  text-rendering: optimizeLegibility !important;
+  display: inline-block;
+  position: relative;
+  transform: translateZ(25px);
+  transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+  transform: rotateX(90deg);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+  transform: rotateX(90deg);
+}
+
+.letter.in {
+  transform: rotateX(0deg);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 
 </style>
