@@ -96,7 +96,7 @@ onMounted(() => {
 
 <style lang="scss">
 
-@import "@/assets/home/background.scss";
+@import "@/assets/hero/background.scss";
 
 main {
     min-height: 90vh;
