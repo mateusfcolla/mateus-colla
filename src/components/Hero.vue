@@ -110,7 +110,7 @@ main {
     }
 
     h2 {
-        color: #DBDBDB;
+        color: #f3f3f3;
         font-size: 2rem;
         font-style: normal;
         font-weight: 400;
