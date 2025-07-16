@@ -1,8 +1,8 @@
 <template lang="pug">
 
 Hero
-Projects
 About
+Projects
 SectionSeparator
 Experiences
 Offers

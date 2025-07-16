@@ -6,6 +6,11 @@
   transition: .2s;
 }
 
+::selection {
+  background: #C42828;
+  color: #ffffff;
+}
+
 :root {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -41,16 +46,16 @@ body {
 
 section {
 
-  padding: 2.31rem 7.38rem;
+  padding: 0rem 7.38rem;
   font-family: 'Roboto', sans-serif;
 
   @media screen and (max-width: 1028px) {
-    padding: 4rem 2.31rem;
+    padding: 0rem 0rem;
   }
 
   h2 {
     font-family: "Readex Pro", sans-serif;
-    font-size: 2.39719rem;
+    font-size: 2.6rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -59,7 +64,7 @@ section {
 
   p {
     color: #D3D2D8;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-style: normal;
     line-height: 175%;
   }
@@ -72,18 +77,19 @@ section {
   font-family: 'Roboto', sans-serif;
   align-items: center;
   gap: 0.625rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   border-radius: 0;
-  color: black;
-  border: 1px solid #ffffff;
-  background: #ffffff;
+  color: #C42828;
+  border: 1px solid #C42828;
+  background: transparent;
   width: fit-content;
+  user-select: none;
 
   &:hover {
-      background: none;
+      background: #C42828;
       color: #ffffff;
       cursor: pointer;
   }

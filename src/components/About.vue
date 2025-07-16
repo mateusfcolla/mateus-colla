@@ -4,67 +4,23 @@ section#about
     .left
         h2 A little about myself...
         p
-            | I specialize in
-            span(  ) {{" "}} Web Development and UI/UX design {{" "}}
-            | since 2018. I’m passionate about making things better, prettier or faster, as well as music and creating beautiful interfaces.
-        p
-            | I’m a self-taught developer, but also hold a technical degree in System Analysis and Development and I’m always looking for new challenges and opportunities to grow.
-        .socials
-            a( @click="redirect('https://github.com/mateusfcolla', '_blank')" rel="noopener noreferrer")
-                img( :src="github" alt="My Github")
-            a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
-                img( :src="dribbble" alt="My Dribbble")
+            | I work and specialize in  since 2018. 
+            span(  ) {{" "}} web development and design {{" "}}
+            | I’m passionate about creating inspiring interfaces and improving applications.
+        .button( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')") contact me
+
     .right
-        a.logo-slide( v-for="logo, index in orderedLogos" :href="logo.link" target="_blank" :key="logo.name+index" )
-            img( :src="logo.img" :alt="logo.name" )
+        h2 Languages
+        ul
+            li Fluent English
+            li Native Brazillian Portuguese
+            li Basic German
 
 </template>
 
 <script setup>
 
-import { ref, onMounted } from 'vue'
 import { redirect, getLogoSliderLogos } from '@/utils.js'
-import { gsap } from 'gsap'
-
-gsap.registerPlugin(ScrollTrigger)
-
-import github from '@/assets/icons/socials-github.svg'
-import codepen from '@/assets/icons/socials-codepen.svg'
-import dribbble from '@/assets/icons/socials-dribbble.svg'
-
-const logos = getLogoSliderLogos()
-
-const orderedLogos = ref(new Array())
-
-const getOrderedLogos = () => {
-    const sorted = logos.sort((a, b) => 0.8 - Math.random());
-    return sorted;
-}
-
-onMounted(() => {
-    orderedLogos.value = getOrderedLogos()
-
-    const scrollConfig = {
-        trigger: '#about',
-        start: '-130%',
-        end: '-80%',
-        scrub: .6,
-    }
-
-    gsap.from('.left', {
-        scrollTrigger: scrollConfig,
-        opacity: 0,
-        y: 200,
-        x: -200,
-    })
-
-    gsap.from('.right', {
-        scrollTrigger: scrollConfig,
-        opacity: 0,
-        x: 400,
-        scale: 2,
-    })
-})
 
 </script>
 
@@ -72,21 +28,29 @@ onMounted(() => {
 
 #about {
     display: flex;
-    gap: 5.5rem;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-    justify-content: space-between;
+    border-top: 1px solid #414141;
+    position: relative;
+    overflow: hidden;
 
-    @media screen and (max-width: 1028px) {
-        flex-direction: column;
-        margin-bottom: 3rem;
+    & > div {
+        padding: 3.125rem;
+        align-items: flex-start;
+        gap: 5.5rem;
+        border-bottom: 1px solid #414141;
+
+        @media screen and (max-width: 1028px) {
+            width: 100%!important;
+            border-right: none!important;
+            border-left: none!important;
+        }
     }
 
     .left {
         display: flex;
         flex-direction: column;
         gap: 2.56rem;
-        max-width: 39.3125rem;
+        width: 50%;
+        border-left: 1px solid #414141;
 
         b, span {
             color: #ffffff;
@@ -96,25 +60,33 @@ onMounted(() => {
 
     .right {
         display: flex;
-        max-width: 40.4375rem;
-        justify-content: center;
-        align-items: flex-start;
-        align-content: flex-start;
-        gap: 1.625rem 2.3125rem;
+        width: 50%;
+        flex-direction: column;
+        gap: 2.56rem;
         flex-wrap: wrap;
+        border-left: 1px solid #414141;
+        border-right: 1px solid #414141;
+        min-height: 32.25rem;
+        position: relative;
+        overflow: hidden;
+        background: #181818;
+        box-shadow: 0px 0px 30.5px 0px #ffc4c517;
 
-        .logo-slide img{
-            width: 5.875rem;
-            height: 5.875rem;
-            filter: grayscale(00%);
+        h2 {
+            color: #C42828;
+        }
 
-            @media screen and (max-width: 1028px) {
-                display: none;
-            }
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .56rem;
 
-            &:hover {
-                transform: scale(1.1);
-                filter: grayscale(0%);
+            li {
+                font-size: 1.25rem;
+                color: #CECECE;
+                font-weight: 700;
+                line-height: 175%;
             }
         }
     }
@@ -132,6 +104,12 @@ onMounted(() => {
             }
         }
     }
+
+    @media screen and (max-width: 1028px) {
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
 }
 
 </style>

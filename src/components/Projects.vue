@@ -134,8 +134,10 @@ onMounted(async () => {
 <style lang="scss">
 
 #relevant-projects {
-    color: #0F0F0F;
-    background: #ffffff;
+    color: #C42828;
+    background: #191919;
+    border-top: 1px solid #414141;
+    border-bottom: 1px solid #414141;
     display: flex;
     flex-direction: column;
     gap: 3.56rem;
@@ -144,8 +146,8 @@ onMounted(async () => {
     text-align: center;
 
     h2 {
-        color: #0F0F0F;
-        font-family: 'Lusitana';
+        color: #FFF;
+        font-family: "Readex Pro" sans-serif;
         font-size: 2.39719rem;
         font-style: normal;
         font-weight: 700;
