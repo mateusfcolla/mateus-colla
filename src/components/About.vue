@@ -15,12 +15,152 @@ section#about
             li Fluent English
             li Native Brazillian Portuguese
             li Basic German
+        #threejs-container
 
 </template>
 
 <script setup>
-
+import { onMounted, onBeforeUnmount } from 'vue'
 import { redirect, getLogoSliderLogos } from '@/utils.js'
+import * as THREE from 'three';
+
+let renderer, scene, camera, sphere, wireframe, animationId;
+
+function resizeRenderer(container) {
+    if (!renderer || !camera || !container) return;
+    const width = container.offsetWidth;
+    const height = container.offsetHeight;
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+}
+
+let isDragging = false;
+let previousMouseX = 0;
+let autoRotate = true;
+let autoRotateSpeed = 0.005; // default speed
+const defaultAutoRotateSpeed = 0.005;
+let lastDragSpeed = 0;
+let easing = false;
+
+function onPointerDown(event) {
+    isDragging = true;
+    autoRotate = false;
+    previousMouseX = event.clientX;
+    lastDragSpeed = 0;
+    easing = false;
+}
+
+function onPointerMove(event) {
+    if (!isDragging) return;
+    const deltaX = event.clientX - previousMouseX;
+    previousMouseX = event.clientX;
+    const rotationSpeed = 0.01;
+    const rotationDelta = deltaX * rotationSpeed;
+    sphere.rotation.y += rotationDelta;
+    wireframe.rotation.y += rotationDelta;
+    // Save the last drag speed (direction included)
+    lastDragSpeed = rotationDelta;
+}
+
+function onPointerUp() {
+    isDragging = false;
+    // Set auto-rotation speed to last drag speed, then ease back to default
+    autoRotateSpeed = lastDragSpeed;
+    autoRotate = true;
+    easing = true;
+}
+
+function easeAutoRotateSpeed() {
+    if (!easing) return;
+    // Smoothly interpolate autoRotateSpeed back to defaultAutoRotateSpeed
+    autoRotateSpeed += (defaultAutoRotateSpeed - autoRotateSpeed) * 0.05;
+    // If close enough, snap to default and stop easing
+    if (Math.abs(autoRotateSpeed - defaultAutoRotateSpeed) < 0.0001) {
+        autoRotateSpeed = defaultAutoRotateSpeed;
+        easing = false;
+    }
+}
+
+onMounted(() => {
+    const container = document.getElementById('threejs-container');
+    if (!container) return;
+
+    // Scene setup
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(60, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+    camera.position.z = 2.5;
+
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(container.offsetWidth, container.offsetHeight);
+    renderer.setClearColor(0x000000, 0); // transparent background
+    container.appendChild(renderer.domElement);
+
+    // Transparent Sphere (fully transparent, smooth/round)
+    const geometry = new THREE.SphereGeometry(1.2, 16, 16); // more segments for smoothness
+    const material = new THREE.MeshPhysicalMaterial({
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0.0, // fully transparent
+    });
+    sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    // Wireframe (latitude/longitude lines, smooth)
+    const wireframeGeometry = new THREE.WireframeGeometry(geometry);
+    wireframe = new THREE.LineSegments(
+        wireframeGeometry,
+        new THREE.LineBasicMaterial({ color: 0x282828, linewidth: 2 })
+    );
+    scene.add(wireframe);
+
+    // Lighting (not strictly needed for wireframe, but harmless)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    scene.add(ambientLight);
+
+    // Animation loop (horizontal rotation only, slower)
+    function animate() {
+        animationId = requestAnimationFrame(animate);
+        if (autoRotate) {
+            sphere.rotation.y += autoRotateSpeed;
+            wireframe.rotation.y += autoRotateSpeed;
+            easeAutoRotateSpeed();
+        }
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle resize
+    const handleResize = () => resizeRenderer(container);
+    window.addEventListener('resize', handleResize);
+
+    const canvas = renderer.domElement;
+    canvas.addEventListener('pointerdown', onPointerDown);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+
+    // Initial resize
+    resizeRenderer(container);
+
+    // Cleanup
+    onBeforeUnmount(() => {
+        window.removeEventListener('resize', handleResize);
+        if (animationId) cancelAnimationFrame(animationId);
+        if (renderer) {
+            renderer.dispose();
+            renderer.forceContextLoss();
+            renderer.domElement = null;
+            renderer = null;
+        }
+        scene = null;
+        camera = null;
+        sphere = null;
+        wireframe = null;
+        canvas.removeEventListener('pointerdown', onPointerDown);
+        window.removeEventListener('pointermove', onPointerMove);
+        window.removeEventListener('pointerup', onPointerUp);
+    });
+})
 
 </script>
 
@@ -87,6 +227,25 @@ import { redirect, getLogoSliderLogos } from '@/utils.js'
                 color: #CECECE;
                 font-weight: 700;
                 line-height: 175%;
+            }
+        }
+
+        #threejs-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 30%;
+            top: 50%;
+
+            @media screen and (max-width: 1028px) {
+                left: 0;
+                top: 60%;
+                pointer-events: none;
+            }
+            canvas {
+                width: 100%!important;
+                height: 100%!important;
+                display: block;
             }
         }
     }
