@@ -99,7 +99,7 @@ onMounted(() => {
 @import "@/assets/hero/background.scss";
 
 main {
-    min-height: 90vh;
+    min-height: 93vh;
     padding: 2.31rem 7.38rem;
     position: relative;
     padding-top: 30vh;
@@ -111,12 +111,12 @@ main {
     }
 
     h2 {
-        color: #f3f3f3;
         font-size: 2rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         margin-bottom: 1.2rem;
+        margin-top: 3.2rem;
         text-align: center;
         user-select: none;
 

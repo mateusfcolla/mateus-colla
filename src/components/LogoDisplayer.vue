@@ -13,14 +13,15 @@ section.logo-displayer
             .empty-logo
         a.logo-display(
             v-for="(logo, index) in row"
+            :class="{ animated: isVisible }"
             :href="logo?.link"
             target="_blank"
             :key="logo?.name + index + rowIndex"
-            :style="{ boxShadow: hoveredIndex === logo?.name + index + rowIndex ? `0px 0px 30px -10px ${logo?.color}` : '', borderColor: hoveredIndex === logo?.name + index + rowIndex ? logo?.color : '' }"
+            :style="{ boxShadow: hoveredIndex === logo?.name + index + rowIndex ? `0px 0px 30px -10px ${logo?.color}` : '', borderColor: hoveredIndex === logo?.name + index + rowIndex ? logo?.color : '', }"
             @mouseenter="hoveredIndex = logo?.name + index + rowIndex"
             @mouseleave="hoveredIndex = null"
         )
-            img( v-if="logo?.img" :src="logo?.img" :alt="logo?.name")
+            img( v-if="logo?.img" :src="logo?.img" :alt="logo?.name" :style="{ animationDelay: `${((rowIndex * logoRows[0].length) + index) * 60}ms`}")
         a.logo-display.empty( v-for="index in 10" :key="'empty-' + index" )
             .empty-logo
     .logo-row
@@ -35,6 +36,7 @@ import { getLogoSliderLogos } from '@/utils.js'
 import { onMounted, onBeforeUnmount, ref, nextTick } from 'vue'
 
 const logos = getLogoSliderLogos();
+const isVisible = ref(false)
 
 const orderedLogos = ref([]);
 const hoveredIndex = ref(null);
@@ -67,6 +69,22 @@ onMounted(() => {
     orderedLogos.value = getOrderedLogos()
     groupLogosIntoRows()
     window.addEventListener('resize', groupLogosIntoRows)
+
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                isVisible.value = true
+                observer.disconnect()
+            }
+        },
+        {
+            root: null,
+            threshold: 0.3, // Trigger when 30% of the section is in view
+        }
+    )
+
+    const el = document.querySelector('.logo-displayer')
+    if (el) observer.observe(el)
 })
 
 onBeforeUnmount(() => {
@@ -86,11 +104,10 @@ onBeforeUnmount(() => {
     flex-wrap: wrap;
     height: 100%;
     justify-content: center;
-    margin: 3rem 0;
 
     h2 {
         position: absolute;
-        top: -.8rem;
+        top: 2.4rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 6;
@@ -136,6 +153,12 @@ onBeforeUnmount(() => {
         border-radius: .8rem;
         transition: .2s;
 
+        &.animated {
+            img {
+                animation: fadeInLogo .2s linear forwards;
+            }
+        }
+
         &.empty {
             content: "";
 
@@ -157,7 +180,14 @@ onBeforeUnmount(() => {
         img {
             width: 4.8rem;
             height: 4.8rem;
+            opacity: 0;
         }
+    }
+}
+
+@keyframes fadeInLogo {
+    to {
+        opacity: 1;
     }
 }
 

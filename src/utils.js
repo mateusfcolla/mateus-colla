@@ -25,6 +25,14 @@ import php from '@/assets/logo-slider/php.svg'
 import graphql from '@/assets/logo-slider/graphql.svg'
 import next from '@/assets/logo-slider/next.svg'
 import nuxt from '@/assets/logo-slider/nuxt.svg'
+import threejs from '@/assets/logo-slider/threejs.svg'
+import gutenberg from '@/assets/logo-slider/gutenberg.svg'
+import contentful from '@/assets/logo-slider/contentful.svg'
+import astro from '@/assets/logo-slider/astro.svg'
+import bootstrap from '@/assets/logo-slider/bootstrap.svg'
+import acf from '@/assets/logo-slider/acf.svg'
+import postgres from '@/assets/logo-slider/postgres.svg'
+import webpack from '@/assets/logo-slider/webpack.svg'
 
 // Technologie Icons
 import Wordpress from '@/assets/technologies/wordpress.svg?component'
@@ -85,6 +93,14 @@ export const getLogoSliderLogos = () => {
         { name: "GraphQl", img: graphql, link: "https://graphql.org/", color: "#e10098" },
         { name: "Next.js", img: next, link: "https://nextjs.org/", color: "#ffffff" },
         { name: "Nuxt.js", img: nuxt, link: "https://nuxtjs.org/", color: "#00dc82" },
+        { name: "Three.js", img: threejs, link: "https://threejs.org/", color: "#049EF4" },
+        { name: "Gutenberg", img: gutenberg, link: "https://wordpress.org/gutenberg/", color: "#ffffff" },
+        { name: "Contentful", img: contentful, link: "https://www.contentful.com/", color: "#FAE501" },
+        { name: "Astro", img: astro, link: "https://astro.build/", color: "#ff5d01" },
+        { name: "Bootstrap", img: bootstrap, link: "https://getbootstrap.com/", color: "#9013FE" },
+        { name: "ACF", img: acf, link: "https://www.advancedcustomfields.com/", color: "#0BBAD4" },
+        { name: "Postgres", img: postgres, link: "https://www.postgresql.org/", color: "#336791" },
+        { name: "Webpack", img: webpack, link: "https://webpack.js.org/", color: "#8ED6FB" }
     ]
 }
 
