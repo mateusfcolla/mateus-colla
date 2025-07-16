@@ -17,14 +17,14 @@ section#about
             li Basic German
         #threejs-container
 section#tech-slider
-    LogoSlider
+    LogoDisplayer
 
 </template>
 
 <script setup>
 import { onMounted, onBeforeUnmount } from 'vue'
 import { redirect, getLogoSliderLogos } from '@/utils.js'
-import LogoSlider from '@/components/LogoSlider.vue'
+import LogoDisplayer from '@/components/LogoDisplayer.vue'
 import * as THREE from 'three';
 
 let renderer, scene, camera, sphere, wireframe, animationId;

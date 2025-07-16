@@ -83,7 +83,7 @@ export const getLogoSliderLogos = () => {
         { name: "AWS", img: aws, link: "https://aws.amazon.com/", color: "#ff9900" },
         { name: "PHP", img: php, link: "https://www.php.net/", color: "#777bb4" },
         { name: "GraphQl", img: graphql, link: "https://graphql.org/", color: "#e10098" },
-        { name: "Next.js", img: next, link: "https://nextjs.org/", color: "#ffffffff" },
+        { name: "Next.js", img: next, link: "https://nextjs.org/", color: "#ffffff" },
         { name: "Nuxt.js", img: nuxt, link: "https://nuxtjs.org/", color: "#00dc82" },
     ]
 }
