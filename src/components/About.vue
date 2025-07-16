@@ -171,6 +171,7 @@ onMounted(() => {
 #about {
     display: flex;
     border-top: 1px solid #2b2b2b;
+    border-bottom: 1px solid #2b2b2b;
     position: relative;
     overflow: hidden;
 
@@ -178,7 +179,6 @@ onMounted(() => {
         padding: 3.125rem;
         align-items: flex-start;
         gap: 5.5rem;
-        border-bottom: 1px solid #2b2b2b;
 
         @media screen and (max-width: 1028px) {
             width: 100%!important;

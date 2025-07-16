@@ -1,7 +1,7 @@
 <template lang="pug">
 
 .logo-displayer
-    h2 Tech stack
+    h2 Technologies
     .logo-row
         a.logo-display.empty( v-for="index in 20" :key="'empty-' + index" )
             .empty-logo
@@ -86,6 +86,7 @@ onBeforeUnmount(() => {
     flex-wrap: wrap;
     height: 100%;
     justify-content: center;
+    margin: 3rem 0;
 
     h2 {
         color: #FFF;
@@ -94,7 +95,7 @@ onBeforeUnmount(() => {
         font-weight: 700;
         font-size: 2.6875rem;
         position: absolute;
-        top: 2.2rem;
+        top: -.8rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 6;
