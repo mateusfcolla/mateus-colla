@@ -132,7 +132,7 @@ $shadows-big: multiple-box-shadow(50);
   position: absolute;
   width: 200%;
   height: 100%;
-  background: #ad2525;
+  background: #972d32;
   border-radius: 100% / 100%;
 
   left: 50%;
@@ -150,9 +150,9 @@ $shadows-big: multiple-box-shadow(50);
   &:after {
     background: linear-gradient(
       to right,
-      #0F0F0F 0%,
-      #0f0f0f79 50%,
-      #0f0f0f2a 100%
+      #1a0303 0%,
+      #1d020279 50%,
+      #1f01012a 100%
     );
     content: " ";
     position: absolute;
