@@ -4,7 +4,7 @@ section#about
     .left
         h2 A little about myself...
         p
-            | I work and specialize in  since 2018. 
+            | I work and specialize in  since 2018.
             span(  ) {{" "}} web development and design {{" "}}
             | I’m passionate about creating inspiring interfaces and improving applications.
         .button( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')") contact me
@@ -113,7 +113,7 @@ onMounted(() => {
     const wireframeGeometry = new THREE.WireframeGeometry(geometry);
     wireframe = new THREE.LineSegments(
         wireframeGeometry,
-        new THREE.LineBasicMaterial({ color: 0x282828, linewidth: 2 })
+        new THREE.LineBasicMaterial({ color: 0x423b3b, linewidth: 2 })
     );
     scene.add(wireframe);
 
@@ -171,7 +171,7 @@ onMounted(() => {
 
 #about {
     display: flex;
-    border-top: 1px solid #414141;
+    border-top: 1px solid #2b2b2b;
     position: relative;
     overflow: hidden;
 
@@ -179,7 +179,7 @@ onMounted(() => {
         padding: 3.125rem;
         align-items: flex-start;
         gap: 5.5rem;
-        border-bottom: 1px solid #414141;
+        border-bottom: 1px solid #2b2b2b;
 
         @media screen and (max-width: 1028px) {
             width: 100%!important;
@@ -193,7 +193,7 @@ onMounted(() => {
         flex-direction: column;
         gap: 2.56rem;
         width: 50%;
-        border-left: 1px solid #414141;
+        border-left: 1px solid #2b2b2b;
 
         b, span {
             color: #ffffff;
@@ -207,13 +207,26 @@ onMounted(() => {
         flex-direction: column;
         gap: 2.56rem;
         flex-wrap: wrap;
-        border-left: 1px solid #414141;
-        border-right: 1px solid #414141;
+        border-left: 1px solid #2b2b2b;
+        border-right: 1px solid #2b2b2b;
         min-height: 32.25rem;
         position: relative;
         overflow: hidden;
         background: #181818;
-        box-shadow: 0px 0px 30.5px 0px #ffc4c517;
+        box-shadow: 0px 0px 30.5px 0px #7070701e;
+
+        &::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            opacity: .6;
+            background: radial-gradient(ellipse at 75% 100%, #742c6233 0%, #18181800 40%), radial-gradient(ellipse at 95% 100%, #6b1a1a5b 0%, #18181800 40%);
+            z-index: 1;
+        }
 
         h2 {
             color: #C42828;
@@ -274,8 +287,8 @@ onMounted(() => {
 }
 
 #tech-slider {
-    border-top: 1px solid #414141;
-    border-bottom: 1px solid #414141;
+    border-top: 1px solid #2b2b2b;
+    border-bottom: 1px solid #2b2b2b;
     margin-top: -1px;
 }
 

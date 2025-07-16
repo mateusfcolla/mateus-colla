@@ -136,8 +136,8 @@ onMounted(async () => {
 #relevant-projects {
     color: #C42828;
     background: #191919;
-    border-top: 1px solid #414141;
-    border-bottom: 1px solid #414141;
+    border-top: 1px solid #2b2b2b;
+    border-bottom: 1px solid #2b2b2b;
     display: flex;
     flex-direction: column;
     gap: 3.56rem;
