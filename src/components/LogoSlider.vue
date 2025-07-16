@@ -2,11 +2,21 @@
 
 .logo-slider
     .logos-slide
-        a.logo-slide( v-for="logo, index in orderedLogos[0]" :href="logo.link" target="_blank" :key="logo.name+index" )
-            img( :src="logo.img" :alt="logo.name" )
+        a.logo-slide(
+            v-for="(logo, index) in [...orderedLogos[0], ...orderedLogos[0]]"
+            :href="logo.link"
+            target="_blank"
+            :key="logo.name + index"
+        )
+            img(:src="logo.img" :alt="logo.name")
     .logos-slide.reverse
-        a.logo-slide( v-for="logo, index in orderedLogos[1]" :href="logo.link" target="_blank" :key="logo.name+index" )
-            img( :src="logo.img" :alt="logo.name" )
+        a.logo-slide(
+            v-for="(logo, index) in [...orderedLogos[1], ...orderedLogos[1]]"
+            :href="logo.link"
+            target="_blank"
+            :key="logo.name + index"
+        )
+            img(:src="logo.img" :alt="logo.name")
 
 </template>
 
@@ -17,12 +27,12 @@ import { onMounted, ref } from 'vue'
 
 const logos = getLogoSliderLogos();
 
-const orderedLogos = ref(new Array())
+const orderedLogos = ref([[], []])
 
 const getOrderedLogos = () => {
-    const sorted = logos.sort((a, b) => 0.8 - Math.random());
-    const arrays = [ sorted.slice(0, sorted.length / 2), sorted.slice(sorted.length / 2, sorted.length) ];
-    return arrays;
+    const shuffled = logos.slice().sort(() => 0.5 - Math.random());
+    const half = Math.ceil(shuffled.length / 2);
+    return [shuffled.slice(0, half), shuffled.slice(half)];
 }
 
 onMounted(() => {
@@ -36,11 +46,12 @@ onMounted(() => {
 <style lang="scss" >
 
 .logo-slider {
-    overflow: hidden;
+    padding: 2.31rem 0!important;
     white-space: nowrap;
     position: relative;
     gap: 1.8rem;
     display: flex;
+    flex-direction: column;
     padding: 0 .2rem;
     height: 100%;
 
@@ -48,32 +59,25 @@ onMounted(() => {
         flex-direction: column;
     }
 
-    &:hover .logos-slide {
-        animation-play-state: paused;
-    }
+    // &:hover .logos-slide {
+    //     animation-play-state: paused;
+    // }
 
     .logos-slide {
         display: flex;
         height: fit-content;
-        flex-direction: column;
-        animation: slideY 13s infinite linear alternate;
+        animation: slideX 13s infinite linear alternate;
+
+        @media screen and (max-width: 1028px) {
+            animation: slideX 6s infinite linear alternate;
+        }
 
         &.reverse {
             animation-direction: alternate-reverse;
         }
 
-        @media screen and (max-width: 1028px) {
-            flex-direction: row;
-            animation: slideX 6s infinite linear;
-        }
-
         .logo-slide {
-            margin-bottom: 1.8rem;
-
-            @media screen and (max-width: 1028px) {
-                margin-right: 1.6rem;
-                margin-bottom: 0;
-            }
+            margin-right: 1.6rem;
 
             &:hover {
                 transform: scale(1.08);
@@ -84,16 +88,6 @@ onMounted(() => {
                 height: 6.94556rem;
             }
         }
-    }
-}
-
-@keyframes slideY {
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(-43%);
     }
 }
 

@@ -16,12 +16,15 @@ section#about
             li Native Brazillian Portuguese
             li Basic German
         #threejs-container
+section#tech-slider
+    LogoSlider
 
 </template>
 
 <script setup>
 import { onMounted, onBeforeUnmount } from 'vue'
 import { redirect, getLogoSliderLogos } from '@/utils.js'
+import LogoSlider from '@/components/LogoSlider.vue'
 import * as THREE from 'three';
 
 let renderer, scene, camera, sphere, wireframe, animationId;
@@ -38,8 +41,8 @@ function resizeRenderer(container) {
 let isDragging = false;
 let previousMouseX = 0;
 let autoRotate = true;
-let autoRotateSpeed = 0.005; // default speed
-const defaultAutoRotateSpeed = 0.005;
+let autoRotateSpeed = 0.003; // default speed
+const defaultAutoRotateSpeed = autoRotateSpeed; // store default speed for easing
 let lastDragSpeed = 0;
 let easing = false;
 
@@ -266,9 +269,14 @@ onMounted(() => {
 
     @media screen and (max-width: 1028px) {
         flex-direction: column;
-        margin-bottom: 3rem;
     }
 
+}
+
+#tech-slider {
+    border-top: 1px solid #414141;
+    border-bottom: 1px solid #414141;
+    margin-top: -1px;
 }
 
 </style>
