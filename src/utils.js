@@ -23,6 +23,8 @@ import jest from '@/assets/logo-slider/jest.svg'
 import aws from '@/assets/logo-slider/aws.svg'
 import php from '@/assets/logo-slider/php.svg'
 import graphql from '@/assets/logo-slider/graphql.svg'
+import next from '@/assets/logo-slider/next.svg'
+import nuxt from '@/assets/logo-slider/nuxt.svg'
 
 // Technologie Icons
 import Wordpress from '@/assets/technologies/wordpress.svg?component'
@@ -57,30 +59,32 @@ export const scrollTo = id => {
 
 export const getLogoSliderLogos = () => {
     return [
-        { name: "Docker", img: docker, link: "https://www.docker.com/" },
-        { name: "ExpressJS", img: express, link: "https://expressjs.com/" },
-        { name: "Go Lang", img: go, link: "https://go.dev/" },
-        { name: "JQuery", img: jquery, link: "https://jquery.com/" },
-        { name: "MongoDb", img: mongodb, link: "https://www.mongodb.com/" },
-        { name: "MySQL", img: mysql, link: "https://www.mysql.com/" },
-        { name: "NodeJs", img: node, link: "https://nodejs.org/" },
-        { name: "Postman", img: postman, link: "https://www.postman.com/" },
-        { name: "ReactJs", img: react, link: "https://react.dev/" },
-        { name: "Sass", img: sass, link: "https://sass-lang.com/" },
-        { name: "Tailwind", img: tailwind, link: "https://tailwindcss.com/" },
-        { name: "Typescript", img: typescript, link: "https://www.typescriptlang.org/" },
-        { name: "Vue", img: vue, link: "https://vuejs.org/" },
-        { name: "Wordpress", img: wordpress, link: "https://wordpress.com/" },
-        { name: "Redux", img: redux, link: "https://redux.js.org/" },
-        { name: "Vite", img: vite, link: "https://vitejs.dev/" },
-        { name: ".NET", img: dotnet, link: "https://dotnet.microsoft.com/" },
-        { name: "Javascript", img: javascript, link: "" },
-        { name: "Illustrator", img: illustrator, link: "https://www.adobe.com/br/products/illustrator/campaign/pricing.html?gclid=Cj0KCQjwwuG1BhCnARIsAFWBUC0FiJ8r8vxl1svJiGFo6X_Dmb5dWXYH6G2NSVGRjCyqSa7b6FnIX4QaAuTjEALw_wcB&sdid=KQPNY&mv=search&ef_id=Cj0KCQjwwuG1BhCnARIsAFWBUC0FiJ8r8vxl1svJiGFo6X_Dmb5dWXYH6G2NSVGRjCyqSa7b6FnIX4QaAuTjEALw_wcB:G:s&s_kwcid=AL!3085!3!442396626644!e!!g!!illustrator!188190582!10039578942&gad_source=1" },
-        { name: "Photoshop", img: photoshop, link: "https://www.adobe.com/br/products/photoshop/landpa.html?gclid=Cj0KCQjwwuG1BhCnARIsAFWBUC1cIfXm80MZKA-0L3C6qQb4Q5eAOsu4gSuaMsdNDyO2cUSqPNw7gjcaAlUhEALw_wcB&sdid=KQPOM&mv=search&ef_id=Cj0KCQjwwuG1BhCnARIsAFWBUC1cIfXm80MZKA-0L3C6qQb4Q5eAOsu4gSuaMsdNDyO2cUSqPNw7gjcaAlUhEALw_wcB:G:s&s_kwcid=AL!3085!3!534509111647!e!!g!!photoshop!188192502!10077842982&gad_source=1" },
-        { name: "Jest", img: jest, link: "https://jestjs.io/" },
-        { name: "AWS", img: aws, link: "https://aws.amazon.com/" },
-        { name: "PHP", img: php, link: "https://www.php.net/" },
-        { name: "GraphQl", img: graphql, link: "https://graphql.org/" },
+        { name: "Docker", img: docker, link: "https://www.docker.com/", color: "#2496ed" },
+        { name: "ExpressJS", img: express, link: "https://expressjs.com/", color: "#f7e025" },
+        { name: "Go Lang", img: go, link: "https://go.dev/", color: "#00add8" },
+        { name: "JQuery", img: jquery, link: "https://jquery.com/", color: "#0868ac" },
+        { name: "MongoDb", img: mongodb, link: "https://www.mongodb.com/", color: "#47a248" },
+        { name: "MySQL", img: mysql, link: "https://www.mysql.com/", color: "#00758f" },
+        { name: "NodeJs", img: node, link: "https://nodejs.org/", color: "#8cc84b" },
+        { name: "Postman", img: postman, link: "https://www.postman.com/", color: "#f76935" },
+        { name: "ReactJs", img: react, link: "https://react.dev/", color: "#61dafb" },
+        { name: "Sass", img: sass, link: "https://sass-lang.com/", color: "#cd6799" },
+        { name: "Tailwind", img: tailwind, link: "https://tailwindcss.com/", color: "#38bdf8" },
+        { name: "Typescript", img: typescript, link: "https://www.typescriptlang.org/", color: "#007acc" },
+        { name: "Vue", img: vue, link: "https://vuejs.org/", color: "#42b883" },
+        { name: "Wordpress", img: wordpress, link: "https://wordpress.com/", color: "#21759b" },
+        { name: "Redux", img: redux, link: "https://redux.js.org/", color: "#764abc" },
+        { name: "Vite", img: vite, link: "https://vitejs.dev/", color: "#646cff" },
+        { name: ".NET", img: dotnet, link: "https://dotnet.microsoft.com/", color: "#512bd4" },
+        { name: "Javascript", img: javascript, link: "", color: "#f7df1e" },
+        { name: "Illustrator", img: illustrator, link: "https://www.adobe.com/br/products/illustrator/", color: "#f24e1e" },
+        { name: "Photoshop", img: photoshop, link: "https://www.adobe.com/br/products/photoshop/", color: "#31a8ff" },
+        { name: "Jest", img: jest, link: "https://jestjs.io/", color: "#99425f" },
+        { name: "AWS", img: aws, link: "https://aws.amazon.com/", color: "#ff9900" },
+        { name: "PHP", img: php, link: "https://www.php.net/", color: "#777bb4" },
+        { name: "GraphQl", img: graphql, link: "https://graphql.org/", color: "#e10098" },
+        { name: "Next.js", img: next, link: "https://nextjs.org/", color: "#ffffffff" },
+        { name: "Nuxt.js", img: nuxt, link: "https://nuxtjs.org/", color: "#00dc82" },
     ]
 }
 
