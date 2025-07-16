@@ -16,8 +16,7 @@ section#about
             li Native Brazillian Portuguese
             li Basic German
         #threejs-container
-section#tech-slider
-    LogoDisplayer
+LogoDisplayer
 
 </template>
 
@@ -224,7 +223,7 @@ onMounted(() => {
             width: 100%;
             height: 100%;
             opacity: .6;
-            background: radial-gradient(ellipse at 75% 100%, #742c6233 0%, #18181800 40%), radial-gradient(ellipse at 95% 100%, #6b1a1a5b 0%, #18181800 40%);
+            background: radial-gradient(ellipse at 85% 100%, #00000080 0%, #18181800 40%);
             z-index: 1;
         }
 

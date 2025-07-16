@@ -60,11 +60,11 @@ export const scrollTo = id => {
 export const getLogoSliderLogos = () => {
     return [
         { name: "Docker", img: docker, link: "https://www.docker.com/", color: "#2496ed" },
-        { name: "ExpressJS", img: express, link: "https://expressjs.com/", color: "#f7e025" },
+        { name: "ExpressJS", img: express, link: "https://expressjs.com/", color: "#ffffff" },
         { name: "Go Lang", img: go, link: "https://go.dev/", color: "#00add8" },
         { name: "JQuery", img: jquery, link: "https://jquery.com/", color: "#0868ac" },
         { name: "MongoDb", img: mongodb, link: "https://www.mongodb.com/", color: "#47a248" },
-        { name: "MySQL", img: mysql, link: "https://www.mysql.com/", color: "#00758f" },
+        { name: "MySQL", img: mysql, link: "https://www.mysql.com/", color: "#ffffff" },
         { name: "NodeJs", img: node, link: "https://nodejs.org/", color: "#8cc84b" },
         { name: "Postman", img: postman, link: "https://www.postman.com/", color: "#f76935" },
         { name: "ReactJs", img: react, link: "https://react.dev/", color: "#61dafb" },
