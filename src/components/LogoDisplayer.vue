@@ -1,7 +1,7 @@
 <template lang="pug">
 
-.logo-displayer
-    h2 Technologies
+section.logo-displayer
+    h2 Technology Stack
     .logo-row
         a.logo-display.empty( v-for="index in 20" :key="'empty-' + index" )
             .empty-logo
@@ -89,11 +89,6 @@ onBeforeUnmount(() => {
     margin: 3rem 0;
 
     h2 {
-        color: #FFF;
-        text-align: center;
-        font-family: "Readex Pro", sans-serif;
-        font-weight: 700;
-        font-size: 2.6875rem;
         position: absolute;
         top: -.8rem;
         left: 50%;
@@ -108,11 +103,17 @@ onBeforeUnmount(() => {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, #0e100f 0%, #0e100f00 38%), linear-gradient(0deg, #0e100f 0%, #0e100f00 38%);
+        background: linear-gradient(180deg, #0e100f 0%, #0e100f00 38%),
+                    linear-gradient(0deg, #0e100f 0%, #0e100f00 38%),
+                    linear-gradient(90deg, #0e100f 0%, #0e100f00 6%),
+                    linear-gradient(-90deg, #0e100f 0%, #0e100f00 6%);
         pointer-events: none;
 
         @media screen and (max-width: 1028px) {
-            background: linear-gradient(180deg, #0e100f 0%, #0e100f00 10%), linear-gradient(0deg, #0e100f 0%, #0e100f00 10%);
+        background: linear-gradient(180deg, #0e100f 0%, #0e100f00 10%),
+                    linear-gradient(0deg, #0e100f 0%, #0e100f00 10%),
+                    linear-gradient(90deg, #0e100f 0%, #0e100f00 3%),
+                    linear-gradient(-90deg, #0e100f 0%, #0e100f00 3%);
         }
     }
 

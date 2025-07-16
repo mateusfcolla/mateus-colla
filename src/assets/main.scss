@@ -8,7 +8,7 @@
 
 ::selection {
   background: #C42828;
-  color: #ffffff;
+  color: #bee4c6;
 }
 
 :root {
@@ -54,16 +54,20 @@ section {
   }
 
   h2 {
-    font-family: "Readex Pro", sans-serif;
+    font-family: "Readex Pro", sans-serif!important;
     font-size: 2.6rem;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     line-height: normal;
-    color: #ffffff;
+    background: linear-gradient(0deg, #b3b3b3, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
   }
 
   p {
-    color: #D3D2D8;
+    color: #b3b3b3;
     font-size: 1rem;
     font-style: normal;
     line-height: 175%;

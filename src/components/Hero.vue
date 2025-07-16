@@ -148,6 +148,14 @@ main {
             display: block;
             top: 0;
             position: absolute;
+
+            .letter {
+                background: linear-gradient(0deg, #525252e5, #ffffffe5);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
         }
 
         @media screen and (max-width: 1028px) {

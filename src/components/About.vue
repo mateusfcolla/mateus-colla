@@ -227,10 +227,6 @@ onMounted(() => {
             z-index: 1;
         }
 
-        h2 {
-            color: #C42828;
-        }
-
         ul {
             list-style: none;
             display: flex;
@@ -240,7 +236,6 @@ onMounted(() => {
             li {
                 font-size: 1.25rem;
                 color: #CECECE;
-                font-weight: 700;
                 line-height: 175%;
             }
         }
