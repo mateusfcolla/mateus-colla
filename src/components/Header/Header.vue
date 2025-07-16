@@ -41,8 +41,8 @@ header {
   padding: 1.8rem 7.38rem;
   width: 100vw;
   border-bottom: 1px solid #4F4F4F;
-  background: #111111c1;
-  backdrop-filter: blur(10px);
+  background: #0e100f57;
+  backdrop-filter: blur(6px);
   position: fixed;
   z-index: 999;
 
