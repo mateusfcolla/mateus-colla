@@ -6,7 +6,11 @@ section#experiences
         SplideTrack
             SplideSlide.experience( v-for="experience, index in experiences" :key="`experience${index}`" )
                 p {{ experience.time }}
-                h4 {{ experience.title }}
+                h4
+                    | {{ experience.title }},
+                    span.company {{ " " + experience.company }}
+                .techs
+                    Technology( v-for="(tech, index) in experience.techs" :key="`tech-${index}`" :technology="tech" )
                 ul
                     li( v-for="doing in experience.doings" ) {{ doing }}
     .experiences.experiences__mobile
@@ -35,7 +39,8 @@ const SplideOptions = {
 const experiences = [
     {
         time: 'october 2024 - today',
-        title: 'Senior Web Developer, Freelance',
+        title: 'Senior Web Developer',
+        company: 'Freelance',
         doings: [
             'Reduced API call times by an average of 80% through advanced data prefetching, query optimization, and custom caching policies.',
             'Boosted Core Web Vitals by adding skeleton loaders, lazy loading, and pagination for large datasets.',
@@ -49,7 +54,8 @@ const experiences = [
     },
     {
         time: 'july 2024 - october 2024',
-        title: 'Web Developer, Mosyle ( Assetbots )',
+        title: 'Web Developer',
+        company: 'Mosyle ( Assetbots )',
         doings: [
             "Built component-based UIs aligned with Figma designs using MUI and Styled Components.",
             "Added features and enhancements to core interfaces using TypeScript and React.",
@@ -59,7 +65,8 @@ const experiences = [
     },
     {
         time: 'april 2024 - october 2024',
-        title: 'Web Developer Freelance, WKode',
+        title: 'Web Developer Freelance',
+        company: 'WKode',
         doings: [
             'Built modular WordPress themes and custom ACF/Gutenberg blocks enabling flexible content management for 30+ websites.',
             "Engineered custom Gutenberg blocks using React, TypeScript, and WordPress REST API for dynamic content editing.",
@@ -73,7 +80,8 @@ const experiences = [
     },
     {
         time: 'april 2021 - april 2024',
-        title: 'Web Developer & UI/UX Designer,  JettaCargo',
+        title: 'Web Developer & UI/UX Designer',
+        company: 'JettaCargo',
         doings: [
             "Built a 3D editor UI modeled after Blender, improving usability for customized cargo planning.",
             'Created a microservice to dynamically generate PDF cargo reports, offering API-first users report access.',
@@ -87,7 +95,8 @@ const experiences = [
     },
     {
         time: 'march 2020 - april 2021',
-        title: 'Front End Wordpress Developer,  Escritolândia',
+        title: 'Front End Wordpress Developer',
+        company: 'Escritolândia',
         doings: [
             "Designed and developed a custom e-commerce website from scratch using WordPress and WooCommerce.",
             "Built a fully custom theme with a UI inspired by MercadoLivre and Amazon, optimized for conversion and speed.",
@@ -109,12 +118,10 @@ const experiences = [
 <style lang="scss">
 
 #experiences {
-    padding-bottom: 8rem;
+    padding: 8rem 7.38rem;
 }
 
 h2.title {
-    text-transform: uppercase;
-    text-align: center;
     margin-bottom: 3rem;
 }
 
@@ -172,30 +179,35 @@ h2.title {
 
 .experience {
     display: flex;
-    padding: 1.5rem;
+    padding: 3.125rem;
     flex-direction: column;
     align-items: flex-start;
     // gap: 1rem;
     flex-shrink: 0;
-    border: 1px solid #4D4D4D;
+    border: 1px solid #2b2b2b;
+    background: #181818;
     opacity: .6;
     margin-right: 2rem;
 
     p {
-        color: #E7E7E7;
-        font-size: 1.125rem;
+        color: #6E6E6E;
+        font-size: 1rem;
         font-style: normal;
         font-weight: 400;
         line-height: 160%;
     }
 
     h4 {
-        color: #F9F9F9;
-        font-size: 1.5rem;
+        color: #FFFFFF;
+        font-size: 1.75rem;
         font-style: normal;
         font-weight: 700;
         line-height: 160%;
         margin-bottom: 1rem;
+
+        span {
+            color: #C42828;
+        }
     }
 
     ul {
@@ -203,8 +215,8 @@ h2.title {
         margin-left: 1.5rem;
 
         li {
-            color: #AFAFAF;
-            font-size: 1.1875rem;
+            color: #CFCFCF;
+            font-size: 1rem;
             font-style: normal;
             font-weight: 400;
             line-height: 160%;
