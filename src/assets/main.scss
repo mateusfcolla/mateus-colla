@@ -93,6 +93,10 @@ section {
   border-radius: .3rem;
   transition: .4s;
 
+  @media screen and (max-width: 1028px) {
+      font-size: .8rem;
+  }
+
   &:hover {
       background: #d21a37da;
       color: #ffffff;

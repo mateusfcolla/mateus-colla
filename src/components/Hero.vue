@@ -295,6 +295,10 @@ main {
             font-size: 2.4rem;
         }
 
+        @media screen and (max-width: 400px) {
+            font-size: 1.8rem;
+        }
+
         .word {
             text-rendering: optimizeLegibility!important;
             white-space: pre;
@@ -326,12 +330,13 @@ main {
         gap: 1rem;
         margin-top: 2rem;
         position: absolute;
-        top: 28rem;
+        top: 52%;
         left: 50%;
         transform: translateX(-50%);
 
         @media screen and (max-width: 1028px) {
             flex-direction: column;
+            top: 45%;
         }
     }
 
