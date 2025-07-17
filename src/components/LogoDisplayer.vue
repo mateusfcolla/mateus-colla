@@ -120,10 +120,10 @@ onBeforeUnmount(() => {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, #0e100f 0%, #0e100f00 38%),
-                    linear-gradient(0deg, #0e100f 0%, #0e100f00 38%),
-                    linear-gradient(90deg, #0e100f 0%, #0e100f00 6%),
-                    linear-gradient(-90deg, #0e100f 0%, #0e100f00 6%);
+        background: linear-gradient(180deg, #0e100f 0%, #0e100f00 40%),
+                    linear-gradient(0deg, #0e100f 0%, #0e100f00 40%),
+                    linear-gradient(90deg, #0e100f 0%, #0e100f00 8%),
+                    linear-gradient(-90deg, #0e100f 0%, #0e100f00 8%);
         pointer-events: none;
 
         @media screen and (max-width: 1028px) {
