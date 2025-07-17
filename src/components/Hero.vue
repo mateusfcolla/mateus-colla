@@ -1,5 +1,5 @@
 <template lang="pug">
-main(ref="heroSection")
+main#hero(ref="heroSection")
     .glow
     h2 Hey! I’m Mateus Felipe
     h1

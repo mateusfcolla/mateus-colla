@@ -21,6 +21,7 @@ import Engeled from '@/assets/imgs/Engeled.png'
 import Superpet from '@/assets/imgs/Superpet.png'
 import Velope from '@/assets/imgs/Velope.png'
 import Oli from '@/assets/imgs/Oli.png'
+import LCW from '@/assets/imgs/Lcw.png'
 
 const projects = [
     {
@@ -30,16 +31,22 @@ const projects = [
         url: 'http://oliapp.com.br/',
     },
     {
-        title: 'Engeled',
+        title: 'LCW',
         subtitle: 'Website',
-        background: Engeled,
-        url: 'https://engeled.com.br/',
+        url: 'https://lcwmotos.com.br/',
+        background: LCW,
     },
     {
         title: 'Superpet',
         subtitle: 'Website',
         url: 'https://superpetdelivery.com.br/',
         background: Superpet,
+    },
+    {
+        title: 'Engeled',
+        subtitle: 'Website',
+        background: Engeled,
+        url: 'https://engeled.com.br/',
     },
     {
         title: 'Velope',

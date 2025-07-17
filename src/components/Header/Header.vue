@@ -6,29 +6,49 @@ header.scrolling-down
     Hamburger( @toggle-menu="toggleMenu" :opened="menuOpened" )
 
     nav( :class="{ opened: menuOpened }" )
-        a( v-for="item, index in navItems" @click="scrollTo(item.to)" :key="'routerItem' + index" :class="{ active: item.active }"  ) {{ item.text }}
+        a( v-for="item, index in navItems" @click="handleScrollOrClick(item.to)" :key="'routerItem' + index" :class="{ active: item.active }"  ) {{ item.text }}
         a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) contact
 
 </template>
 
 <script setup>
 
-import { ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import Hamburger from './Hamburger.vue';
 import Logo from '@/assets/logo.svg'
 import { redirect, scrollTo } from '@/utils.js'
 
-const navItems = [
-    { text: 'experiences', to: '#experiences', active: true },
+const navItems = ref([
+    { text: 'home', to: '#hero' },
     { text: 'technologies', to: '#technologies' },
     { text: 'portfolio', to: '#relevant-projects' },
-]
+    { text: 'experiences', to: '#experiences' },
+]);
 
 const menuOpened = ref(null);
 
 const toggleMenu = () => {
   menuOpened.value = !menuOpened.value
 }
+
+const updateActiveNav = () => {
+  const hash = window.location.hash
+
+  navItems.value.forEach(item => {
+    item.active = hash === item.to
+  })
+}
+
+const handleScrollOrClick = (target) => {
+  scrollTo(target)
+  history.replaceState(null, '', target)
+  updateActiveNav()
+}
+
+onMounted(() => {
+  updateActiveNav()
+  window.addEventListener('hashchange', updateActiveNav)
+})
 
 </script>
 
@@ -57,8 +77,13 @@ header {
   .logo {
     cursor: pointer;
     img {
-      width: 3.5rem;
-      height: 3.5rem;
+      width: 4.5rem;
+      height: 4.5rem;
+
+      @media screen and (max-width: 1028px) {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
     }
   }
 
