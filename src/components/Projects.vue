@@ -17,66 +17,36 @@ section#relevant-projects
 import { onMounted, ref } from 'vue';
 import Project from './Project.vue';
 import Technology from './Technology.vue';
-import { getTechIcons } from '@/utils.js';
 
 import Engeled from '@/assets/imgs/Engeled.png'
 import Superpet from '@/assets/imgs/Superpet.png'
 import Velope from '@/assets/imgs/Velope.png'
 import Oli from '@/assets/imgs/Oli.png'
 
-const techs = getTechIcons()
-
 const projects = [
     {
         title: 'Oli',
         subtitle: 'Website',
-        description: 'Creation of the full website',
         background: Oli,
         url: 'http://oliapp.com.br/',
-        technologies: [
-            techs.wordpress,
-            techs.sass,
-            techs.tailwind,
-            techs.js
-        ]
     },
     {
         title: 'Engeled',
         subtitle: 'Website',
-        description: 'Creation of the full website plus custom features for better user website customization',
         background: Engeled,
         url: 'https://engeled.com.br/',
-        technologies: [
-            techs.wordpress,
-            techs.sass,
-            techs.tailwind,
-            techs.js
-        ]
     },
     {
         title: 'Superpet',
         subtitle: 'Website',
-        description: 'Creation of the full website plus custom features for better user website customization',
         url: 'https://superpetdelivery.com.br/',
         background: Superpet,
-        technologies: [
-            techs.react,
-            techs.sass,
-            techs.tailwind,
-            techs.js,
-            techs.go,
-            techs.mongo,
-        ]
     },
     {
         title: 'Velope',
         subtitle: 'Design',
-        description: 'Design of the full website, all pages included',
         url: 'https://velope.com.br/',
         background: Velope,
-        technologies: [
-            techs.figma,
-        ]
     },
 ]
 

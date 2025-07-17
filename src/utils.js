@@ -34,24 +34,6 @@ import acf from '@/assets/logo-slider/acf.svg'
 import postgres from '@/assets/logo-slider/postgres.svg'
 import webpack from '@/assets/logo-slider/webpack.svg'
 
-// Technologie Icons
-import Wordpress from '@/assets/technologies/wordpress.svg?component'
-import Sass from '@/assets/technologies/sass.svg?component'
-import Tailwind from '@/assets/technologies/tailwind.svg?component'
-import Go from '@/assets/technologies/go.svg?component'
-import React from '@/assets/technologies/react.svg?component'
-import Mongo from '@/assets/technologies/mongo.svg?component'
-import Figma from '@/assets/technologies/figma.svg?component'
-import Vue from '@/assets/technologies/vue.svg?component'
-import Typescript from '@/assets/technologies/typescript.svg?component'
-import Express from '@/assets/technologies/express.svg?component'
-import Node from '@/assets/technologies/node.svg?component'
-import Dotnet from '@/assets/technologies/dotnet.svg?component'
-import Javascript from '@/assets/technologies/javascript.svg?component'
-import Nuxt from '@/assets/technologies/nuxt.svg?component'
-import Next from '@/assets/technologies/next.svg?component'
-import Php from '@/assets/technologies/php.svg?component'
-
 export const redirect = (url, target = '_top') => {
     window.open(url, target)
 }
@@ -102,89 +84,4 @@ export const getLogoSliderLogos = () => {
         { name: "Postgres", img: postgres, link: "https://www.postgresql.org/", color: "#336791" },
         { name: "Webpack", img: webpack, link: "https://webpack.js.org/", color: "#8ED6FB" }
     ]
-}
-
-export const getTechIcons = () => {
-    return {
-        wordpress: {
-            icon: Wordpress,
-            name: 'Wordpress',
-            backgroundColor: '#33a1d3'
-        },
-        sass: {
-            icon: Sass,
-            name: 'Sass',
-            backgroundColor: '#cd6799'
-        },
-        tailwind: {
-            icon: Tailwind,
-            name: 'Tailwind',
-            backgroundColor: '#38bdf8'
-        },
-        react: {
-            icon: React,
-            name: 'React',
-            backgroundColor: '#00d8ff'
-        },
-        go: {
-            icon: Go,
-            name: 'Go',
-            backgroundColor: '#08afd8'
-        },
-        mongo: {
-            icon: Mongo,
-            name: 'MongoDb',
-            backgroundColor: '#4ca84b'
-        },
-        figma: {
-            icon: Figma,
-            name: 'Figma',
-            backgroundColor: '#f24e1e'
-        },
-        vue: {
-            icon: Vue,
-            name: "Vue",
-            backgroundColor: '#4fc08d'
-        },
-        ts: {
-            icon: Typescript,
-            name: "Typescript",
-            backgroundColor: '#007acc'
-        },
-        express: {
-            icon: Express,
-            name: "Express",
-            backgroundColor: '#f7e025'
-        },
-        node: {
-            icon: Node,
-            name: "Node",
-            backgroundColor: '#8cc84b'
-        },
-        dotnet: {
-            icon: Dotnet,
-            name: ".NET",
-            backgroundColor: '#512bd4'
-        },
-        js: {
-            icon: Javascript,
-            name: "Javascript",
-            backgroundColor: '#f7df1e'
-        },
-        nuxt: {
-            icon: Nuxt,
-            name: "Nuxt",
-            backgroundColor: '#00dc82'
-        },
-        next: {
-            icon: Next,
-            name: "Next",
-            backgroundColor: '#173e6a'
-        },
-        php: {
-            icon: Php,
-            name: "PHP",
-            backgroundColor: '#777bb3'
-        },
-    }
 }

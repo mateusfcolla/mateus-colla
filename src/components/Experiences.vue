@@ -9,30 +9,19 @@ section#experiences
                 h4 {{ experience.title }}
                 ul
                     li( v-for="doing in experience.doings" ) {{ doing }}
-                .techs( v-if="experience.technologies.length > 0" )
-                    Technology( v-for="tech, index in experience.technologies" :key="`tech${index}`" :icon="tech.icon" :backgroundColor="tech.backgroundColor" :name="tech.name" )
     .experiences.experiences__mobile
         .experience.is-active( v-for="experience, index in experiences" :key="`experience${index}`" )
             p {{ experience.time }}
             h4 {{ experience.title }}
             ul
                 li( v-for="doing in experience.doings" ) {{ doing }}
-            .techs
-                Technology( v-for="tech, index in experience.technologies" :key="`tech${index}`" :icon="tech.icon" :backgroundColor="tech.backgroundColor" :name="tech.name" )
 </template>
 
 <script setup>
 
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide';
-import Technology from './Technology.vue';
-import { getTechIcons } from '@/utils.js'
 import '@splidejs/vue-splide/css/core';
-import { onMounted } from 'vue'
-import { gsap } from 'gsap'
 
-gsap.registerPlugin(ScrollTrigger)
-
-const techs = getTechIcons()
 
 const SplideOptions = {
     perPage: 1,
@@ -57,14 +46,6 @@ const experiences = [
             'Enhanced app integrations ( chatbot, UTM tracking, VWO A/B tests) and implemented structured SEO strategies including meta tags and rich schema.',
             'Implemented secure CI/CD pipelines with GitHub Actions.'
         ],
-        technologies: [
-            techs.next,
-            techs.wordpress,
-            techs.tailwind,
-            techs.js,
-            techs.php,
-            techs.sass,
-        ]
     },
     {
         time: 'july 2024 - october 2024',
@@ -75,13 +56,6 @@ const experiences = [
             "Implemented and Improved A/B tests to measure UX changes and guide product improvements.",
             "Upgraded backend APIs to support interactive features and secure data handling.",
         ],
-        technologies: [
-            techs.react,
-            techs.dotnet,
-            techs.tailwind,
-            techs.ts,
-            techs.sass,
-        ]
     },
     {
         time: 'april 2024 - october 2024',
@@ -96,19 +70,6 @@ const experiences = [
             "Integrated secure authentication using OAuth and built APIs with Express.js and GoLang ( Gin ).",
             "Enhanced SEO with SSR, schema markup, and Lighthouse audits."
         ],
-        technologies: [
-            techs.next,
-            techs.go,
-            techs.wordpress,
-            techs.tailwind,
-            techs.react,
-            techs.sass,
-            techs.ts,
-            techs.js,
-            techs.figma,
-            techs.php,
-            techs.mongo,
-        ]
     },
     {
         time: 'april 2021 - april 2024',
@@ -123,15 +84,6 @@ const experiences = [
             'Created reusable Vue component libraries, improving Component-Based architecture on the main webapp.',
             'Implemented a custom chatbot and support ticket integration within the webapp.',
         ],
-        technologies: [
-            techs.vue,
-            techs.nuxt,
-            techs.express,
-            techs.sass,
-            techs.node,
-            techs.js,
-            techs.figma,
-        ]
     },
     {
         time: 'march 2020 - april 2021',
@@ -149,37 +101,8 @@ const experiences = [
             "Managed cloud infrastructure and DNS configurations, ensuring uptime and scalability.",
             "Launched and monitored promotional campaigns with automated discounts and banners.",
         ],
-        technologies: [
-            techs.wordpress,
-            techs.js,
-            techs.sass,
-            techs.php,
-            techs.figma,
-        ]
     },
 ]
-
-onMounted(() => {
-
-    const scrollConfig = {
-        trigger: '#experiences',
-        start: '-130%',
-        end: '-80%',
-        scrub: .6,
-    }
-
-    gsap.from('#experiences h2', {
-        scrollTrigger: scrollConfig,
-        opacity: 0,
-        scale: 2,
-        y: 200,
-    })
-
-    gsap.from('#experiences .experiences', {
-        scrollTrigger: scrollConfig,
-        opacity: 0,
-    })
-})
 
 </script>
 
