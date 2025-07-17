@@ -10,6 +10,8 @@ main(ref="heroSection")
             img( :src="github" alt="My Github")
         a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
             img( :src="dribbble" alt="My Dribbble")
+    .actions
+        .button( @click="redirect('#relevant-projects')" ).outline what I've been working on
     .contact
         a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) felipe.colla.m@gmail.com
     canvas#space-background
@@ -24,6 +26,9 @@ import { redirect } from '@/utils.js'
 import * as THREE from 'three'
 
 let starRotationSpeed = 0.0003
+
+const shootingStars = []
+const shootingStarCount = 5
 
 onMounted(() => {
     const canvas = document.getElementById('space-background')
@@ -54,7 +59,7 @@ onMounted(() => {
         canvas.height = size
 
         const ctx = canvas.getContext('2d');
-        const gradient = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2)
+        const gradient = ctx.createLinearGradient(size/2, size/2, 0, size/2, size/2, size/2)
         gradient.addColorStop(0, '#f5f5f5')
         gradient.addColorStop(1, '#adadad')
 
@@ -116,6 +121,40 @@ onMounted(() => {
         scrollY = window.scrollY * 0.0007
     })
 
+    function createTrailPath(start, direction, length = 1.5) {
+        const points = []
+        for (let i = 0; i <= 10; i++) {
+            const t = i / 10
+            const point = new THREE.Vector3().copy(start).addScaledVector(direction, -t * length)
+            points.push(point)
+        }
+        return new THREE.CatmullRomCurve3(points)
+    }
+
+    function spawnShootingStarWithTrail() {
+        const angle = Math.random() * Math.PI * 2
+        const radius = 50 + Math.random() * 20
+
+        const position = new THREE.Vector3(
+            Math.cos(angle) * radius,
+            Math.random() * 30 - 15,
+            Math.sin(angle) * radius - 50
+        )
+
+        const velocity = new THREE.Vector3(
+            -Math.cos(angle) * 0.6,
+            (Math.random() - 0.5) * 0.3,
+            1.0
+        )
+
+        const trail = new THREE.TubeGeometry(createTrailPath(position, velocity), 20, 0.02, 8, false)
+        const material = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 })
+        const mesh = new THREE.Mesh(trail, material)
+
+        scene.add(mesh)
+        shootingStars.push({ mesh, velocity, lifetime: 0, material })
+    }
+
     // Animate
     const animate = () => {
         requestAnimationFrame(animate)
@@ -128,6 +167,22 @@ onMounted(() => {
         camera.position.x += (mouseX - camera.position.x) * 0.05
         camera.position.y += (-mouseY - camera.position.y) * 0.05
         camera.position.z = 5 + scrollY
+
+        if (Math.random() < 0.01 && shootingStars.length < shootingStarCount) {
+            spawnShootingStarWithTrail()
+        }
+
+        // Update shooting stars
+        for (let i = shootingStars.length - 1; i >= 0; i--) {
+            const star = shootingStars[i]
+            star.mesh.position.add(star.velocity)
+            star.lifetime += 1
+
+            if (star.lifetime > 100) {
+                scene.remove(star.mesh)
+                shootingStars.splice(i, 1)
+            }
+        }
 
         renderer.render(scene, camera)
     }
@@ -202,7 +257,7 @@ onMounted(() => {
 @import "@/assets/hero/background.scss";
 
 main {
-    min-height: 93vh;
+    min-height: 96vh;
     padding: 2.31rem 7.38rem;
     position: relative;
     padding-top: 30vh;
@@ -218,7 +273,6 @@ main {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        margin-bottom: 1.2rem;
         margin-top: 3.2rem;
         text-align: center;
         user-select: none;
@@ -230,10 +284,9 @@ main {
 
     h1 {
         color: #ffffff;
-        font-family: "Readex Pro", sans-serif;
-        font-size: 5rem;
+        font-size: 5.4rem;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 800;
         text-transform: uppercase;
         position: relative;
         user-select: none;
@@ -253,7 +306,7 @@ main {
             position: absolute;
 
             .letter {
-                background: linear-gradient(0deg, #525252e5, #ffffffe5);
+                background: linear-gradient(0deg, #c71349, #df2323);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -265,6 +318,20 @@ main {
             br {
                 display: none;
             }
+        }
+    }
+
+     .actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        position: absolute;
+        top: 28rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media screen and (max-width: 1028px) {
+            flex-direction: column;
         }
     }
 

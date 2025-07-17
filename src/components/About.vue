@@ -112,13 +112,9 @@ onMounted(() => {
     const wireframeGeometry = new THREE.WireframeGeometry(geometry);
     wireframe = new THREE.LineSegments(
         wireframeGeometry,
-        new THREE.LineBasicMaterial({ color: 0x423b3b, linewidth: 2 })
+        new THREE.LineBasicMaterial({ color: 0x3b3b3b, linewidth: 2 })
     );
     scene.add(wireframe);
-
-    // Lighting (not strictly needed for wireframe, but harmless)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-    scene.add(ambientLight);
 
     // Animation loop (horizontal rotation only, slower)
     function animate() {
@@ -211,8 +207,13 @@ onMounted(() => {
         min-height: 32.25rem;
         position: relative;
         overflow: hidden;
-        background: #181818;
+        background: #1414145d;
         box-shadow: 0px 0px 30.5px 0px #7070701e;
+
+        h2 {
+            background: linear-gradient(0deg, #c71349, #df2323);
+            -webkit-background-clip: text;
+        }
 
         &::after {
             content: '';
@@ -223,7 +224,6 @@ onMounted(() => {
             width: 100%;
             height: 100%;
             opacity: .6;
-            background: radial-gradient(ellipse at 85% 100%, #00000080 0%, #18181800 40%);
             z-index: 1;
         }
 

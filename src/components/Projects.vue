@@ -147,7 +147,6 @@ onMounted(async () => {
 
     h2 {
         color: #FFF;
-        font-family: "Readex Pro" sans-serif;
         font-size: 2.39719rem;
         font-style: normal;
         font-weight: 700;

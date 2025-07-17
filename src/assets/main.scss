@@ -39,7 +39,6 @@ body {
 }
 
 .title {
-  font-family: "Readex Pro", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -54,12 +53,11 @@ section {
   }
 
   h2 {
-    font-family: "Readex Pro", sans-serif!important;
     font-size: 2.6rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    background: linear-gradient(0deg, #b3b3b3, #ffffff);
+    background: linear-gradient(0deg, #b3b3b3, #e2e2e2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -86,28 +84,19 @@ section {
   font-weight: 600;
   line-height: normal;
   border-radius: 0;
-  color: #C42828;
-  border: 1px solid #C42828;
+  color: #ffffff;
+  border: 1px solid #d21a37;
   background: transparent;
   width: fit-content;
   user-select: none;
   box-shadow: 0 0px 8px 0 #c428285b;
+  border-radius: .3rem;
+  transition: .4s;
 
   &:hover {
-      background: #C42828;
+      background: #d21a37da;
       color: #ffffff;
       cursor: pointer;
-  }
-
-  &.outline {
-      background: none;
-      border: 1px solid #ffffff;
-      color: #ffffff;
-
-      &:hover {
-          background: #ffffff;
-          color: black;
-      }
   }
 }
 
