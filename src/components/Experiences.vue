@@ -119,10 +119,18 @@ const experiences = [
 
 #experiences {
     padding: 8rem 7.38rem;
+
+    @media screen and (max-width: 1028px) {
+        padding: 6rem 2rem;
+    }
 }
 
 h2.title {
     margin-bottom: 3rem;
+
+    @media screen and (max-width: 1028px) {
+        text-align: center;
+    }
 }
 
 .experiences {
