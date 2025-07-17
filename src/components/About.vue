@@ -237,6 +237,10 @@ onMounted(() => {
                 font-size: 1.25rem;
                 color: #CECECE;
                 line-height: 175%;
+
+                @media screen and (max-width: 1028px) {
+                font-size: 1rem;
+                }
             }
         }
 

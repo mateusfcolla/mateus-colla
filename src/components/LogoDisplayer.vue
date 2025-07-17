@@ -181,6 +181,10 @@ onBeforeUnmount(() => {
             width: 4.8rem;
             height: 4.8rem;
             opacity: 0;
+
+            @media screen and (max-width: 1028px) {
+                opacity: 1;
+            }
         }
     }
 }

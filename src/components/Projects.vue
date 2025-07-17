@@ -123,10 +123,6 @@ onMounted(() => {
             z-index: 0;
             filter: brightness(0.5);
             transition: opacity 0.3s ease, transform 0.1s linear;
-
-            @media screen and (max-width: 1028px) {
-                opacity: 1;
-            }
         }
 
         .project-content {
