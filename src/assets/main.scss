@@ -6,6 +6,11 @@
   transition: .2s;
 }
 
+::selection {
+  background: #C42828;
+  color: #bee4c6;
+}
+
 :root {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -17,7 +22,7 @@ html, body {
 }
 
 body {
-  background: #0e100f;
+  background: #0F0F0F;
   max-width: 100vw;
   overflow-x: hidden!important;
   position: relative;
@@ -34,32 +39,34 @@ body {
 }
 
 .title {
-  font-family: "Gentium Plus", serif;
   font-weight: 700;
   font-style: normal;
 }
 
 section {
 
-  padding: 2.31rem 7.38rem;
+  padding: 0rem 7.38rem;
   font-family: 'Roboto', sans-serif;
 
   @media screen and (max-width: 1028px) {
-    padding: 4rem 2.31rem;
+    padding: 0rem 0rem;
   }
 
   h2 {
-    font-family: "Gentium Plus", serif;
-    font-size: 2.39719rem;
+    font-size: 2.6rem;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     line-height: normal;
-    color: #ffffff;
+    background: linear-gradient(0deg, #b3b3b3, #e2e2e2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
   }
 
   p {
-    color: #D3D2D8;
-    font-size: 1.1rem;
+    color: #b3b3b3;
+    font-size: 1rem;
     font-style: normal;
     line-height: 175%;
   }
@@ -72,44 +79,41 @@ section {
   font-family: 'Roboto', sans-serif;
   align-items: center;
   gap: 0.625rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   border-radius: 0;
-  color: black;
-  border: 1px solid #ffffff;
-  background: #ffffff;
+  color: #ffffff;
+  border: 1px solid #d21a37;
+  background: transparent;
   width: fit-content;
+  user-select: none;
+  box-shadow: 0 0px 8px 0 #c428285b;
+  border-radius: .3rem;
+  transition: .4s;
 
-  &:hover {
-      background: none;
-      color: #ffffff;
-      cursor: pointer;
+  @media screen and (max-width: 1028px) {
+      font-size: .8rem;
   }
 
-  &.outline {
-      background: none;
-      border: 1px solid #ffffff;
+  &:hover {
+      background: #d21a37da;
       color: #ffffff;
-
-      &:hover {
-          background: #ffffff;
-          color: black;
-      }
+      cursor: pointer;
   }
 }
 
 .grained {
   z-index: 1001;
-  background: url('./imgs/grained.png');
+  // background: url('./imgs/grained.png');
   height: 300%;
   width: 300%;
   top:-100%;
   pointer-events: none;
   position: fixed;
-  animation: grain 10s steps(10) infinite;
-  opacity: .7;
+  // animation: grain 10s steps(10) infinite;
+  opacity: .4;
 }
 
 .expand {

@@ -19,10 +19,9 @@ import Logo from '@/assets/logo.svg'
 import { redirect, scrollTo } from '@/utils.js'
 
 const navItems = [
-    { text: 'home', to: 'main', active: true },
-    { text: 'relevant projects', to: '#relevant-projects' },
-    { text: 'about me', to: '#about' },
-    { text: 'what I offer', to: '#what-i-offer' },
+    { text: 'experiences', to: 'main', active: true },
+    { text: 'technologies', to: '#relevant-projects' },
+    { text: 'portfolio', to: '#about' },
 ]
 
 const menuOpened = ref(null);
@@ -39,11 +38,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2.31rem 7.38rem;
+  padding: 1.8rem 7.38rem;
   width: 100vw;
   border-bottom: 1px solid #4F4F4F;
-  background: #111111c1;
-  backdrop-filter: blur(10px);
+  background: #0e100f57;
+  backdrop-filter: blur(6px);
   position: fixed;
   z-index: 999;
 
@@ -53,6 +52,14 @@ header {
 
   .menu {
     display: none;
+  }
+
+  .logo {
+    cursor: pointer;
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
   }
 
   @media screen and (max-width: 1028px) {
@@ -88,8 +95,8 @@ header {
       user-select: none;
 
       &.active {
-        font-weight: 600;
-        color: #ffffff;
+        font-weight: 700;
+        color: #C42828;
       }
 
       &:hover {

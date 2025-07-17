@@ -1,151 +1,104 @@
 <template lang="pug">
 
 section#relevant-projects
-    h2 Recent relevant projects
-    Project( v-for="project, index in projects" :title="project.title" :subtitle="project.subtitle" :id="`project-${index}`" :description="project.description" :background="project.background" :url="project.url")
-        Technology( v-for="tech in project.technologies" :icon="tech.icon" :name="tech.name" :backgroundColor="tech.backgroundColor" )
+    h2 Portfolio
+
+    .project( v-for="(project, index) in projects" :key="`project-${index}-${project.title}`" :id="`project-${index}`" @mousemove="moveBackground(index, $event)" )
+        img.project-background( :ref="el => projectBackgrounds[index] = el" :src="project.background" :alt="`Project background for ${project.title}`" )
+        .project-content
+            a.project-link(:href="project.url" target="_blank")
+                h3.project-title {{ project.title }}
+                p.project-subtitle {{ project.subtitle }}
 
 </template>
 
 <script setup>
 
+import { onMounted, ref } from 'vue';
 import Project from './Project.vue';
 import Technology from './Technology.vue';
-import { getTechIcons } from '@/utils.js';
 
 import Engeled from '@/assets/imgs/Engeled.png'
 import Superpet from '@/assets/imgs/Superpet.png'
 import Velope from '@/assets/imgs/Velope.png'
 import Oli from '@/assets/imgs/Oli.png'
 
-import { gsap } from 'gsap'
-import { onMounted } from 'vue'
-
-const techs = getTechIcons()
-
 const projects = [
     {
         title: 'Oli',
-        subtitle: 'Website creation',
-        description: 'Creation of the full website',
+        subtitle: 'Website',
         background: Oli,
         url: 'http://oliapp.com.br/',
-        technologies: [
-            techs.wordpress,
-            techs.sass,
-            techs.tailwind,
-            techs.js
-        ]
     },
     {
         title: 'Engeled',
-        subtitle: 'Website creation',
-        description: 'Creation of the full website plus custom features for better user website customization',
+        subtitle: 'Website',
         background: Engeled,
         url: 'https://engeled.com.br/',
-        technologies: [
-            techs.wordpress,
-            techs.sass,
-            techs.tailwind,
-            techs.js
-        ]
     },
     {
         title: 'Superpet',
-        subtitle: 'Website creation',
-        description: 'Creation of the full website plus custom features for better user website customization',
+        subtitle: 'Website',
         url: 'https://superpetdelivery.com.br/',
         background: Superpet,
-        technologies: [
-            techs.react,
-            techs.sass,
-            techs.tailwind,
-            techs.js,
-            techs.go,
-            techs.mongo,
-        ]
     },
     {
         title: 'Velope',
-        subtitle: 'Website design',
-        description: 'Design of the full website, all pages included',
+        subtitle: 'Design',
         url: 'https://velope.com.br/',
         background: Velope,
-        technologies: [
-            techs.figma,
-        ]
     },
 ]
 
-gsap.registerPlugin(ScrollTrigger)
+const projectBackgrounds = ref([]);
 
-onMounted(async () => {
+const moveBackground = (index, event) => {
+    const bg = projectBackgrounds.value[index];
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
 
-    const scrollConfig = {
-        trigger: '#relevant-projects',
-        scrub: .2,
+    if (bg) {
+        const percent = (index / (projects.length - 1)) * 2 - 1; // -1 to 1
+        const yOffset = -percent * 20; // ← REVERSED here
+
+        bg.style.transform = `translate(${x}px, ${y}px) translate(-80%, calc(-50% + ${yOffset}%))`;
     }
+};
 
-    gsap.from('#relevant-projects h2', {
-        scrollTrigger: {
-            ...scrollConfig,
-            trigger: 'main h1',
-            start: '-5%',
-            end: '-70%',
-        },
-        y: 200,
-        scale: 2,
-        opacity: 0,
-    })
-
-    projects.forEach((project, index) => {
-        if(index%2 !== 0) {
-            gsap.from(`#project-${index}`, {
-                scrollTrigger: {
-                    ...scrollConfig,
-                    trigger: `#project-${index}`,
-                    end: '-60%',
-                },
-                x: 300,
-                y: 100,
-                scale: .7,
-                opacity: 0,
-            })
+onMounted(() => {
+    for (let i = 0; i < projects.length; i++) {
+        const bg = projectBackgrounds.value[i];
+        if (bg) {
+            bg.style.transform = 'translate(-80%, -50%)'; // Initial position
         }
-        else {
-            gsap.from(`#project-${index}`, {
-                scrollTrigger: {
-                    ...scrollConfig,
-                    trigger: `#project-${index}`,
-                    end: '-60%',
-                },
-                x: -300,
-                y: 100,
-                scale: .7,
-                opacity: 0,
-            })
-        }
-    })
-
-})
+    }
+});
 
 </script>
 
 <style lang="scss">
 
 #relevant-projects {
-    color: #0F0F0F;
-    background: #ffffff;
+    color: #C42828;
+    background: #191919;
+    border-top: 1px solid #2b2b2b;
+    border-bottom: 1px solid #2b2b2b;
     display: flex;
     flex-direction: column;
-    gap: 3.56rem;
+    gap: 3.6rem;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding : 8rem 0;
+    position: relative;
+
+    @media screen and (max-width: 1028px) {
+        padding: 6rem 2.31rem;
+    }
 
     h2 {
-        color: #0F0F0F;
-        font-family: 'Lusitana';
+        color: #FFF;
         font-size: 2.39719rem;
         font-style: normal;
         font-weight: 700;
@@ -155,18 +108,60 @@ onMounted(async () => {
         z-index: 1;
     }
 
-    @media screen and (max-width: 1028px) {
-        padding: 6rem 2.31rem;
-    }
-}
+    .project {
+        position: relative;
 
-@keyframes test {
-    from {
-        scale: 2;
+        @media screen and (min-width: 1028px) {
+            &:hover .project-background {
+                opacity: 1;
+            }
+        }
+
+        .project-background {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 0;
+            filter: brightness(0.5);
+            transition: opacity 0.3s ease, transform 0.1s linear;
+        }
+
+        .project-content {
+            text-transform: uppercase;
+            padding: .2rem 6rem;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+
+            @media screen and (min-width: 1028px) {
+                &:hover {
+                    transform: scale(1.05);
+
+                    h3 {
+                        color: #FFF;
+                        transform: scale(1.3);
+                    }
+
+                    p {
+                        color: #FFF;
+                    }
+                }
+            }
+
+            h3 {
+                color: #C42828;
+                font-weight: 800;
+            }
+
+            p {
+                color: #cccccc;
+                text-align: center;
+                font-size: 1.125rem;
+                font-weight: 100;
+            }
+        }
     }
-    to {
-        scale: 1;
-    }
+
 }
 
 </style>

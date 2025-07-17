@@ -6,33 +6,26 @@ section#experiences
         SplideTrack
             SplideSlide.experience( v-for="experience, index in experiences" :key="`experience${index}`" )
                 p {{ experience.time }}
-                h4 {{ experience.title }}
+                h4
+                    | {{ experience.title }},
+                    span.company {{ " " + experience.company }}
+                .techs
+                    Technology( v-for="(tech, index) in experience.techs" :key="`tech-${index}`" :technology="tech" )
                 ul
                     li( v-for="doing in experience.doings" ) {{ doing }}
-                .techs( v-if="experience.technologies.length > 0" )
-                    Technology( v-for="tech, index in experience.technologies" :key="`tech${index}`" :icon="tech.icon" :backgroundColor="tech.backgroundColor" :name="tech.name" )
     .experiences.experiences__mobile
         .experience.is-active( v-for="experience, index in experiences" :key="`experience${index}`" )
             p {{ experience.time }}
             h4 {{ experience.title }}
             ul
                 li( v-for="doing in experience.doings" ) {{ doing }}
-            .techs
-                Technology( v-for="tech, index in experience.technologies" :key="`tech${index}`" :icon="tech.icon" :backgroundColor="tech.backgroundColor" :name="tech.name" )
 </template>
 
 <script setup>
 
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide';
-import Technology from './Technology.vue';
-import { getTechIcons } from '@/utils.js'
 import '@splidejs/vue-splide/css/core';
-import { onMounted } from 'vue'
-import { gsap } from 'gsap'
 
-gsap.registerPlugin(ScrollTrigger)
-
-const techs = getTechIcons()
 
 const SplideOptions = {
     perPage: 1,
@@ -46,7 +39,8 @@ const SplideOptions = {
 const experiences = [
     {
         time: 'october 2024 - today',
-        title: 'Senior Web Developer, Freelance',
+        title: 'Senior Web Developer',
+        company: 'Freelance',
         doings: [
             'Reduced API call times by an average of 80% through advanced data prefetching, query optimization, and custom caching policies.',
             'Boosted Core Web Vitals by adding skeleton loaders, lazy loading, and pagination for large datasets.',
@@ -57,35 +51,22 @@ const experiences = [
             'Enhanced app integrations ( chatbot, UTM tracking, VWO A/B tests) and implemented structured SEO strategies including meta tags and rich schema.',
             'Implemented secure CI/CD pipelines with GitHub Actions.'
         ],
-        technologies: [
-            techs.next,
-            techs.wordpress,
-            techs.tailwind,
-            techs.js,
-            techs.php,
-            techs.sass,
-        ]
     },
     {
         time: 'july 2024 - october 2024',
-        title: 'Web Developer, Mosyle ( Assetbots )',
+        title: 'Web Developer',
+        company: 'Mosyle ( Assetbots )',
         doings: [
             "Built component-based UIs aligned with Figma designs using MUI and Styled Components.",
             "Added features and enhancements to core interfaces using TypeScript and React.",
             "Implemented and Improved A/B tests to measure UX changes and guide product improvements.",
             "Upgraded backend APIs to support interactive features and secure data handling.",
         ],
-        technologies: [
-            techs.react,
-            techs.dotnet,
-            techs.tailwind,
-            techs.ts,
-            techs.sass,
-        ]
     },
     {
         time: 'april 2024 - october 2024',
-        title: 'Web Developer Freelance, WKode',
+        title: 'Web Developer Freelance',
+        company: 'WKode',
         doings: [
             'Built modular WordPress themes and custom ACF/Gutenberg blocks enabling flexible content management for 30+ websites.',
             "Engineered custom Gutenberg blocks using React, TypeScript, and WordPress REST API for dynamic content editing.",
@@ -96,23 +77,11 @@ const experiences = [
             "Integrated secure authentication using OAuth and built APIs with Express.js and GoLang ( Gin ).",
             "Enhanced SEO with SSR, schema markup, and Lighthouse audits."
         ],
-        technologies: [
-            techs.next,
-            techs.go,
-            techs.wordpress,
-            techs.tailwind,
-            techs.react,
-            techs.sass,
-            techs.ts,
-            techs.js,
-            techs.figma,
-            techs.php,
-            techs.mongo,
-        ]
     },
     {
         time: 'april 2021 - april 2024',
-        title: 'Web Developer & UI/UX Designer,  JettaCargo',
+        title: 'Web Developer & UI/UX Designer',
+        company: 'JettaCargo',
         doings: [
             "Built a 3D editor UI modeled after Blender, improving usability for customized cargo planning.",
             'Created a microservice to dynamically generate PDF cargo reports, offering API-first users report access.',
@@ -123,19 +92,11 @@ const experiences = [
             'Created reusable Vue component libraries, improving Component-Based architecture on the main webapp.',
             'Implemented a custom chatbot and support ticket integration within the webapp.',
         ],
-        technologies: [
-            techs.vue,
-            techs.nuxt,
-            techs.express,
-            techs.sass,
-            techs.node,
-            techs.js,
-            techs.figma,
-        ]
     },
     {
         time: 'march 2020 - april 2021',
-        title: 'Front End Wordpress Developer,  Escritolândia',
+        title: 'Front End Wordpress Developer',
+        company: 'Escritolândia',
         doings: [
             "Designed and developed a custom e-commerce website from scratch using WordPress and WooCommerce.",
             "Built a fully custom theme with a UI inspired by MercadoLivre and Amazon, optimized for conversion and speed.",
@@ -149,49 +110,18 @@ const experiences = [
             "Managed cloud infrastructure and DNS configurations, ensuring uptime and scalability.",
             "Launched and monitored promotional campaigns with automated discounts and banners.",
         ],
-        technologies: [
-            techs.wordpress,
-            techs.js,
-            techs.sass,
-            techs.php,
-            techs.figma,
-        ]
     },
 ]
-
-onMounted(() => {
-
-    const scrollConfig = {
-        trigger: '#experiences',
-        start: '-130%',
-        end: '-80%',
-        scrub: .6,
-    }
-
-    gsap.from('#experiences h2', {
-        scrollTrigger: scrollConfig,
-        opacity: 0,
-        scale: 2,
-        y: 200,
-    })
-
-    gsap.from('#experiences .experiences', {
-        scrollTrigger: scrollConfig,
-        opacity: 0,
-    })
-})
 
 </script>
 
 <style lang="scss">
 
 #experiences {
-    padding-bottom: 8rem;
+    padding: 8rem 7.38rem;
 }
 
 h2.title {
-    text-transform: uppercase;
-    text-align: center;
     margin-bottom: 3rem;
 }
 
@@ -249,30 +179,35 @@ h2.title {
 
 .experience {
     display: flex;
-    padding: 1.5rem;
+    padding: 3.125rem;
     flex-direction: column;
     align-items: flex-start;
     // gap: 1rem;
     flex-shrink: 0;
-    border: 1px solid #4D4D4D;
+    border: 1px solid #2b2b2b;
+    background: #181818;
     opacity: .6;
     margin-right: 2rem;
 
     p {
-        color: #E7E7E7;
-        font-size: 1.125rem;
+        color: #6E6E6E;
+        font-size: 1rem;
         font-style: normal;
         font-weight: 400;
         line-height: 160%;
     }
 
     h4 {
-        color: #F9F9F9;
-        font-size: 1.5rem;
+        color: #FFFFFF;
+        font-size: 1.75rem;
         font-style: normal;
         font-weight: 700;
         line-height: 160%;
         margin-bottom: 1rem;
+
+        span {
+            color: #C42828;
+        }
     }
 
     ul {
@@ -280,8 +215,8 @@ h2.title {
         margin-left: 1.5rem;
 
         li {
-            color: #AFAFAF;
-            font-size: 1.1875rem;
+            color: #CFCFCF;
+            font-size: 1rem;
             font-style: normal;
             font-weight: 400;
             line-height: 160%;

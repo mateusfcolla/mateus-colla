@@ -31,7 +31,7 @@ onMounted(() => {
         isLoading.value = false;
     })
 
-    setTimeout(() => titleScroller(`Hey, I'm Mateus Felipe. Lets work together!  `), 2000)
+    setTimeout(() => titleScroller(`Hey, I'm Mateus Felipe. Lets work together!  `), 300)
 })
 
 const titleScroller = text => {

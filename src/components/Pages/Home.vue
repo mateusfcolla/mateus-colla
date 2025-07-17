@@ -1,11 +1,9 @@
 <template lang="pug">
 
 Hero
-Projects
 About
-SectionSeparator
+Projects
 Experiences
-Offers
 
 </template>
 
@@ -14,8 +12,6 @@ Offers
 import Hero from '@/components/Hero.vue'
 import Projects from '@/components/Projects.vue'
 import About from '@/components/About.vue'
-import SectionSeparator from '@/components/SectionSeparator.vue';
 import Experiences from '@/components/Experiences.vue'
-import Offers from '@/components/Offers.vue'
 
 </script>
