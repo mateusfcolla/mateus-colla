@@ -19,9 +19,9 @@ import Logo from '@/assets/logo.svg'
 import { redirect, scrollTo } from '@/utils.js'
 
 const navItems = [
-    { text: 'experiences', to: 'main', active: true },
-    { text: 'technologies', to: '#relevant-projects' },
-    { text: 'portfolio', to: '#about' },
+    { text: 'experiences', to: '#experiences', active: true },
+    { text: 'technologies', to: '#technologies' },
+    { text: 'portfolio', to: '#relevant-projects' },
 ]
 
 const menuOpened = ref(null);

@@ -37,10 +37,9 @@ import { redirect, scrollTo } from '@/utils.js'
 import Logo from '@/assets/logo.svg'
 
 const navItems = [
-    { text: 'home', to: 'main', active: true },
-    { text: 'relevant projects', to: '#relevant-projects' },
-    { text: 'about me', to: '#about' },
-    { text: 'what I offer', to: '#what-i-offer' },
+    { text: 'experiences', to: '#experiences', active: true },
+    { text: 'technologies', to: '#technologies' },
+    { text: 'portfolio', to: '#relevant-projects' },
 ]
 
 
@@ -56,7 +55,7 @@ footer {
     gap: 7.5rem;
     flex-shrink: 0;
     background: #0F0F0F;
-    border-top: 1px solid #4D4D4D;
+    border-top: 1px solid #2b2b2b;
 
     @media screen and (max-width: 1028px) {
         flex-direction: column;
@@ -98,7 +97,7 @@ footer {
             cursor: pointer;
 
             &:hover {
-                color: #0f78d2;
+                color: #C42828;
             }
         }
 

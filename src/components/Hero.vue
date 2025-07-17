@@ -11,7 +11,7 @@ main(ref="heroSection")
         a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
             img( :src="dribbble" alt="My Dribbble")
     .actions
-        .button( @click="redirect('#relevant-projects')" ).outline what I've been working on
+        .button( @click="scrollTo('#relevant-projects')" ).outline what I've been working on
     .contact
         a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) felipe.colla.m@gmail.com
     canvas#space-background
@@ -20,6 +20,7 @@ main(ref="heroSection")
 
 <script setup>
 import { onMounted, ref } from 'vue'
+import { scrollTo } from '@/utils.js'
 import github from '@/assets/icons/socials-github.svg'
 import dribbble from '@/assets/icons/socials-dribbble.svg'
 import { redirect } from '@/utils.js'

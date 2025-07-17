@@ -1,6 +1,6 @@
 <template lang="pug">
 
-section.logo-displayer
+section.logo-displayer#technologies
     h2 Technology Stack
     .logo-row
         a.logo-display.empty( v-for="index in 20" :key="'empty-' + index" )
