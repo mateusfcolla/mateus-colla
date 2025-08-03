@@ -1,7 +1,7 @@
 <template lang="pug">
 main#hero(ref="heroSection")
     .glow
-    h2 Hey! I’m Mateus Felipe
+    h2 Hey! I'm Mateus Felipe
     h1
         span.word Web Developer
         span.word UI/UX Designer
