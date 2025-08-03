@@ -15,7 +15,6 @@ section#relevant-projects
 <script setup>
 
 import { onMounted, ref } from 'vue';
-import Technology from './Technology.vue';
 
 import Engeled from '@/assets/imgs/Engeled.png'
 import Superpet from '@/assets/imgs/Superpet.png'
