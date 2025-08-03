@@ -33,6 +33,7 @@ import bootstrap from '@/assets/logo-slider/bootstrap.svg'
 import acf from '@/assets/logo-slider/acf.svg'
 import postgres from '@/assets/logo-slider/postgres.svg'
 import webpack from '@/assets/logo-slider/webpack.svg'
+import gsap from '@/assets/logo-slider/gsap.svg'
 
 export const redirect = (url, target = '_top') => {
     window.open(url, target)
@@ -82,6 +83,7 @@ export const getLogoSliderLogos = () => {
         { name: "Bootstrap", img: bootstrap, link: "https://getbootstrap.com/", color: "#9013FE" },
         { name: "ACF", img: acf, link: "https://www.advancedcustomfields.com/", color: "#0BBAD4" },
         { name: "Postgres", img: postgres, link: "https://www.postgresql.org/", color: "#336791" },
-        { name: "Webpack", img: webpack, link: "https://webpack.js.org/", color: "#8ED6FB" }
+        { name: "Webpack", img: webpack, link: "https://webpack.js.org/", color: "#8ED6FB" },
+        { name: "GSAP", img: gsap, link: "https://greensock.com/gsap/", color: "#0ae448" }
     ]
 }
