@@ -96,13 +96,13 @@ onMounted(() => {
     starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3))
 
     const starMaterial = new THREE.PointsMaterial({
-        size: Math.random() * 0.05 + 0.06,
+        size: .1,
         map: createCircleTexture(),
         transparent: true,
         alphaTest: 0.01,
         blending: THREE.AdditiveBlending,
         depthWrite: false,
-        vertexColors: true, // enable color per point
+        vertexColors: true,
     })
 
     const stars = new THREE.Points(starGeometry, starMaterial)
@@ -268,7 +268,7 @@ main {
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -283,12 +283,15 @@ main {
 
     h1 {
         color: #ffffff;
-        font-size: 5.4rem;
+        font-size: 5rem;
+        line-height: 180%;
         font-style: normal;
         font-weight: 800;
         text-transform: uppercase;
         position: relative;
         user-select: none;
+        font-optical-sizing: auto;
+        text-shadow: 0px 0px 6px #ff000063, 0px 0px 16px #c7134918, ;
 
         @media screen and (max-width: 1028px) {
             font-size: 2.4rem;
@@ -309,7 +312,7 @@ main {
             position: absolute;
 
             .letter {
-                background: linear-gradient(180deg, #c71349, #df2323);
+                background: linear-gradient(0deg, #c71349, #ff0000);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;

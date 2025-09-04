@@ -25,8 +25,9 @@ import { onMounted, onBeforeUnmount } from 'vue'
 import { redirect, getLogoSliderLogos } from '@/utils.js'
 import LogoDisplayer from '@/components/LogoDisplayer.vue'
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-let renderer, scene, camera, sphere, wireframe, animationId;
+let renderer, scene, camera, earthModel, animationId;
 
 function resizeRenderer(container) {
     if (!renderer || !camera || !container) return;
@@ -54,13 +55,12 @@ function onPointerDown(event) {
 }
 
 function onPointerMove(event) {
-    if (!isDragging) return;
+    if (!isDragging || !earthModel) return;
     const deltaX = event.clientX - previousMouseX;
     previousMouseX = event.clientX;
     const rotationSpeed = 0.01;
     const rotationDelta = deltaX * rotationSpeed;
-    sphere.rotation.y += rotationDelta;
-    wireframe.rotation.y += rotationDelta;
+    earthModel.rotation.y += rotationDelta;
     // Save the last drag speed (direction included)
     lastDragSpeed = rotationDelta;
 }
@@ -98,30 +98,26 @@ onMounted(() => {
     renderer.setClearColor(0x000000, 0); // transparent background
     container.appendChild(renderer.domElement);
 
-    // Transparent Sphere (fully transparent, smooth/round)
-    const geometry = new THREE.SphereGeometry(1.2, 16, 16); // more segments for smoothness
-    const material = new THREE.MeshPhysicalMaterial({
-        color: 0xffffff,
-        transparent: true,
-        opacity: 0.0, // fully transparent
-    });
-    sphere = new THREE.Mesh(geometry, material);
-    scene.add(sphere);
-
-    // Wireframe (latitude/longitude lines, smooth)
-    const wireframeGeometry = new THREE.WireframeGeometry(geometry);
-    wireframe = new THREE.LineSegments(
-        wireframeGeometry,
-        new THREE.LineBasicMaterial({ color: 0x3b3b3b, linewidth: 2 })
+    // Load 3D Earth model
+    const loader = new GLTFLoader();
+    loader.load(
+        new URL('@/assets/3d/windy.glb', import.meta.url).href,
+        (gltf) => {
+            earthModel = gltf.scene;
+            earthModel.scale.set(1.2, 1.2, 1.2);
+            scene.add(earthModel);
+        },
+        undefined,
+        (error) => {
+            console.error('Error loading earth model:', error);
+        }
     );
-    scene.add(wireframe);
 
     // Animation loop (horizontal rotation only, slower)
     function animate() {
         animationId = requestAnimationFrame(animate);
-        if (autoRotate) {
-            sphere.rotation.y += autoRotateSpeed;
-            wireframe.rotation.y += autoRotateSpeed;
+        if (autoRotate && earthModel) {
+            earthModel.rotation.y += autoRotateSpeed;
             easeAutoRotateSpeed();
         }
         renderer.render(scene, camera);
@@ -152,8 +148,7 @@ onMounted(() => {
         }
         scene = null;
         camera = null;
-        sphere = null;
-        wireframe = null;
+        earthModel = null;
         canvas.removeEventListener('pointerdown', onPointerDown);
         window.removeEventListener('pointermove', onPointerMove);
         window.removeEventListener('pointerup', onPointerUp);
@@ -207,14 +202,12 @@ onMounted(() => {
         min-height: 32.25rem;
         position: relative;
         overflow: hidden;
-        background: #1414145d;
         box-shadow: 0px 0px 30.5px 0px #7070701e;
 
         h2 {
-            background: linear-gradient(90deg, #c71349, #df2323);
+            background: linear-gradient(0deg, #c71349, #ff0000);
             -webkit-background-clip: text;
-            background-clip: text;
-            font-weight: 550;
+            background-clip: text;;
         }
 
         &::after {
@@ -237,8 +230,8 @@ onMounted(() => {
 
             li {
                 font-size: 1.25rem;
-                color: #CECECE;
-                line-height: 175%;
+                color: #acacac;
+                line-height: 150%;
 
                 @media screen and (max-width: 1028px) {
                 font-size: 1rem;

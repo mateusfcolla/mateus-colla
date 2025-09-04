@@ -37,10 +37,11 @@ import { redirect, scrollTo } from '@/utils.js'
 import Logo from '@/assets/logo.svg'
 
 const navItems = [
-    { text: 'experiences', to: '#experiences', active: true },
-    { text: 'technologies', to: '#technologies' },
-    { text: 'portfolio', to: '#relevant-projects' },
-]
+  { text: 'home', to: '#hero' },
+  { text: 'technologies', to: '#technologies' },
+  { text: 'portfolio', to: '#relevant-projects' },
+  { text: 'experiences', to: '#experiences' },
+];
 
 
 </script>

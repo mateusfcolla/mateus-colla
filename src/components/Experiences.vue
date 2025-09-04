@@ -47,7 +47,7 @@ const experiences = [
             'Integrated responsive PDF viewer with mobile optimization for smoother user access.',
             'Created reusable React component libraries using Context API and Hooks.',
             'Automated WordPress deployments to Vercel, enabling instant content updates after key changes.',
-            'Engineered custom Gutenberg blocks and advanced ACF setups for modular, flexible content editing.',
+            'Engineered custom blocks and advanced ACF setups for modular, flexible content editing.',
             'Enhanced app integrations ( chatbot, UTM tracking, VWO A/B tests) and implemented structured SEO strategies including meta tags and rich schema.',
             'Implemented secure CI/CD pipelines with GitHub Actions.'
         ],
@@ -68,8 +68,8 @@ const experiences = [
         title: 'Web Developer Freelance',
         company: 'WKode',
         doings: [
-            'Built modular WordPress themes and custom ACF/Gutenberg blocks enabling flexible content management for 30+ websites.',
-            "Engineered custom Gutenberg blocks using React, TypeScript, and WordPress REST API for dynamic content editing.",
+            'Built modular WordPress themes and custom blocks enabling flexible content management for 30+ websites.',
+            "Engineered custom blocks using React, TypeScript, and WordPress REST API for dynamic content editing.",
             "Led development of headless architectures integrating WPGraphQL and microfrontend SPAs with React.",
             "Built scalable component libraries using Hooks and Context API, improving developer efficiency.",
             "Implemented secure CI/CD pipelines with GitHub Actions and Docker.",
@@ -100,7 +100,7 @@ const experiences = [
         doings: [
             "Designed and developed a custom e-commerce website from scratch using WordPress and WooCommerce.",
             "Built a fully custom theme with a UI inspired by MercadoLivre and Amazon, optimized for conversion and speed.",
-            "Engineered dynamic Gutenberg blocks and ACF layouts to allow flexible content and product management.",
+            "Engineered dynamic blocks and ACF layouts to allow flexible content and product management.",
             "Developed an integration between the website and the company’s internal system to sync product data and pricing in real time.",
             "Implemented secure payment APIs to support various checkout flows.",
             "Created icon fonts to reduce HTTP requests and improve overall load performance.",
