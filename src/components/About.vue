@@ -16,14 +16,11 @@ section#about
             li Native Brazillian Portuguese
             li Basic German
         #threejs-container
-LogoDisplayer
 
 </template>
 
 <script setup>
 import { onMounted, onBeforeUnmount } from 'vue'
-import { redirect, getLogoSliderLogos } from '@/utils.js'
-import LogoDisplayer from '@/components/LogoDisplayer.vue'
 import * as THREE from 'three';
 
 let renderer, scene, camera, sphere, wireframe, animationId;
@@ -211,8 +208,9 @@ onMounted(() => {
         box-shadow: 0px 0px 30.5px 0px #7070701e;
 
         h2 {
-            background: linear-gradient(0deg, #c71349, #df2323);
+            background: linear-gradient(90deg, #c71349, #df2323);
             -webkit-background-clip: text;
+            font-weight: 550;
         }
 
         &::after {
