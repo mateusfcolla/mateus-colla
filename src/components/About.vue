@@ -7,7 +7,7 @@ section#about
             | I work and specialize in  since 2018.
             span(  ) {{" "}} web development and design {{" "}}
             | I’m passionate about creating inspiring interfaces and improving applications.
-        .button( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')") contact me
+        .button( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')") Contact me
 
     .right
         h2 Languages

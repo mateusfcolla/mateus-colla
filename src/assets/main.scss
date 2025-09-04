@@ -87,6 +87,7 @@ section {
   backdrop-filter: blur(2px) saturate(140%);
   font-style: normal;
   line-height: normal;
+  white-space: nowrap;
   color: #ffffff;
   background: transparent;
   width: fit-content;
@@ -102,6 +103,7 @@ section {
 
   &:hover {
       background: rgba(255, 255, 255, 0.13);
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.699);
       cursor: pointer;
   }
 }

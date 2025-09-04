@@ -61,9 +61,11 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-  updateActiveNav()
-  window.addEventListener('hashchange', updateActiveNav)
+  if (window.innerWidth > 1028) {
+    window.addEventListener('scroll', handleScroll)
+    updateActiveNav()
+    window.addEventListener('hashchange', updateActiveNav)
+  }
 // Clean up event listener if needed
 // onUnmounted(() => {
 //   window.removeEventListener('scroll', handleScroll)
@@ -172,7 +174,7 @@ header {
       opacity: 0;
       flex-direction: column;
       position: absolute;
-      border-top: 2px solid #4F4F4F;
+      backdrop-filter: blur(6px) saturate(140%);
       height: calc(100vh - 6rem);
       padding: 2.31rem;
       top: 6rem;

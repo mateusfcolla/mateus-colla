@@ -11,7 +11,7 @@ main#hero(ref="heroSection")
         a( @click="redirect('https://dribbble.com/coall_fcm', '_blank')" rel="noopener noreferrer")
             img( :src="dribbble" alt="My Dribbble")
     .actions
-        .button( @click="scrollTo('#relevant-projects')" ).outline what I've been working on
+        .button( @click="scrollTo('#relevant-projects')" ).outline What I've been working on
     .contact
         a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ) felipe.colla.m@gmail.com
     canvas#space-background

@@ -196,6 +196,12 @@ h2.title {
     background: #181818;
     opacity: .6;
     margin-right: 2rem;
+    border-radius: 32px;
+    box-shadow: 0 0px 18.1px 0 hsla(0, 0%, 100%, 0.048) inset, 0 0px 4.6px 0 hsla(202, 100%, 92%, 0.021) inset;
+
+    @media screen and (max-width: 1028px) {
+        align-items: center;
+    }
 
     p {
         color: #6E6E6E;
@@ -215,6 +221,10 @@ h2.title {
 
         span {
             color: #C42828;
+        }
+
+        @media screen and (max-width: 1028px) {
+            text-align: center;
         }
     }
 
