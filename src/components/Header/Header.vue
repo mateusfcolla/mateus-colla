@@ -58,13 +58,27 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.8rem 7.38rem;
+  padding: 1.2rem 7.38rem;
   width: 100vw;
   border-bottom: 1px solid #4F4F4F;
   background: #0e100f57;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px) saturate(140%);
+  mix-blend-mode: lighten;
   position: fixed;
   z-index: 999;
+
+  &::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    box-shadow: 0 0px 18.1px 0 hsla(0, 0%, 100%, 0.144) inset, 0 0px 4.6px 0 hsla(202, 100%, 92%, 0.342) inset;
+    right: 0;
+    bottom: 0;
+    width: 120%;
+    height: 140%;
+    opacity: .6;
+    z-index: 1;
+  }
 
   .scrolling-down {
     top: 2rem;
