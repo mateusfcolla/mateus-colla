@@ -147,11 +147,16 @@ onBeforeUnmount(() => {
     }
 
     .logo-display {
-        border: 1px solid #252525;
-        padding: .8rem;
-        background: #141414;
-        border-radius: .8rem;
-        transition: .2s;
+    border: 1px solid #252525;
+    padding: .8rem;
+    background: #141414;
+    border-radius: .8rem;
+    transition: .2s;
+    transition-delay: 0s;
+
+    &:not(:hover) {
+        transition-delay: 0.2s;
+    }
 
         &.animated {
             img {
