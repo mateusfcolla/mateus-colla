@@ -210,6 +210,7 @@ onMounted(() => {
         h2 {
             background: linear-gradient(90deg, #c71349, #df2323);
             -webkit-background-clip: text;
+            background-clip: text;
             font-weight: 550;
         }
 
