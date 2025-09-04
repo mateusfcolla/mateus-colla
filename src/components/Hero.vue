@@ -255,8 +255,6 @@ onMounted(() => {
 
 <style lang="scss">
 
-@import "@/assets/hero/background.scss";
-
 main {
     min-height: 96vh;
     padding: 2.31rem 7.38rem;
@@ -311,7 +309,7 @@ main {
             position: absolute;
 
             .letter {
-                background: linear-gradient(0deg, #c71349, #df2323);
+                background: linear-gradient(180deg, #c71349, #df2323);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
