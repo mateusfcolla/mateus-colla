@@ -1,6 +1,6 @@
 <template lang="pug">
 
-header.scrolling-down
+header.scrolling-down(:class="{ 'hide-header': !showHeader }")
     .logo
       img( @click="redirect('/')" :src="Logo" )
     Hamburger( @toggle-menu="toggleMenu" :opened="menuOpened" )
@@ -18,12 +18,16 @@ import Hamburger from './Hamburger.vue';
 import Logo from '@/assets/logo.svg'
 import { redirect, scrollTo } from '@/utils.js'
 
+
 const navItems = ref([
-    { text: 'home', to: '#hero' },
-    { text: 'technologies', to: '#technologies' },
-    { text: 'portfolio', to: '#relevant-projects' },
-    { text: 'experiences', to: '#experiences' },
+  { text: 'home', to: '#hero' },
+  { text: 'technologies', to: '#technologies' },
+  { text: 'portfolio', to: '#relevant-projects' },
+  { text: 'experiences', to: '#experiences' },
 ]);
+
+const showHeader = ref(true);
+let lastScrollY = window.scrollY;
 
 const menuOpened = ref(null);
 
@@ -39,15 +43,31 @@ const updateActiveNav = () => {
   })
 }
 
+
 const handleScrollOrClick = (target) => {
   scrollTo(target)
   history.replaceState(null, '', target)
   updateActiveNav()
 }
 
+const handleScroll = () => {
+  const currentScrollY = window.scrollY;
+  if (currentScrollY > lastScrollY && currentScrollY > 60) {
+    showHeader.value = false;
+  } else {
+    showHeader.value = true;
+  }
+  lastScrollY = currentScrollY;
+}
+
 onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
   updateActiveNav()
   window.addEventListener('hashchange', updateActiveNav)
+// Clean up event listener if needed
+// onUnmounted(() => {
+//   window.removeEventListener('scroll', handleScroll)
+// })
 })
 
 </script>
@@ -66,6 +86,11 @@ header {
   mix-blend-mode: lighten;
   position: fixed;
   z-index: 999;
+
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  &.hide-header {
+    transform: translateY(-100%);
+  }
 
   &::after {
     content: '';

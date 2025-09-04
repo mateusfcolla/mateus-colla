@@ -16,11 +16,14 @@ section#about
             li Native Brazillian Portuguese
             li Basic German
         #threejs-container
+LogoDisplayer
 
 </template>
 
 <script setup>
 import { onMounted, onBeforeUnmount } from 'vue'
+import { redirect, getLogoSliderLogos } from '@/utils.js'
+import LogoDisplayer from '@/components/LogoDisplayer.vue'
 import * as THREE from 'three';
 
 let renderer, scene, camera, sphere, wireframe, animationId;
