@@ -3,9 +3,9 @@
 footer
     .footer-section
         .subsection
-            a( @click="redirect('tel:+33783002154', '_blank')" ).footer-item
+            a( @click="redirect('tel:+4915174445675', '_blank')" ).footer-item
                 img( :src="phone" alt="Phone" )
-                | +33 7 83 00 21 54
+                | +49 151 74445675
             a( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')" ).footer-item
                 img( :src="gmail" alt="Gmail" )
                 | Send me a message
