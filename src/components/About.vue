@@ -91,7 +91,7 @@ onMounted(() => {
     // Scene setup
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(60, container.offsetWidth / container.offsetHeight, 0.1, 1000);
-    camera.position.z = 2.5;
+    camera.position.z = 100;
 
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(container.offsetWidth, container.offsetHeight);
@@ -101,10 +101,10 @@ onMounted(() => {
     // Load 3D Earth model
     const loader = new GLTFLoader();
     loader.load(
-        new URL('@/assets/3d/windy.glb', import.meta.url).href,
+        new URL('@/assets/3d/wireframe_3d_globe.glb', import.meta.url).href,
         (gltf) => {
             earthModel = gltf.scene;
-            earthModel.scale.set(1.2, 1.2, 1.2);
+            earthModel.scale.set(1, 1, 1);
             scene.add(earthModel);
         },
         undefined,
