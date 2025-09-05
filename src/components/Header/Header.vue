@@ -1,6 +1,7 @@
 <template lang="pug">
 
 header.scrolling-down(:class="{ 'hide-header': !showHeader }")
+    GlassSurface( width="100%" height="100%" :borderRadius="0" class="glass-surface-header" )
     .logo
       img( @click="redirect('/')" :src="Logo" )
     Hamburger( @toggle-menu="toggleMenu" :opened="menuOpened" )
@@ -14,7 +15,8 @@ header.scrolling-down(:class="{ 'hide-header': !showHeader }")
 <script setup>
 
 import { ref, onMounted, watch } from 'vue'
-import Hamburger from './Hamburger.vue';
+import GlassSurface from '../GlassSurface.vue'
+import Hamburger from './Hamburger.vue'
 import Logo from '@/assets/logo.svg'
 import { redirect, scrollTo } from '@/utils.js'
 
@@ -77,34 +79,25 @@ onMounted(() => {
 <style lang="scss" scoped>
 
 header {
+  width: 100vw;
+  border-bottom: 1px solid #4F4F4F;
+  position: fixed;
+  z-index: 999;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem 7.38rem;
-  width: 100vw;
-  border-bottom: 1px solid #4F4F4F;
-  background: #0e100f57;
-  backdrop-filter: blur(6px) saturate(140%);
-  mix-blend-mode: lighten;
-  position: fixed;
-  z-index: 999;
 
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  &.hide-header {
-    transform: translateY(-100%);
+  .glass-surface-header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    box-shadow: 0 0px 18.1px 0 hsla(0, 0%, 100%, 0.144) inset, 0 0px 4.6px 0 hsla(202, 100%, 92%, 0.342) inset;
-    right: 0;
-    bottom: 0;
-    width: 120%;
-    height: 140%;
-    opacity: .6;
-    z-index: 1;
+  &.hide-header {
+    transform: translateY(-100%);
   }
 
   .scrolling-down {
@@ -113,10 +106,12 @@ header {
 
   .menu {
     display: none;
+    z-index: 999;
   }
 
   .logo {
     cursor: pointer;
+    z-index: 999;
     img {
       width: 4.5rem;
       height: 4.5rem;
@@ -144,12 +139,14 @@ header {
     font-weight: 700;
     line-height: normal;
     white-space: nowrap;
+    z-index: 999;
   }
 
   nav {
     align-items: center;
     display: flex;
     gap: 2.44rem;
+    z-index: 999;
 
     a {
       cursor: pointer;
