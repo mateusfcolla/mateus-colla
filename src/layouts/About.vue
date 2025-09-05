@@ -15,146 +15,14 @@ section#about
             li Fluent English
             li Native Brazillian Portuguese
             li Basic German
-        #threejs-container
+        // Remove #threejs-container
 LogoDisplayer
 
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount } from 'vue'
 import { redirect, getLogoSliderLogos } from '@/utils.js'
 import LogoDisplayer from '@/components/LogoDisplayer.vue'
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
-let renderer, scene, camera, earthModel, animationId;
-
-function resizeRenderer(container) {
-    if (!renderer || !camera || !container) return;
-    const width = container.offsetWidth;
-    const height = container.offsetHeight;
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-}
-
-let isDragging = false;
-let previousMouseX = 0;
-let autoRotate = true;
-let autoRotateSpeed = 0.003; // default speed
-const defaultAutoRotateSpeed = autoRotateSpeed; // store default speed for easing
-let lastDragSpeed = 0;
-let easing = false;
-
-function onPointerDown(event) {
-    isDragging = true;
-    autoRotate = false;
-    previousMouseX = event.clientX;
-    lastDragSpeed = 0;
-    easing = false;
-}
-
-function onPointerMove(event) {
-    if (!isDragging || !earthModel) return;
-    const deltaX = event.clientX - previousMouseX;
-    previousMouseX = event.clientX;
-    const rotationSpeed = 0.01;
-    const rotationDelta = deltaX * rotationSpeed;
-    earthModel.rotation.y += rotationDelta;
-    // Save the last drag speed (direction included)
-    lastDragSpeed = rotationDelta;
-}
-
-function onPointerUp() {
-    isDragging = false;
-    // Set auto-rotation speed to last drag speed, then ease back to default
-    autoRotateSpeed = lastDragSpeed;
-    autoRotate = true;
-    easing = true;
-}
-
-function easeAutoRotateSpeed() {
-    if (!easing) return;
-    // Smoothly interpolate autoRotateSpeed back to defaultAutoRotateSpeed
-    autoRotateSpeed += (defaultAutoRotateSpeed - autoRotateSpeed) * 0.05;
-    // If close enough, snap to default and stop easing
-    if (Math.abs(autoRotateSpeed - defaultAutoRotateSpeed) < 0.0001) {
-        autoRotateSpeed = defaultAutoRotateSpeed;
-        easing = false;
-    }
-}
-
-onMounted(() => {
-    const container = document.getElementById('threejs-container');
-    if (!container) return;
-
-    // Scene setup
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(60, container.offsetWidth / container.offsetHeight, 0.1, 1000);
-    camera.position.z = 100;
-
-    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(container.offsetWidth, container.offsetHeight);
-    renderer.setClearColor(0x000000, 0); // transparent background
-    container.appendChild(renderer.domElement);
-
-    // Load 3D Earth model
-    const loader = new GLTFLoader();
-    loader.load(
-        new URL('@/assets/3d/wireframe_3d_globe.glb', import.meta.url).href,
-        (gltf) => {
-            earthModel = gltf.scene;
-            earthModel.scale.set(1, 1, 1);
-            scene.add(earthModel);
-        },
-        undefined,
-        (error) => {
-            console.error('Error loading earth model:', error);
-        }
-    );
-
-    // Animation loop (horizontal rotation only, slower)
-    function animate() {
-        animationId = requestAnimationFrame(animate);
-        if (autoRotate && earthModel) {
-            earthModel.rotation.y += autoRotateSpeed;
-            easeAutoRotateSpeed();
-        }
-        renderer.render(scene, camera);
-    }
-    animate();
-
-    // Handle resize
-    const handleResize = () => resizeRenderer(container);
-    window.addEventListener('resize', handleResize);
-
-    const canvas = renderer.domElement;
-    canvas.addEventListener('pointerdown', onPointerDown);
-    window.addEventListener('pointermove', onPointerMove);
-    window.addEventListener('pointerup', onPointerUp);
-
-    // Initial resize
-    resizeRenderer(container);
-
-    // Cleanup
-    onBeforeUnmount(() => {
-        window.removeEventListener('resize', handleResize);
-        if (animationId) cancelAnimationFrame(animationId);
-        if (renderer) {
-            renderer.dispose();
-            renderer.forceContextLoss();
-            renderer.domElement = null;
-            renderer = null;
-        }
-        scene = null;
-        camera = null;
-        earthModel = null;
-        canvas.removeEventListener('pointerdown', onPointerDown);
-        window.removeEventListener('pointermove', onPointerMove);
-        window.removeEventListener('pointerup', onPointerUp);
-    });
-})
-
 </script>
 
 <style lang="scss">
