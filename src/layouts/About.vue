@@ -151,25 +151,6 @@ const loopSpeed = ref(isMobile() ? 3 : 2)
                 }
             }
         }
-
-        #threejs-container {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 30%;
-            top: 50%;
-
-            @media screen and (max-width: 1028px) {
-                left: 0;
-                top: 60%;
-                pointer-events: none;
-            }
-            canvas {
-                width: 100%!important;
-                height: 100%!important;
-                display: block;
-            }
-        }
     }
 
     .socials {

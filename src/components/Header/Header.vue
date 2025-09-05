@@ -52,23 +52,36 @@ const handleScrollOrClick = (target) => {
   updateActiveNav()
 }
 
-const handleScroll = () => {
-  const currentScrollY = window.scrollY;
-  if (currentScrollY > lastScrollY && currentScrollY > 60) {
-    showHeader.value = false;
-  } else {
-    showHeader.value = true;
-  }
-  lastScrollY = currentScrollY;
-}
+const getSectionTop = (selector) => {
+  const el = document.querySelector(selector);
+  return el ? el.getBoundingClientRect().top + window.scrollY : Infinity;
+};
+
+const setActiveNavOnScroll = () => {
+  const scrollY = window.scrollY + 118;
+  let activeIndex = 0;
+
+  navItems.value.forEach((item, idx) => {
+    const nextItem = navItems.value[idx + 1];
+    const sectionTop = getSectionTop(item.to);
+    const nextSectionTop = nextItem ? getSectionTop(nextItem.to) : Infinity;
+
+    if (scrollY >= sectionTop && scrollY < nextSectionTop) {
+      activeIndex = idx;
+    }
+  });
+
+  navItems.value.forEach((item, idx) => {
+    item.active = idx === activeIndex;
+  });
+};
 
 onMounted(() => {
-  // if (window.innerWidth > 1028) {
-  //   window.addEventListener('scroll', handleScroll)
-  //   updateActiveNav()
-  //   window.addEventListener('hashchange', updateActiveNav)
-  // }
-})
+  if (window.innerWidth > 1028) {
+    window.addEventListener('scroll', setActiveNavOnScroll);
+    setActiveNavOnScroll();
+  }
+});
 
 </script>
 

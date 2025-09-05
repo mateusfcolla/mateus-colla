@@ -53,7 +53,7 @@ h2 {
   background: linear-gradient(120deg, rgba(238, 238, 238, 0.767) 40%, rgb(255, 255, 255) 50%, rgba(238, 238, 238, 0.767) 60%);
   background-size: 200% 100%;
   background-clip: text;
-  animation: shiny-text 3s linear infinite;
+  animation: shiny-text 1.4s ease-in infinite;
 
   @media screen and (max-width: 1028px) {
     font-size: 1.6rem;
@@ -87,7 +87,7 @@ section {
 
 .button {
   display: flex;
-  padding: 0.8rem 1.6rem;
+  padding: 1rem 2rem;
   justify-content: center;
   font-family: 'Roboto', sans-serif;
   align-items: center;
