@@ -154,8 +154,8 @@ onBeforeUnmount(() => {
 
         @media screen and (max-width: 1028px) {
             transform: scale(0.9);
-            gap: $gap/2;
-            padding: 0 $gap/2;
+            gap: calc($gap / 2);
+            padding: 0 calc($gap / 2);
         }
 
         &:nth-child(even) {
