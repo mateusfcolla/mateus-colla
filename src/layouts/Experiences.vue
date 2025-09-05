@@ -210,6 +210,10 @@ h2.title {
         font-style: normal;
         font-weight: 400;
         line-height: 160%;
+
+        @media screen and (max-width: 1028px) {
+            font-size: .8rem;
+        }
     }
 
     h4 {
@@ -226,19 +230,28 @@ h2.title {
 
         @media screen and (max-width: 1028px) {
             text-align: center;
+            font-size: 1.35rem;
+            margin-bottom: 0;
         }
     }
 
     ul {
-
         margin-left: 1.5rem;
 
         li {
-            color: #CFCFCF;
+            color: #e0e0e0;
             font-size: 1rem;
             font-style: normal;
             font-weight: 400;
-            line-height: 160%;
+            line-height: 180%;
+
+            @media screen and (max-width: 1028px) {
+                margin: 2rem 0;
+
+                &:nth-child(even) {
+                    color: #b4b4b4;
+                }
+            }
         }
 
     }
