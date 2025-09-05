@@ -42,14 +42,18 @@ const orderedLogos = ref([]);
 const hoveredIndex = ref(null);
 const logoRows = ref([]);
 
-const logoSize = 104;
+const logoSize = ref(window.innerWidth < 1028 ? 64 : 104) // Change size for mobile
 const logoMargin = 16;
+
+const updateLogoSize = () => {
+    logoSize.value = window.innerWidth < 1028 ? 64 : 104
+}
 
 const groupLogosIntoRows = () => {
     nextTick(() => {
         const container = document.querySelector('.logo-displayer');if (!container) return;
         const containerWidth = container.clientWidth-(25.6*2);
-        const logoTotalWidth = logoSize + logoMargin*2;
+        const logoTotalWidth = logoSize.value + logoMargin*2;
         const logosPerRow = Math.max(1, Math.floor(containerWidth / logoTotalWidth));
         const rows = [];
 
@@ -69,6 +73,7 @@ onMounted(() => {
     orderedLogos.value = getOrderedLogos()
     groupLogosIntoRows()
     window.addEventListener('resize', groupLogosIntoRows)
+    window.addEventListener('resize', updateLogoSize)
 
     const observer = new IntersectionObserver(
         ([entry]) => {
@@ -89,6 +94,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
     window.removeEventListener('resize', groupLogosIntoRows)
+    window.removeEventListener('resize', updateLogoSize)
 })
 
 </script>
@@ -104,6 +110,10 @@ onBeforeUnmount(() => {
     flex-wrap: wrap;
     height: 100%;
     justify-content: center;
+
+    @media screen and (max-width: 1028px) {
+        gap: .4rem;
+    }
 
     h2 {
         position: absolute;
@@ -137,26 +147,37 @@ onBeforeUnmount(() => {
     .logo-row {
         display: flex;
         width: 100%;
-        gap: 1.6rem;
-        padding: 0 1.6rem;
+        $gap: 1.6rem;
+        gap: $gap;
+        padding: 0 $gap;
         justify-content: center;
 
+        @media screen and (max-width: 1028px) {
+            transform: scale(0.9);
+            gap: $gap/2;
+            padding: 0 $gap/2;
+        }
+
         &:nth-child(even) {
-            transform: translateX(-1.6rem);
+            transform: translateX(-$gap);
+
+            @media screen and (max-width: 1028px) {
+                transform: translateX(-0.8rem) scale(0.9);
+            }
         }
     }
 
     .logo-display {
-    border: 1px solid #252525;
-    padding: .8rem;
-    background: #141414;
-    border-radius: .8rem;
-    transition: .2s;
-    transition-delay: 0s;
+        border: 1px solid #252525;
+        padding: .8rem;
+        background: #141414;
+        border-radius: .8rem;
+        transition: .2s;
+        transition-delay: 0s;
 
-    &:not(:hover) {
-        transition-delay: 0.2s;
-    }
+        &:not(:hover) {
+            transition-delay: 0.2s;
+        }
 
         &.animated {
             img {

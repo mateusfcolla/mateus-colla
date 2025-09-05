@@ -201,6 +201,7 @@ h2.title {
 
     @media screen and (max-width: 1028px) {
         align-items: center;
+        padding: 1.56rem;
     }
 
     p {

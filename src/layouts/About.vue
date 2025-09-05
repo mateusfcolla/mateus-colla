@@ -17,7 +17,7 @@ section#about
             li Basic German
         CurvedLoop(
             marqueeText="Hello! Lets connect! ✦ Oi! Vamos nos conectar! ✦ Hallo! Lass uns verbinden! ✦"
-            :speed="2"
+            :speed="loopSpeed"
             :curveAmount="-500"
             :interactive="true"
             direction="right"
@@ -31,6 +31,14 @@ LogoDisplayer
 import { redirect, getLogoSliderLogos } from '@/utils.js'
 import LogoDisplayer from '@/components/LogoDisplayer.vue'
 import CurvedLoop from '@/components/CurvedLoop.vue';
+import { ref } from 'vue'
+
+function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+}
+
+const loopSpeed = ref(isMobile() ? 3 : 2)
+
 </script>
 
 <style lang="scss">
