@@ -4,9 +4,9 @@ section#about
     .left
         h2 A little about myself...
         p
-            | I work and specialize in  since 2018.
+            | I've worked and specialized in
             span(  ) {{" "}} web development and design {{" "}}
-            | I’m passionate about creating inspiring interfaces and improving applications.
+            | for 7 years and I’m passionate about creating dynamic and pretty interfaces while also building optimized and fast applications.
         .button( @click="redirect('mailto:felipe.colla.m@gmail.com', '_blank')") Contact me
 
     .right
@@ -44,10 +44,14 @@ import CurvedLoop from '@/components/CurvedLoop.vue';
 
     .multi-language-loop {
         position: absolute;
-        top: -2rem;
+        top: 0rem;
         width: 100%;
         z-index: 2;
         pointer-events: none;
+
+        @media screen and (max-width: 1028px) {
+            top: -2rem;
+        }
 
         text {
             font-size: 4.5rem;
