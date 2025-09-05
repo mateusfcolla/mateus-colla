@@ -23,16 +23,29 @@ import { onMounted, ref } from 'vue';
 
 const isLoading = ref(true);
 
-onMounted(() => {
+function preloadImages() {
+    const images = Array.from(document.images);
+    if (images.length === 0) return Promise.resolve();
+    return Promise.all(
+        images.map(img => {
+            if (img.complete) return Promise.resolve();
+            return new Promise(resolve => {
+                img.onload = img.onerror = resolve;
+            });
+        })
+    );
+}
 
+onMounted(() => {
     Promise.all([
-        document.fonts.ready
+        document.fonts.ready,
+        preloadImages()
     ]).then(() => {
         isLoading.value = false;
-    })
+    });
 
-    setTimeout(() => titleScroller(`Hey, I'm Mateus Felipe. Lets work together!  `), 300)
-})
+    setTimeout(() => titleScroller(`Hey, I'm Mateus Felipe. Lets work together!  `), 300);
+});
 
 const titleScroller = text => {
     document.title = text;
