@@ -255,6 +255,13 @@ onMounted(() => {
 
 <style lang="scss">
 
+@font-face {
+  font-family: 'SkiwarRegular';
+  src: url('@/assets/fonts/SkiwarRegular-woOan.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 main {
     min-height: 96vh;
     padding: 2.31rem 7.38rem;
@@ -268,11 +275,12 @@ main {
     }
 
     h2 {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         margin-top: 3.2rem;
+        margin-bottom: .2rem;
         text-align: center;
         user-select: none;
 
@@ -286,12 +294,13 @@ main {
         font-size: 5rem;
         line-height: 180%;
         font-style: normal;
-        font-weight: 800;
+        font-weight: 100;
         text-transform: uppercase;
         position: relative;
         user-select: none;
         font-optical-sizing: auto;
-        text-shadow: 0px 0px 6px #ff000063, 0px 0px 16px #c7134918, ;
+        font-family: "SkiwarRegular", sans-serif;
+        text-shadow: 0px 0px 6px #ff000034, 0px 0px 16px #c7134918, ;
 
         @media screen and (max-width: 1028px) {
             font-size: 2.4rem;
@@ -312,7 +321,7 @@ main {
             position: absolute;
 
             .letter {
-                background: linear-gradient(0deg, #c71349, #ff0000);
+                background: linear-gradient(0deg, #c71349, #ff0000, #c71349);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
