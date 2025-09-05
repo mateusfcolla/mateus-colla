@@ -9,9 +9,9 @@ Experiences
 
 <script setup>
 
-import Hero from '@/components/Hero.vue'
-import Projects from '@/components/Projects.vue'
-import About from '@/components/About.vue'
-import Experiences from '@/components/Experiences.vue'
+import Hero from '@/layouts/Hero.vue'
+import Projects from '@/layouts/Projects.vue'
+import About from '@/layouts/About.vue'
+import Experiences from '@/layouts/Experiences.vue'
 
 </script>
