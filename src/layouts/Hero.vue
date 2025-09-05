@@ -5,7 +5,7 @@ main#hero(ref="heroSection")
             :scale="2"
             :mouseInteractive="true"
             :opacity="0.3"
-            :speed="1.2"
+            :speed="1.6"
             color="#ff0505"
         )
     h2 Hey! I'm Mateus Felipe
