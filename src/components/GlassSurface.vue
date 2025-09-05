@@ -59,12 +59,12 @@ const props = defineProps({
   height: { type: [Number, String], default: 80 },
   borderRadius: { type: Number, default: 20 },
   borderWidth: { type: Number, default: 0.07 },
-  brightness: { type: Number, default: 50 },
+  brightness: { type: Number, default: 50 }, // 50 => neutral
   opacity: { type: Number, default: 0.93 },
   blur: { type: Number, default: 11 },
   displace: { type: Number, default: 0 },
-  backgroundOpacity: { type: Number, default: 0 },
-  saturation: { type: Number, default: 1 },
+  backgroundOpacity: { type: Number, default: 0 }, // 0..1
+  saturation: { type: Number, default: 1 },       // 1 => neutral
   distortionScale: { type: Number, default: -180 },
   redOffset: { type: Number, default: 0 },
   greenOffset: { type: Number, default: 10 },
@@ -97,12 +97,27 @@ const supportsSvgBackdrop = ref(false)
 function detectSupportOnce () {
   try {
     const ua = navigator.userAgent
-    if ((/Safari/.test(ua) && !/Chrome/.test(ua)) || /Firefox/.test(ua)) return false
+    const isSafari = /Safari/.test(ua) && !/Chrome|Chromium|Edg/.test(ua)
+    const isIOS = /iPhone|iPad|iPod/.test(ua)
+    const isFirefox = /Firefox/.test(ua)
+    if (isSafari || isIOS || isFirefox) return false
+
+    if (typeof CSS !== 'undefined' && CSS.supports) {
+      const acceptsUrl = CSS.supports('backdrop-filter', 'url(#x)') || CSS.supports('-webkit-backdrop-filter', 'url(#x)')
+      if (!acceptsUrl) return false
+    }
+
     const div = document.createElement('div')
     div.style.backdropFilter = `url(#${filterId})`
-    return div.style.backdropFilter !== ''
-  } catch { return false }
+    return div.style.backdropFilter.includes('url(')
+  } catch {
+    return false
+  }
 }
+
+const fallbackBrightnessFactor = computed(() => {
+  return Math.max(0, props.brightness / 50)
+})
 
 const containerStyle = computed(() => {
   const w = typeof props.width === 'number' ? `${props.width}px` : props.width
@@ -114,7 +129,14 @@ const containerStyle = computed(() => {
     borderRadius: `${props.borderRadius}px`,
     '--glass-frost': props.backgroundOpacity,
     '--glass-saturation': props.saturation,
-    '--filter-id': `url(#${filterId})`
+    '--filter-id': `url(#${filterId})`,
+    '--fb-blur': `${Math.max(0, props.blur)}px`,
+    '--fb-saturation': String(Math.max(0, props.saturation || 1)),
+    '--fb-brightness': String(fallbackBrightnessFactor.value || 1),
+    '--fb-bg-opacity': String(Math.min(1, Math.max(0, props.backgroundOpacity))),
+    '--fb-border-radius': `${props.borderRadius}px`,
+    '--fb-border-width': `${Math.max(0, props.borderWidth)}px`,
+    '--fb-inner-opacity': String(Math.min(1, Math.max(0, props.opacity)))
   }
 })
 
@@ -163,7 +185,10 @@ function generateSvg (actualWidth, actualHeight) {
 function setFeImageFromSvg (svgString) {
   const blob = new Blob([svgString], { type: 'image/svg+xml' })
   const url = URL.createObjectURL(blob)
-  if (feImageRef.value) feImageRef.value.setAttribute('href', url)
+  if (feImageRef.value) {
+    feImageRef.value.setAttribute('href', url)
+    feImageRef.value.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', url)
+  }
   if (currentBlobUrl) URL.revokeObjectURL(currentBlobUrl)
   currentBlobUrl = url
 }
@@ -172,6 +197,7 @@ function updateDisplacementMap () {
   if (!feImageRef.value) return
   if (props.displacementSrc) {
     feImageRef.value.setAttribute('href', props.displacementSrc)
+    feImageRef.value.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', props.displacementSrc)
     return
   }
   const w = Math.max(1, Math.floor((lastContentRect?.width ?? containerRef.value?.clientWidth ?? 400)))
@@ -255,6 +281,7 @@ watch(
   transition: opacity 0.26s ease-out;
   contain: layout paint;
   content-visibility: auto;
+  will-change: backdrop-filter, -webkit-backdrop-filter;
 }
 
 .glass-surface__filter {
@@ -294,53 +321,36 @@ watch(
 }
 
 .glass-surface--fallback {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(12px) saturate(1.8) brightness(1.1);
-  -webkit-backdrop-filter: blur(12px) saturate(1.8) brightness(1.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255 255 255 / var(--fb-bg-opacity, 0.25));
+  border-radius: var(--fb-border-radius, 20px);
+  backdrop-filter: blur(var(--fb-blur, 12px)) saturate(var(--fb-saturation, 1.8)) brightness(var(--fb-brightness, 1.1));
+  -webkit-backdrop-filter: blur(var(--fb-blur, 12px)) saturate(var(--fb-saturation, 1.8)) brightness(var(--fb-brightness, 1.1));
   box-shadow:
-    0 8px 32px 0 rgba(31, 38, 135, 0.2),
-    0 2px 16px 0 rgba(31, 38, 135, 0.1),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
-    inset 0 -1px 0 0 rgba(255, 255, 255, 0.2);
+    0 8px 32px 0 rgba(31, 38, 135, 0.20),
+    0 2px 16px 0 rgba(31, 38, 135, 0.10),
+    inset 0 1px 0 0 rgba(255, 255, 255, calc(var(--fb-inner-opacity, 0.93) * 0.45)),
+    inset 0 -1px 0 0 rgba(255, 255, 255, calc(var(--fb-inner-opacity, 0.93) * 0.25));
 }
 
 @media (prefers-color-scheme: dark) {
   .glass-surface--fallback {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px) saturate(1.8) brightness(1.2);
-    -webkit-backdrop-filter: blur(12px) saturate(1.8) brightness(1.2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0 0 0 / max(0.08, calc(var(--fb-bg-opacity, 0.10) * 0.85)));
     box-shadow:
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
-      inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+      inset 0 1px 0 0 rgba(255, 255, 255, calc(var(--fb-inner-opacity, 0.93) * 0.25)),
+      inset 0 -1px 0 0 rgba(255, 255, 255, calc(var(--fb-inner-opacity, 0.93) * 0.15));
   }
 }
 
-@supports not (backdrop-filter: blur(10px)) {
+@supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
   .glass-surface--fallback {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255 255 255 / clamp(0.15, var(--fb-bg-opacity, 0.25) + 0.10, 0.50));
     box-shadow:
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
-      inset 0 -1px 0 0 rgba(255, 255, 255, 0.3);
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.50),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.30);
   }
-  .glass-surface--fallback::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: inherit;
-    z-index: -1;
-  }
-}
-
-@supports not (backdrop-filter: blur(10px)) {
   @media (prefers-color-scheme: dark) {
     .glass-surface--fallback {
-      background: rgba(0, 0, 0, 0.4);
-    }
-    .glass-surface--fallback::before {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(0 0 0 / clamp(0.15, var(--fb-bg-opacity, 0.20) + 0.08, 0.50));
     }
   }
 }
