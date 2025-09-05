@@ -135,7 +135,7 @@ h2.title {
 
 .experiences {
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
 
     &__mobile {
         display: none;
