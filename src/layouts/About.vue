@@ -205,9 +205,11 @@ onMounted(() => {
         box-shadow: 0px 0px 30.5px 0px #7070701e;
 
         h2 {
-            background: linear-gradient(0deg, #c71349, #ff0000);
             -webkit-background-clip: text;
-            background-clip: text;;
+            -webkit-text-fill-color: transparent;
+            background: linear-gradient(120deg, rgba(255, 0, 98, 0.767) 40%, rgb(255, 40, 58) 50%, rgba(255, 0, 98, 0.767) 60%);
+            background-size: 200% 100%;
+            background-clip: text;
         }
 
         &::after {
@@ -229,8 +231,8 @@ onMounted(() => {
             gap: .56rem;
 
             li {
-                font-size: 1.25rem;
-                color: #acacac;
+                font-size: 1.1rem;
+                color: #d4d4d4;
                 line-height: 150%;
 
                 @media screen and (max-width: 1028px) {

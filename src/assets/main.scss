@@ -43,28 +43,38 @@ body {
   font-style: normal;
 }
 
+h2 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  font-style: normal;
+  line-height: normal;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(120deg, rgba(238, 238, 238, 0.767) 40%, rgb(255, 255, 255) 50%, rgba(238, 238, 238, 0.767) 60%);
+  background-size: 200% 100%;
+  background-clip: text;
+  animation: shiny-text 3s linear infinite;
+
+  @media screen and (max-width: 1028px) {
+    font-size: 1.6rem;
+  }
+}
+
+@keyframes shiny-text {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
 section {
   padding: 0rem 7.38rem;
   font-family: 'Roboto', sans-serif;
 
   @media screen and (max-width: 1028px) {
     padding: 0rem 0rem;
-  }
-
-  h2 {
-    font-size: 2.2rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    background: linear-gradient(0deg, #b3b3b3, #e2e2e2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-
-    @media screen and (max-width: 1028px) {
-      font-size: 1.6rem;
-    }
   }
 
   p {

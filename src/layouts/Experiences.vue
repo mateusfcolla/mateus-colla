@@ -9,8 +9,8 @@ section#experiences
                 h4
                     | {{ experience.title }},
                     span.company {{ " " + experience.company }}
-                .techs
-                    Technology( v-for="(tech, index) in experience.techs" :key="`tech-${index}`" :technology="tech" )
+                //- .techs
+                //-     Technology( v-for="(tech, index) in experience.techs" :key="`tech-${index}`" :technology="tech" )
                 ul
                     li( v-for="doing in experience.doings" ) {{ doing }}
     .experiences.experiences__mobile

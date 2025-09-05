@@ -27,8 +27,6 @@ main#hero(ref="heroSection")
 <script setup>
 import { onMounted, ref } from 'vue'
 import { scrollTo } from '@/utils.js'
-import DotGrid from '@/components/DotGrid.vue'
-import Galaxy from '@/components/Galaxy.vue'
 import Plasma from '@/components/Plasma.vue'
 import github from '@/assets/icons/socials-github.svg'
 import dribbble from '@/assets/icons/socials-dribbble.svg'
