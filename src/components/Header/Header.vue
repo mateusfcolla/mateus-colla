@@ -63,11 +63,11 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
-  if (window.innerWidth > 1028) {
-    window.addEventListener('scroll', handleScroll)
-    updateActiveNav()
-    window.addEventListener('hashchange', updateActiveNav)
-  }
+  // if (window.innerWidth > 1028) {
+  //   window.addEventListener('scroll', handleScroll)
+  //   updateActiveNav()
+  //   window.addEventListener('hashchange', updateActiveNav)
+  // }
 })
 
 </script>
