@@ -42,7 +42,7 @@ export const scrollTo = id => {
     const element = document.querySelector(id);
 
     window.scrollTo({
-        top: element.offsetTop - 200,
+        top: element.offsetTop - 118,
         behavior: 'smooth'
       });
 }

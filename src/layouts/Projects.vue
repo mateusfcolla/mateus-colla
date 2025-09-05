@@ -16,11 +16,11 @@ section#relevant-projects
 
 import { onMounted, ref } from 'vue';
 
-import Engeled from '@/assets/imgs/Engeled.png'
-import Superpet from '@/assets/imgs/Superpet.png'
-import Velope from '@/assets/imgs/Velope.png'
-import Oli from '@/assets/imgs/Oli.png'
-import LCW from '@/assets/imgs/Lcw.png'
+import Engeled from '@/assets/imgs/Engeled.webp'
+import Superpet from '@/assets/imgs/Superpet.webp'
+import Velope from '@/assets/imgs/Velope.webp'
+import Oli from '@/assets/imgs/Oli.webp'
+import LCW from '@/assets/imgs/Lcw.webp'
 
 const projects = [
     {

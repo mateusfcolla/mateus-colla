@@ -119,13 +119,11 @@ section {
 
 .grained {
   z-index: 1001;
-  // background: url('./imgs/grained.png');
   height: 300%;
   width: 300%;
   top:-100%;
   pointer-events: none;
   position: fixed;
-  // animation: grain 10s steps(10) infinite;
   opacity: .4;
 }
 
