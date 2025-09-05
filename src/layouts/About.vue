@@ -15,7 +15,14 @@ section#about
             li Fluent English
             li Native Brazillian Portuguese
             li Basic German
-        // Remove #threejs-container
+        CurvedLoop(
+            marqueeText="Hello! Lets connect! ✦ Oi! Vamos nos conectar! ✦ Hallo! Lass uns verbinden! ✦"
+            :speed="2"
+            :curveAmount="-500"
+            :interactive="true"
+            direction="right"
+            class="multi-language-loop"
+        )
 LogoDisplayer
 
 </template>
@@ -23,6 +30,7 @@ LogoDisplayer
 <script setup>
 import { redirect, getLogoSliderLogos } from '@/utils.js'
 import LogoDisplayer from '@/components/LogoDisplayer.vue'
+import CurvedLoop from '@/components/CurvedLoop.vue';
 </script>
 
 <style lang="scss">
@@ -33,6 +41,29 @@ import LogoDisplayer from '@/components/LogoDisplayer.vue'
     border-bottom: 1px solid #2b2b2b;
     position: relative;
     overflow: hidden;
+
+    .multi-language-loop {
+        position: absolute;
+        top: -2rem;
+        width: 100%;
+        z-index: 2;
+        pointer-events: none;
+
+        text {
+            font-size: 4.5rem;
+            fill: #962f49;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            pointer-events: all;
+            cursor: grab;
+            user-select: none;
+
+            &.active {
+                cursor: grabbing;
+            }
+        }
+    }
 
     & > div {
         padding: 3.125rem;
