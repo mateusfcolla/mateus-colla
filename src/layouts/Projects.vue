@@ -20,9 +20,16 @@ import Engeled from '@/assets/imgs/Engeled.webp'
 import Superpet from '@/assets/imgs/Superpet.webp'
 import Velope from '@/assets/imgs/Velope.webp'
 import Oli from '@/assets/imgs/Oli.webp'
+import Hype from '@/assets/imgs/Hype.webp'
 import LCW from '@/assets/imgs/Lcw.webp'
 
 const projects = [
+    {
+        title: 'Hype Telecom',
+        subtitle: 'Website',
+        background: Hype,
+        url: 'https://hypetelecom.net/',
+    },
     {
         title: 'Oli',
         subtitle: 'Website',
